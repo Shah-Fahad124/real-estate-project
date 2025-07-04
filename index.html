@@ -29,8 +29,8 @@
     <div
         style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <header class=" fixed top-0 z-50 w-full">
-            <nav
-                class="container-fluid mx-auto px-6 py-6 flex items-center justify-between  bg-[#77A7B2] bg-opacity-50">
+            <nav id="navbar"
+                class="container-fluid mx-auto px-6 py-6 flex items-center justify-between   bg-opacity-50">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <div class="w-12 h-12 bg-white rounded-full mr-3 flex items-center justify-center overflow-hidden">
@@ -1338,6 +1338,19 @@
             });
         });
     </script>
+    <script>
+  window.addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+    if (window.scrollY > window.innerHeight) {
+      navbar.classList.remove("bg-transparent");
+      navbar.classList.add("bg-[#2E4E56]", "shadow", "text-black");
+    } else {
+      navbar.classList.remove("bg-[#2E4E56]", "shadow", "text-black");
+      navbar.classList.add("bg-transparent");
+    }
+  });
+</script>
+
 
 </body>
 

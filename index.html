@@ -174,7 +174,8 @@
                 <!-- Right Image -->
                 <div class="flex flex-col justify-between w-[80%]">
                     <div class="w-[50%] mx-auto">
-                        <p class="text-sm text-gray-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam quam, unde laudantium odio asperiores distinctio animi doloribus.
+                        <p class="text-sm text-gray-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Magnam quam, unde laudantium odio asperiores distinctio animi doloribus.
                         </p>
                     </div>
 
@@ -189,11 +190,11 @@
 
     <!-- Properties Section -->
     <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
+        <div class="w-[85%] mx-auto px-6">
             <!-- Section Header -->
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
-                <div>
-                    <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-4 leading-tight">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-12">
+                <div class="w-[50%]">
+                    <h2 class="text-4xl lg:text-5xl font-semibold text-dark mb-4 leading-normal">
                         Latest Properties<br>
                         Exploring the World
                     </h2>
@@ -223,70 +224,104 @@
                     </button>
                     <button
                         class="text-gray-600 px-6 py-2 rounded-full font-medium text-sm hover:bg-white hover:shadow-sm transition-all">
-                        Latest Offers
+                        Luxury Estate
                     </button>
                 </div>
             </div>
-
-            <!-- Properties Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Property 1 - Heritage Building -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="relative">
+            <!-- (((((((()))))))) -->
+            <div class=" h-[55vh] mx-auto flex gap-6 p-4">
+                <!-- first  -->
+                 
+                <!-- First Property Card -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex w-full">
+                    <!-- Image Section - Left Side (20%) -->
+                    <div class="relative w-[40%]">
                         <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
-                            alt="Heritage Building" class="w-full h-64 object-cover">
-
-                        <!-- Status Badges -->
-                        <div class="absolute top-4 left-4 flex gap-2">
+                            alt="Heritage Building" class="w-full h-full object-cover">
+                        <!-- Only Featured Badge on Image -->
+                        <div class="absolute top-4 left-4">
                             <span
                                 class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
-                        </div>
-
-                        <!-- Heart Icon -->
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                    </path>
-                                </svg>
-                            </button>
                         </div>
                     </div>
 
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Heritage Building</h3>
+                    <!-- Content Section - Right Side (80%) -->
+                    <div class="flex-1 p-6 flex flex-col justify-between">
+                        <div>
+                            <!-- Status Badges moved to content area -->
+                            <div class="flex gap-2 mb-3">
+                                <span
+                                    class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">Apartment</span>
+                                <span class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">For
+                                    Sale</span>
+                            </div>
 
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">3</span>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-900">Heritage Building</h3>
+                                <!-- Heart Icon moved to content area -->
+                                <button
+                                    class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200 transition-colors"
+                                    title="Add to favorites" aria-label="Add to favorites">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                        </path>
+                                    </svg>
+                                </button>
                             </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">2</span>
+
+                            <p class="text-gray-500 text-sm mb-4">Detroit, USA</p>
+
+                            <!-- Property Details -->
+                            <div class="flex items-center gap-5">
+                                <!-- Beds -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M21 10h-1V7a2 2 0 00-2-2H6a2 2 0 00-2 2v3H3a1 1 0 000 2h1v6h2v-2h12v2h2v-6h1a1 1 0 000-2zM6 7h12v3H6V7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
+
+                                <!-- Baths -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M7 4a1 1 0 011-1h8a1 1 0 011 1v9H7V4zm12 9a1 1 0 100 2H5a1 1 0 100-2h14zM6 16a1 1 0 000 2h1v1a1 1 0 001 1h8a1 1 0 001-1v-1h1a1 1 0 100-2H6z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
+
+                                <!-- Parking -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M19 8V6a4 4 0 00-4-4H9a4 4 0 00-4 4v2H3v13h18V8h-2zm-4 0H9V6a2 2 0 012-2h4a2 2 0 012 2v2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">1</span>
+                                </div>
+
+                                <!-- Area -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M4 6H2v14a2 2 0 002 2h14v-2H4V6zm16-4H8a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2zM8 16v-2h2v2H8zm4 0v-2h2v2h-2zm4 0v-2h2v2h-2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">3750</span>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                                    </path>
-                                </svg>
-                                <span class="text-sm text-gray-600">2500</span>
-                            </div>
+
+
                         </div>
 
                         <!-- Agent and Price -->
@@ -297,142 +332,102 @@
                                 <span class="text-sm text-gray-600 font-medium">Dianne</span>
                             </div>
                             <div class="text-right">
-                                <div class="text-2xl font-bold text-dark">$95,000.00</div>
+                                <div class="text-2xl font-bold text-gray-900">$95,000.00</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Property 2 - Beachfront Properties -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
-                            alt="Beachfront Properties" class="w-full h-64 object-cover">
-
-                        <!-- Status Badges -->
-                        <div class="absolute top-4 left-4 flex gap-2">
+                <!-- Second Property Card -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex w-full">
+                    <!-- Image Section - Left Side (20%) -->
+                    <div class="relative w-[40%]">
+                        <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+                            alt="Heritage Building" class="w-full h-full object-cover">
+                        <!-- Only Featured Badge on Image -->
+                        <div class="absolute top-4 left-4">
                             <span
                                 class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
-                        </div>
-
-                        <!-- Heart Icon -->
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                    </path>
-                                </svg>
-                            </button>
                         </div>
                     </div>
 
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Beachfront Properties</h3>
+                    <!-- Content Section - Right Side (80%) -->
+                    <div class="flex-1 p-6 flex flex-col justify-between">
+                        <div>
+                            <!-- Status Badges moved to content area -->
+                            <div class="flex gap-2 mb-3">
+                                <span
+                                    class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">Apartment</span>
+                                <span class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">For
+                                    Sale</span>
+                            </div>
 
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">4</span>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-900">Heritage Building</h3>
+                                <!-- Heart Icon moved to content area -->
+                                <button
+                                    class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200 transition-colors"
+                                    title="Add to favorites" aria-label="Add to favorites">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                        </path>
+                                    </svg>
+                                </button>
                             </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">3</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                                    </path>
-                                </svg>
-                                <span class="text-sm text-gray-600">3500</span>
-                            </div>
-                        </div>
 
-                        <!-- Agent and Price -->
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
-                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
-                                <span class="text-sm text-gray-600 font-medium">Courtney</span>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-dark">$85,000.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <p class="text-gray-500 text-sm mb-4">Detroit, USA</p>
 
-                <!-- Property 3 - Warehouse Studios -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
-                            alt="Warehouse Studios" class="w-full h-64 object-cover">
+                            <!-- Property Details -->
+                            <div class="flex items-center gap-5">
+                                <!-- Beds -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M21 10h-1V7a2 2 0 00-2-2H6a2 2 0 00-2 2v3H3a1 1 0 000 2h1v6h2v-2h12v2h2v-6h1a1 1 0 000-2zM6 7h12v3H6V7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
 
-                        <!-- Status Badges -->
-                        <div class="absolute top-4 left-4 flex gap-2">
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
-                        </div>
+                                <!-- Baths -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M7 4a1 1 0 011-1h8a1 1 0 011 1v9H7V4zm12 9a1 1 0 100 2H5a1 1 0 100-2h14zM6 16a1 1 0 000 2h1v1a1 1 0 001 1h8a1 1 0 001-1v-1h1a1 1 0 100-2H6z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
 
-                        <!-- Heart Icon -->
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
+                                <!-- Parking -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M19 8V6a4 4 0 00-4-4H9a4 4 0 00-4 4v2H3v13h18V8h-2zm-4 0H9V6a2 2 0 012-2h4a2 2 0 012 2v2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">1</span>
+                                </div>
 
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Warehouse Studios</h3>
-
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">2</span>
+                                <!-- Area -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M4 6H2v14a2 2 0 002 2h14v-2H4V6zm16-4H8a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2zM8 16v-2h2v2H8zm4 0v-2h2v2h-2zm4 0v-2h2v2h-2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">3750</span>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">1</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                                    </path>
-                                </svg>
-                                <span class="text-sm text-gray-600">1800</span>
-                            </div>
+
+
                         </div>
 
                         <!-- Agent and Price -->
@@ -443,85 +438,232 @@
                                 <span class="text-sm text-gray-600 font-medium">Dianne</span>
                             </div>
                             <div class="text-right">
-                                <div class="text-2xl font-bold text-dark">$75,000.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 4 - Modern Apartment -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
-                            alt="Modern Apartment" class="w-full h-64 object-cover">
-
-                        <!-- Status Badges -->
-                        <div class="absolute top-4 left-4 flex gap-2">
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
-                        </div>
-
-                        <!-- Heart Icon -->
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Modern Apartment</h3>
-
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">3</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
-                                </svg>
-                                <span class="text-sm text-gray-600">2</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                                    </path>
-                                </svg>
-                                <span class="text-sm text-gray-600">2200</span>
-                            </div>
-                        </div>
-
-                        <!-- Agent and Price -->
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
-                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
-                                <span class="text-sm text-gray-600 font-medium">Courtney</span>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-dark">$65,000.00</div>
+                                <div class="text-2xl font-bold text-gray-900">$95,000.00</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- (((((((()))))))))) -->
+            <!-- (((((((()))))))) -->
+            <div class=" h-[55vh] mx-auto flex gap-6 p-4">
+                <!-- first  -->
+                 
+                <!-- First Property Card -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex w-full">
+                    <!-- Image Section - Left Side (20%) -->
+                    <div class="relative w-[40%]">
+                        <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+                            alt="Heritage Building" class="w-full h-full object-cover">
+                        <!-- Only Featured Badge on Image -->
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Section - Right Side (80%) -->
+                    <div class="flex-1 p-6 flex flex-col justify-between">
+                        <div>
+                            <!-- Status Badges moved to content area -->
+                            <div class="flex gap-2 mb-3">
+                                <span
+                                    class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">Apartment</span>
+                                <span class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">For
+                                    Sale</span>
+                            </div>
+
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-900">Heritage Building</h3>
+                                <!-- Heart Icon moved to content area -->
+                                <button
+                                    class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200 transition-colors"
+                                    title="Add to favorites" aria-label="Add to favorites">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <p class="text-gray-500 text-sm mb-4">Detroit, USA</p>
+
+                            <!-- Property Details -->
+                            <div class="flex items-center gap-5">
+                                <!-- Beds -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M21 10h-1V7a2 2 0 00-2-2H6a2 2 0 00-2 2v3H3a1 1 0 000 2h1v6h2v-2h12v2h2v-6h1a1 1 0 000-2zM6 7h12v3H6V7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
+
+                                <!-- Baths -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M7 4a1 1 0 011-1h8a1 1 0 011 1v9H7V4zm12 9a1 1 0 100 2H5a1 1 0 100-2h14zM6 16a1 1 0 000 2h1v1a1 1 0 001 1h8a1 1 0 001-1v-1h1a1 1 0 100-2H6z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
+
+                                <!-- Parking -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M19 8V6a4 4 0 00-4-4H9a4 4 0 00-4 4v2H3v13h18V8h-2zm-4 0H9V6a2 2 0 012-2h4a2 2 0 012 2v2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">1</span>
+                                </div>
+
+                                <!-- Area -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M4 6H2v14a2 2 0 002 2h14v-2H4V6zm16-4H8a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2zM8 16v-2h2v2H8zm4 0v-2h2v2h-2zm4 0v-2h2v2h-2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">3750</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!-- Agent and Price -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
+                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
+                                <span class="text-sm text-gray-600 font-medium">Dianne</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-gray-900">$95,000.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Property Card -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex w-full">
+                    <!-- Image Section - Left Side (20%) -->
+                    <div class="relative w-[40%]">
+                        <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+                            alt="Heritage Building" class="w-full h-full object-cover">
+                        <!-- Only Featured Badge on Image -->
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Section - Right Side (80%) -->
+                    <div class="flex-1 p-6 flex flex-col justify-between">
+                        <div>
+                            <!-- Status Badges moved to content area -->
+                            <div class="flex gap-2 mb-3">
+                                <span
+                                    class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">Apartment</span>
+                                <span class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">For
+                                    Sale</span>
+                            </div>
+
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-900">Heritage Building</h3>
+                                <!-- Heart Icon moved to content area -->
+                                <button
+                                    class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200 transition-colors"
+                                    title="Add to favorites" aria-label="Add to favorites">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <p class="text-gray-500 text-sm mb-4">Detroit, USA</p>
+
+                            <!-- Property Details -->
+                            <div class="flex items-center gap-5">
+                                <!-- Beds -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M21 10h-1V7a2 2 0 00-2-2H6a2 2 0 00-2 2v3H3a1 1 0 000 2h1v6h2v-2h12v2h2v-6h1a1 1 0 000-2zM6 7h12v3H6V7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
+
+                                <!-- Baths -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M7 4a1 1 0 011-1h8a1 1 0 011 1v9H7V4zm12 9a1 1 0 100 2H5a1 1 0 100-2h14zM6 16a1 1 0 000 2h1v1a1 1 0 001 1h8a1 1 0 001-1v-1h1a1 1 0 100-2H6z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">5</span>
+                                </div>
+
+                                <!-- Parking -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M19 8V6a4 4 0 00-4-4H9a4 4 0 00-4 4v2H3v13h18V8h-2zm-4 0H9V6a2 2 0 012-2h4a2 2 0 012 2v2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">1</span>
+                                </div>
+
+                                <!-- Area -->
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-[#a78b73] p-2 rounded-full">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M4 6H2v14a2 2 0 002 2h14v-2H4V6zm16-4H8a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2zM8 16v-2h2v2H8zm4 0v-2h2v2h-2zm4 0v-2h2v2h-2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-[#405C77] font-medium">3750</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!-- Agent and Price -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
+                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
+                                <span class="text-sm text-gray-600 font-medium">Dianne</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-gray-900">$95,000.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- (((((((()))))))))) -->
+
+
 
             <!-- Navigation Dots -->
             <div class="flex justify-center mt-12">

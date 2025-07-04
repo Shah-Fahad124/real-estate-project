@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamtown - Real Estate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#dc2626',
+                        dark: '#1f2937',
+                        light: '#f9fafb'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
+</head>
+
+<body class="bg-white">
+
+    <!-- Header Navigation -->
+    <div
+        style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+        <header class=" fixed top-0 z-50 w-full">
+            <nav
+                class="container-fluid mx-auto px-6 py-6 flex items-center justify-between  bg-[#77A7B2] bg-opacity-50">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-white rounded-full mr-3 flex items-center justify-center overflow-hidden">
+                        <img src="./assets/images/logo.png" alt="logo">
+                    </div>
+                    <span class="text-xl font-bold text-white">HAMTOWN</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium">Home</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium">Buying</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium">Apartment</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium">Residential</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium">Available</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium">Pages</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium">Contact</a>
+                </div>
+
+                <!-- Submit Property Button -->
+                <div class="hidden lg:block">
+                    <button
+                        class="bg-transparent border border-white text-white px-6 py-2 rounded-md hover:bg-white hover:text-dark transition-colors font-medium">
+                        Submit a Property
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative h-screen bg-cover bg-center">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white max-w-4xl mx-auto px-4">
+                    <!-- Hero Title -->
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">Find Your Real Estate</h1>
+                    <p class="text-lg mb-12 text-gray-200 max-w-2xl mx-auto">We are a real estate agency that will help
+                        you
+                        find the best residence you dream of, let's discuss for your dream house?</p>
+
+                    <div class="bg-white rounded-lg p-4 shadow-lg max-w-7xl mx-auto">
+                        <div class="flex flex-col lg:flex-row gap-2 items-center w-full">
+
+                            <!-- Search Input (max width) -->
+                            <input type="text" placeholder="Search by keyword or location"
+                                class="flex-grow w-full h-12 px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-gray-700" />
+
+                            <!-- Price Range -->
+                            <div class="w-full lg:w-56 relative">
+                                <select
+                                    class="w-full h-12 px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-gray-700 appearance-none bg-white">
+                                    <option>All Prices</option>
+                                    <option>$100k - $200k</option>
+                                    <option>$200k - $500k</option>
+                                    <option>$500k+</option>
+                                </select>
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Advanced Filter -->
+                            <button
+                                class="w-full lg:w-56 flex items-center justify-center h-12 border border-gray-200 rounded-lg text-gray-600 hover:text-primary transition-colors font-medium">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                                </svg>
+                                Advanced
+                            </button>
+
+                          
+                        </div>
+                        
+                    </div>
+                      <!-- Search Button -->
+                            <button
+                                class="w-full lg:w-40 bg-primary text-white font-medium h-12 px-6 rounded-lg hover:bg-red-700 transition-colors">
+                                Search
+                            </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Content -->
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-8 leading-tight">
+                        We Build Strong<br>
+                        Communities In The Most<br>
+                        Urban Areas
+                    </h2>
+                    <p class="text-gray-600 mb-12 text-lg leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                    </p>
+
+                    <!-- Features List -->
+                    <div class="space-y-8">
+                        <!-- Feature 1 -->
+                        <div class="flex items-start bg-gray-50 p-6 rounded-xl">
+                            <div
+                                class="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mr-6 flex-shrink-0">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-dark mb-3">Find an Excellent Deal</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="flex items-start bg-gray-50 p-6 rounded-xl">
+                            <div
+                                class="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mr-6 flex-shrink-0">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-dark mb-3">Build Your Dream</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image -->
+                <div class="relative">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+                            alt="Modern Building Community" class="w-full h-[500px] object-cover">
+                    </div>
+
+                    <!-- Decorative Circle -->
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-primary rounded-full opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-4 leading-tight">
+                        Latest Properties<br>
+                        Exploring the World
+                    </h2>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap gap-2 lg:gap-4">
+                    <button
+                        class="bg-green-600 text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-green-700 transition-colors">
+                        All
+                    </button>
+                    <button
+                        class="text-gray-600 px-6 py-2 rounded-full font-medium text-sm hover:bg-white hover:shadow-sm transition-all">
+                        For Sale
+                    </button>
+                    <button
+                        class="text-gray-600 px-6 py-2 rounded-full font-medium text-sm hover:bg-white hover:shadow-sm transition-all">
+                        Apartment
+                    </button>
+                    <button
+                        class="text-gray-600 px-6 py-2 rounded-full font-medium text-sm hover:bg-white hover:shadow-sm transition-all">
+                        Commercial
+                    </button>
+                    <button
+                        class="text-gray-600 px-6 py-2 rounded-full font-medium text-sm hover:bg-white hover:shadow-sm transition-all">
+                        Residential
+                    </button>
+                    <button
+                        class="text-gray-600 px-6 py-2 rounded-full font-medium text-sm hover:bg-white hover:shadow-sm transition-all">
+                        Latest Offers
+                    </button>
+                </div>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Property 1 - Heritage Building -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+                            alt="Heritage Building" class="w-full h-64 object-cover">
+
+                        <!-- Status Badges -->
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span
+                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
+                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
+                        </div>
+
+                        <!-- Heart Icon -->
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Heritage Building</h3>
+
+                        <!-- Property Details -->
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">3</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">2</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                                    </path>
+                                </svg>
+                                <span class="text-sm text-gray-600">2500</span>
+                            </div>
+                        </div>
+
+                        <!-- Agent and Price -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
+                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
+                                <span class="text-sm text-gray-600 font-medium">Dianne</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-dark">$95,000.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 2 - Beachfront Properties -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+                            alt="Beachfront Properties" class="w-full h-64 object-cover">
+
+                        <!-- Status Badges -->
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span
+                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
+                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
+                        </div>
+
+                        <!-- Heart Icon -->
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Beachfront Properties</h3>
+
+                        <!-- Property Details -->
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">4</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">3</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                                    </path>
+                                </svg>
+                                <span class="text-sm text-gray-600">3500</span>
+                            </div>
+                        </div>
+
+                        <!-- Agent and Price -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
+                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
+                                <span class="text-sm text-gray-600 font-medium">Courtney</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-dark">$85,000.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 3 - Warehouse Studios -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+                            alt="Warehouse Studios" class="w-full h-64 object-cover">
+
+                        <!-- Status Badges -->
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span
+                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
+                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
+                        </div>
+
+                        <!-- Heart Icon -->
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Warehouse Studios</h3>
+
+                        <!-- Property Details -->
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">2</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">1</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                                    </path>
+                                </svg>
+                                <span class="text-sm text-gray-600">1800</span>
+                            </div>
+                        </div>
+
+                        <!-- Agent and Price -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
+                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
+                                <span class="text-sm text-gray-600 font-medium">Dianne</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-dark">$75,000.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 4 - Modern Apartment -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+                            alt="Modern Apartment" class="w-full h-64 object-cover">
+
+                        <!-- Status Badges -->
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span
+                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
+                            <span class="bg-dark text-white px-3 py-1 rounded-full text-xs font-medium">For Sale</span>
+                        </div>
+
+                        <!-- Heart Icon -->
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Modern Apartment</h3>
+
+                        <!-- Property Details -->
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">3</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
+                                </svg>
+                                <span class="text-sm text-gray-600">2</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                                    </path>
+                                </svg>
+                                <span class="text-sm text-gray-600">2200</span>
+                            </div>
+                        </div>
+
+                        <!-- Agent and Price -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
+                                    alt="Agent" class="w-8 h-8 rounded-full object-cover">
+                                <span class="text-sm text-gray-600 font-medium">Courtney</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-dark">$65,000.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Dots -->
+            <div class="flex justify-center mt-12">
+                <div class="flex space-x-2">
+                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                    <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                    <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Grid -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1"
+                        alt="Gallery" class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <div class="text-white">
+                            <h3 class="font-semibold">Modern Villa</h3>
+                            <p class="text-sm">Architecture</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1"
+                        alt="Gallery" class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <div class="text-white">
+                            <h3 class="font-semibold">Luxury Homes</h3>
+                            <p class="text-sm">Residential</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1"
+                        alt="Gallery" class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <div class="text-white">
+                            <h3 class="font-semibold">Warehouse Studios</h3>
+                            <p class="text-sm">Commercial</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1"
+                        alt="Gallery" class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <div class="text-white">
+                            <h3 class="font-semibold">Industrial Spaces</h3>
+                            <p class="text-sm">Industrial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-20 bg-dark text-white"
+        style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold mb-2">40</div>
+                    <div class="text-gray-300">Properties</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">571</div>
+                    <div class="text-gray-300">Happy Clients</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">964</div>
+                    <div class="text-gray-300">Awards</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">1,185</div>
+                    <div class="text-gray-300">Coffee Cups</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="grid gap-12 md:grid-cols-2 items-start">
+
+            <!-- Left Column: Header -->
+            <div>
+                <span
+                    class="inline-block bg-gray-200 text-xs font-semibold text-gray-700 px-3 py-1 rounded-full mb-3">Bricks
+                    And Clicks</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">Why Choose Endora?</h2>
+                <div class="w-16 h-0.5 bg-green-600 mb-6"></div>
+            </div>
+
+            <!-- Right Column: Features -->
+            <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
+                <!-- Feature 1 -->
+                <div class="flex flex-col items-center text-center md:text-left md:items-start space-y-3">
+                    <img src="https://via.placeholder.com/48" alt="Historic Icon" class="mb-2">
+                    <h3 class="text-lg font-semibold">Historic Properties</h3>
+                    <p class="text-gray-600 text-sm">Fusce aliquet quam eget neque ultrices elementum felis id arcu
+                        blandit sagittis.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex flex-col items-center text-center md:text-left md:items-start space-y-3">
+                    <img src="https://via.placeholder.com/48" alt="Furniture Icon" class="mb-2">
+                    <h3 class="text-lg font-semibold">Furniture Includes</h3>
+                    <p class="text-gray-600 text-sm">Fusce aliquet quam eget neque ultrices elementum felis id arcu
+                        blandit sagittis.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex flex-col items-center text-center md:text-left md:items-start space-y-3">
+                    <img src="https://via.placeholder.com/48" alt="Architecture Icon" class="mb-2">
+                    <h3 class="text-lg font-semibold">Architecture Design</h3>
+                    <p class="text-gray-600 text-sm">Fusce aliquet quam eget neque ultrices elementum felis id arcu
+                        blandit sagittis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+
+            <!-- Left Column -->
+            <div class="flex flex-col space-y-4">
+                <span class="inline-block bg-red-100 text-red-600 text-xs font-semibold px-3 py-1 rounded-full">TOP
+                    PROPERTIES</span>
+                <h2 class="text-3xl md:text-4xl font-bold">What's People Says</h2>
+                <p class="text-gray-500 text-sm max-w-sm">
+                    Our seasoned team excels in real estate with years of successful market navigation, offering
+                    informed decisions and optimal results.
+                </p>
+
+                <!-- Custom navigation -->
+                <div class="flex space-x-3 mt-4">
+                    <button id="prev-slide"
+                        class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
+                        <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button id="next-slide"
+                        class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
+                        <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Column: Carousel -->
+            <div class="splide" aria-label="Testimonials">
+                <div class="splide__track">
+                    <ul class="splide__list">
+
+                        <!-- Slide 1 -->
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                                <div class="flex space-x-1 text-yellow-400">
+                                    <span>⭐️⭐️⭐️⭐️⭐️</span>
+                                </div>
+                                <p class="text-sm text-gray-700">
+                                    Selling my home with the help of this real estate team was a breeze. They provided
+                                    valuable advice, staged my property beautifully, and negotiated a great deal. I
+                                    highly recommend their services to anyone looking to sell their home!
+                                </p>
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt=""
+                                        class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <p class="text-sm font-semibold">Jessica White</p>
+                                        <p class="text-xs text-gray-500">Satisfied Home Seller</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Slide 2 -->
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                                <div class="flex space-x-1 text-yellow-400">
+                                    <span>⭐️⭐️⭐️⭐️⭐️</span>
+                                </div>
+                                <p class="text-sm text-gray-700">
+                                    Thanks to the expertise and guidance of this real estate team, I am now the proud
+                                    owner of my dream home. They listened to my preferences, answered all my questions,
+                                    and made the entire home buying process a positive experience.
+                                </p>
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt=""
+                                        class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <p class="text-sm font-semibold">Daniel Miller</p>
+                                        <p class="text-xs text-gray-500">Happy New Homeowner</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Add more slides here if you want -->
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact/Consultation Section -->
+    <section class="py-20 bg-dark text-white"
+        style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">GET CONSULTATION</h2>
+                    <p class="text-gray-300 mb-8">Let us help you find the right property for your needs. We have
+                        experienced agents ready to assist you in finding your dream home.</p>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg p-8">
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Your Name"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Your Phone"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="4"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="privacy" class="mr-2">
+                            <label for="privacy" class="text-sm text-gray-600">I agree with privacy policy</label>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary text-white font-medium py-3 px-6 rounded-lg hover:bg-red-700 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-primary rounded mr-2"></div>
+                        <span class="text-xl font-bold">Hamtown</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">We are always ready to help you and answer your questions</p>
+                    <div class="space-y-2">
+                        <p class="text-gray-400">+1 (555) 123-4567</p>
+                        <p class="text-gray-400">info@hamtown.com</p>
+                        <p class="text-gray-400">123 Real Estate St, City, State 12345</p>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing Plans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Our Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Property Management</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Renting & Selling</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Building Analysis</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Interior Design</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter to get our latest news & updates</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="flex-1 px-4 py-2 rounded-l-lg border border-gray-600 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-red-700 transition-colors">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2024 Hamtown. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var splide = new Splide('.splide', {
+                type: 'loop',
+                perPage: 1,
+                pagination: false,
+                arrows: false,
+                gap: '1rem',
+            }).mount();
+
+            // Custom external buttons
+            document.getElementById('prev-slide').addEventListener('click', () => splide.go('<'));
+            document.getElementById('next-slide').addEventListener('click', () => splide.go('>'));
+        });
+    </script>
+</body>
+
+</html>

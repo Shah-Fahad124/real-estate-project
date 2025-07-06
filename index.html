@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamtown - Real Estate</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Fallbacks -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
@@ -48,19 +49,24 @@
         <header class="fixed top-0 z-50 w-full">
             <nav id="navbar"
                 class="container-fluid mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center bg-transparent transition-all duration-300">
-                <div class="flex items-center">
+                <!-- <div class="flex items-center">
                     <div
                         class="sm:w-14 sm:h-14 md:w-[5rem] md:h-[5rem] rounded-full mr-2 sm:mr-4 flex items-center justify-center overflow-hidden flex-shrink-0 rounded-full">
                         <img src="./assets/images/NIP BLACK LOGO JPG.jpg" alt="logo"
                             class="w-full h-full object-contain rounded-full">
                     </div>
-                </div>
-                <div class="hidden lg:flex space-x-6 xl:space-x-8 text-[#fff] mx-auto">
+                </div> -->
+                <div class="hidden lg:flex space-x-6 xl:space-x-8 text-[#fff] ps-[5rem] mx-auto">
                     <a href="#" class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Home</a>
                     <a href="#"
                         class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Buying</a>
                     <a href="#"
                         class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Apartment</a>
+                    <div
+                        class="sm:w-14 sm:h-14 md:w-[7rem] md:h-[7rem] flex items-center justify-center mt-[-30px]">
+                        <img src="./assets/images/NIP WHITE LOGO PNG.png" alt="logo"
+                            class="w-full h-full">
+                    </div>
                     <a href="#"
                         class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Residential</a>
                     <a href="#"
@@ -153,32 +159,36 @@
                             Search
                         </button>
                     </div>
-<!-- Advanced Filters Section (initially hidden) -->
-<div id="advanced-filters" class="hidden mt-4 pt-4 border-t border-gray-200">
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <select class="h-10 px-3 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
-      <option>Bedrooms</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3+</option>
-    </select>
-    <select class="h-10 px-3 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
-      <option>Bathrooms</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3+</option>
-    </select>
-    <select class="h-10 px-3 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
-      <option>Area (sq ft)</option>
-      <option>500–1000</option>
-      <option>1000–2000</option>
-      <option>2000+</option>
-    </select>
-    <button class="h-10 bg-secondary text-white px-4 rounded-lg hover:bg-dark transition-colors">
-      Apply Filters
-    </button>
-  </div>
-</div>
+                    <!-- Advanced Filters Section (initially hidden) -->
+                    <div id="advanced-filters" class="hidden mt-4 pt-4 border-t border-gray-200">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <select
+                                class="h-10 px-3 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
+                                <option>Bedrooms</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3+</option>
+                            </select>
+                            <select
+                                class="h-10 px-3 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
+                                <option>Bathrooms</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3+</option>
+                            </select>
+                            <select
+                                class="h-10 px-3 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
+                                <option>Area (sq ft)</option>
+                                <option>500–1000</option>
+                                <option>1000–2000</option>
+                                <option>2000+</option>
+                            </select>
+                            <button
+                                class="h-10 bg-secondary text-white px-4 rounded-lg hover:bg-dark transition-colors">
+                                Apply Filters
+                            </button>
+                        </div>
+                    </div>
 
                     <!-- Toggle Advanced Filters -->
                     <div class="mt-4 text-center">
@@ -190,7 +200,7 @@
                             </svg>
                             Advanced Filters
                         </button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </section>
@@ -285,7 +295,7 @@
                     </h2>
                 </div>
 
-                <!-- Filter Tabs with Smooth Horizontal Scroll (No Wrap, No Scrollbar) -->
+                <!-- Filter Tabs with Smooth Horizontal Scroll  -->
                 <div class="w-full flex justify-end">
                     <div class="flex  gap-3 overflow-x-auto whitespace-nowrap no-scrollbar px-2 sm:px-0">
                         <button
@@ -321,9 +331,9 @@
                 <div
                     class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                     <!-- Mobile: Stacked Layout, Desktop: Side by side -->
-                    <div class="flex flex-col sm:flex-row">
+                    <div class="flex flex-col sm:flex-row min-h-full">
                         <!-- Image Section -->
-                        <div class="relative w-full sm:w-2/5 h-48 sm:h-auto">
+                        <div class="relative w-full sm:w-2/5 min-h-full">
                             <img src="assets/images/third-sec-card1-img.jpg" alt="Heritage Building"
                                 class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
@@ -401,8 +411,8 @@
                 <!-- Property Card 2 -->
                 <div
                     class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="flex flex-col sm:flex-row">
-                        <div class="relative w-full sm:w-2/5 h-48 sm:h-auto">
+                    <div class="flex flex-col sm:flex-row min-h-full">
+                        <div class="relative w-full sm:w-2/5 min-h-full">
                             <img src="assets/images/third-sec-card2-img.jpg" alt="Modern Villa"
                                 class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
@@ -474,8 +484,8 @@
                 <!-- Property Card 3 -->
                 <div
                     class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="flex flex-col sm:flex-row">
-                        <div class="relative w-full sm:w-2/5 h-48 sm:h-auto">
+                    <div class="flex flex-col sm:flex-row min-h-full">
+                        <div class="relative w-full sm:w-2/5 min-h-full">
                             <img src="assets/images/third-sec-card3-img.jpg" alt="Luxury Penthouse"
                                 class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
@@ -548,8 +558,8 @@
                 <!-- Property Card 4 -->
                 <div
                     class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="flex flex-col sm:flex-row">
-                        <div class="relative w-full sm:w-2/5 h-48 sm:h-auto">
+                    <div class="flex flex-col sm:flex-row min-h-full">
+                        <div class="relative w-full sm:w-2/5 min-h-full">
                             <img src="assets/images/third-sec-card4-img.jpg" alt="Waterfront Apartment"
                                 class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
@@ -686,7 +696,7 @@
     </section>
 
     <!-- Featured Neighbourhood Section -->
-    <section class="py-8 sm:py-12 md:py-16 bg-white">
+    <section class="py-8 sm:py-12 md:py-10 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <!-- Header Section -->
             <div class="text-center mb-8 sm:mb-12">
@@ -1030,75 +1040,84 @@
         </div>
     </section>
 
-    <!-- Why Choose Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid gap-12 md:grid-cols-2 justify-center p-8">
+  <!-- Why Choose Section -->
+<section class="py-5 md:py-10 bg-[#fbfbfb]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Header Section -->
+        <div class="text-center mb-5 md:mb-8">
+            <span class="inline-block bg-secondary text-[#fff] text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+                Exclusive Living
+            </span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary font-heading mb-4">
+                Why Choose NIP?
+            </h2>
 
-                <!-- Left Column: Header -->
-                <div>
-                    <span
-                        class="inline-block bg-light text-primary text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase">
-                        Exclusive Living
-                    </span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 font-heading">Why Choose NIP?</h2>
-                    <div class="w-16 h-1 bg-primary mb-6"></div>
-                </div>
+            <p class="text-secondary text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-subheading">
+                Discover what sets NIP apart in the luxury real estate market through our commitment to excellence, innovation, and client satisfaction.
+            </p>
+        </div>
 
-                <!-- Right Column: Features -->
-                <div class="flex flex-col md:flex-row md:space-x-5 space-y-8 md:space-y-0">
-
-                    <!-- Feature 1 -->
-                    <div class="flex flex-col items-center text-center md:text-left md:items-start space-y-3 flex-1">
-                        <div class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-3">
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            <!-- Feature 1 -->
+            <div class="group">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="w-20 h-20 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
                             <!-- Diamond Icon for Luxury -->
-                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                     d="M6 3h12l3 4.5-9 13-9-13L6 3z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-dark font-heading">Luxury Interests</h3>
+                        <h3 class="text-xl font-bold text-dark font-heading">Luxury Interests</h3>
                         <p class="text-secondary text-sm leading-relaxed font-subheading">
-                            NIP specializes in high-end opportunities, catering to clients with a taste for luxury and
-                            exclusivity.
+                            NIP specializes in high-end opportunities, catering to clients with a taste for luxury and exclusivity in Dubai's premium real estate market.
                         </p>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Feature 2 -->
-                    <div class="flex flex-col items-center text-center md:text-left md:items-start space-y-3 flex-1">
-                        <div class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-3">
+            <!-- Feature 2 -->
+            <div class="group">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="w-20 h-20 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
                             <!-- Chart Bar Icon for Investment -->
-                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M3 3v18h18M9 17v-6M15 17V7" />
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-dark font-heading">Investment Focus</h3>
+                        <h3 class="text-xl font-bold text-dark font-heading">Investment Focus</h3>
                         <p class="text-secondary text-sm leading-relaxed font-subheading">
-                            NIP identifies and nurtures strategic investment opportunities to ensure long-term value and
-                            sustainable growth.
+                            NIP identifies and nurtures strategic investment opportunities to ensure long-term value and sustainable growth for our discerning clientele.
                         </p>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Feature 3 -->
-                    <div class="flex flex-col items-center text-center md:text-left md:items-start space-y-3 flex-1">
-                        <div class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-3">
-                            <!-- Puzzle Icon for Solutions -->
-                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Feature 3 -->
+            <div class="group md:col-span-2 lg:col-span-1">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="w-20 h-20 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                            <!-- Target Icon for Solutions -->
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M21 13v-2a2 2 0 00-2-2h-2V7a2 2 0 00-2-2h-2V3H9v2H7a2 2 0 00-2 2v2H3v4h2v2a2 2 0 002 2h2v2h4v-2h2a2 2 0 002-2v-2h2a2 2 0 002-2z" />
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-dark font-heading">Market-Driven Solutions</h3>
+                        <h3 class="text-xl font-bold text-dark font-heading">Market-Driven Solutions</h3>
                         <p class="text-secondary text-sm leading-relaxed font-subheading">
-                            NIP continuously analyzes market needs and offers tailored, effective solutions.
+                            NIP continuously analyzes market trends and offers tailored, effective solutions that meet the evolving needs of the luxury real estate sector.
                         </p>
                     </div>
-
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Statistics Section -->
     <section class="py-20 text-white" style="background: linear-gradient(135deg, #0E1319, #0F2027, #203A43, #2C5364);">
@@ -1128,7 +1147,7 @@
     <!-- Testimonials Section -->
     <section class="py-8 sm:py-12 md:py-16 bg-[#fbfbfb]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 items-start">
                 <!-- Left Column -->
                 <div class="flex flex-col space-y-4 sm:space-y-6">
                     <span
@@ -1142,121 +1161,354 @@
                     </p>
                     <!-- Custom navigation -->
                     <div class="flex space-x-3 mt-6 sm:mt-8">
-                        <button
-                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-secondary flex items-center justify-center hover:bg-gray-100 transition-colors">
+                        <label for="prev-testimonials"
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-secondary flex items-center justify-center hover:bg-gray-100 transition-colors cursor-pointer">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-dark" fill="none" stroke="currentColor"
                                 stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                             </svg>
-                        </button>
-                        <button
-                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-secondary flex items-center justify-center hover:bg-gray-100 transition-colors">
+                        </label>
+                        <label for="next-testimonials"
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-secondary flex items-center justify-center hover:bg-gray-100 transition-colors cursor-pointer">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-dark" fill="none" stroke="currentColor"
                                 stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
-                        </button>
+                        </label>
                     </div>
                 </div>
 
-                <!-- Right Column: Testimonials -->
-                <div class="grid gap-4 sm:gap-6">
-                    <!-- Mobile: Stacked Layout, Desktop: Side by side -->
-                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                        <!-- Testimonial 1 -->
-                        <div
-                            class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 space-y-3 sm:space-y-4 flex-1">
-                            <!-- Star Rating -->
-                            <div class="flex space-x-1">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                            </div>
-                            <!-- Testimonial Text -->
-                            <p class="text-xs sm:text-sm text-dark leading-relaxed">
-                                NIP handled our acquisition with precision and full respect for confidentiality. The
-                                level of professionalism and integrity they uphold is rare in global real estate today.
-                            </p>
-                            <!-- User Info -->
-                            <div class="flex items-center space-x-2 sm:space-x-3 pt-2">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Yousef Al-Mansoori"
-                                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
-                                <div class="min-w-0">
-                                    <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">Yousef
-                                        Al-Mansoori
-                                    </p>
-                                    <p class="text-xs text-secondary truncate font-subheading">Family Office
-                                        Representative – UAE</p>
+                <!-- Right Column: Testimonials Carousel -->
+                <div class="testimonials-carousel">
+                    <!-- Hidden radio buttons for carousel control -->
+                    <input type="radio" id="slide-1" name="testimonial-slide" class="carousel-control" checked>
+                    <input type="radio" id="slide-2" name="testimonial-slide" class="carousel-control">
+                    <input type="radio" id="slide-3" name="testimonial-slide" class="carousel-control">
+
+                    <!-- Hidden buttons for navigation logic -->
+                    <input type="button" id="next-testimonials" class="nav-control">
+                    <input type="button" id="prev-testimonials" class="nav-control">
+
+                    <div class="carousel-container flex justify-center">
+                        <!-- Slide 1: First pair of testimonials -->
+                        <div class="carousel-slide slide-1">
+                            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                                <!-- Testimonial 1 -->
+                                <div
+                                    class="testimonial-card bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 flex-1">
+                                    <div class="testimonial-content">
+                                        <div class="flex space-x-1 mb-3 sm:mb-4">
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        </div>
+                                        <p class="testimonial-text text-xs sm:text-sm text-dark leading-relaxed mb-4">
+                                            Working with NIP was unlike any other brokerage experience. Their approach
+                                            was calm, discreet, and deeply informed. It wasn't just a property—it felt
+                                            like a generational decision made right.
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author flex items-center space-x-2 sm:space-x-3">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophia Rahman"
+                                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">
+                                                Sophia Rahman</p>
+                                            <p class="text-xs text-secondary truncate font-subheading">Private Investor
+                                                – UK</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Testimonial 2 -->
+                                <div
+                                    class="testimonial-card bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 flex-1">
+                                    <div class="testimonial-content">
+                                        <div class="flex space-x-1 mb-3 sm:mb-4">
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        </div>
+                                        <p class="testimonial-text text-xs sm:text-sm text-dark leading-relaxed mb-4">
+                                            NIP handled our acquisition with precision and full respect for
+                                            confidentiality. The level of professionalism and integrity they uphold is
+                                            rare in global real estate today.
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author flex items-center space-x-2 sm:space-x-3">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                            alt="Yousef Al-Mansoori"
+                                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">
+                                                Yousef Al-Mansoori</p>
+                                            <p class="text-xs text-secondary truncate font-subheading">Family Office
+                                                Representative – UAE</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Testimonial 2 -->
-                        <div
-                            class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 space-y-3 sm:space-y-4 flex-1">
-                            <!-- Star Rating -->
-                            <div class="flex space-x-1">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                            </div>
-                            <!-- Testimonial Text -->
-                            <p class="text-xs sm:text-sm text-dark leading-relaxed">
-                                NIP handled our acquisition with precision and full respect for confidentiality. The
-                                level of professionalism and integrity they uphold is rare in global real estate today.
-                            </p>
-                            <!-- User Info -->
-                            <div class="flex items-center space-x-2 sm:space-x-3 pt-2">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Yousef Al-Mansoori"
-                                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
-                                <div class="min-w-0">
-                                    <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">Yousef
-                                        Al-Mansoori
-                                    </p>
-                                    <p class="text-xs text-secondary truncate font-subheading">Family Office
-                                        Representative – UAE</p>
+                        <!-- Slide 2: Second pair of testimonials -->
+                        <div class="carousel-slide slide-2">
+                            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                                <!-- Testimonial 3 -->
+                                <div
+                                    class="testimonial-card bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 flex-1">
+                                    <div class="testimonial-content">
+                                        <div class="flex space-x-1 mb-3 sm:mb-4">
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        </div>
+                                        <p class="testimonial-text text-xs sm:text-sm text-dark leading-relaxed mb-4">
+                                            The team at NIP exceeded every expectation. From initial consultation to
+                                            final handover, their attention to detail and market knowledge was
+                                            exceptional. Truly a world-class service.
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author flex items-center space-x-2 sm:space-x-3">
+                                        <img src="https://randomuser.me/api/portraits/women/68.jpg"
+                                            alt="Maria Rodriguez"
+                                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">
+                                                Maria Rodriguez</p>
+                                            <p class="text-xs text-secondary truncate font-subheading">Investment
+                                                Manager – Spain</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Testimonial 4 -->
+                                <div
+                                    class="testimonial-card bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 flex-1">
+                                    <div class="testimonial-content">
+                                        <div class="flex space-x-1 mb-3 sm:mb-4">
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        </div>
+                                        <p class="testimonial-text text-xs sm:text-sm text-dark leading-relaxed mb-4">
+                                            NIP's global network and local expertise made our Dubai investment seamless.
+                                            Their strategic insights and personalized approach set them apart in the
+                                            luxury real estate market.
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author flex items-center space-x-2 sm:space-x-3">
+                                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James Chen"
+                                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">
+                                                James Chen</p>
+                                            <p class="text-xs text-secondary truncate font-subheading">Portfolio Manager
+                                                – Singapore</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Slide 3: Third pair of testimonials -->
+                        <div class="carousel-slide slide-3">
+                            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                                <!-- Testimonial 5 -->
+                                <div
+                                    class="testimonial-card bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 flex-1">
+                                    <div class="testimonial-content">
+                                        <div class="flex space-x-1 mb-3 sm:mb-4">
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        </div>
+                                        <p class="testimonial-text text-xs sm:text-sm text-dark leading-relaxed mb-4">
+                                            Outstanding service from start to finish. NIP's commitment to excellence and
+                                            their deep understanding of the luxury market made our property acquisition
+                                            effortless and rewarding.
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author flex items-center space-x-2 sm:space-x-3">
+                                        <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="Emma Thompson"
+                                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">
+                                                Emma Thompson</p>
+                                            <p class="text-xs text-secondary truncate font-subheading">Real Estate
+                                                Investor – Australia</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Testimonial 6 -->
+                                <div
+                                    class="testimonial-card bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 flex-1">
+                                    <div class="testimonial-content">
+                                        <div class="flex space-x-1 mb-3 sm:mb-4">
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        </div>
+                                        <p class="testimonial-text text-xs sm:text-sm text-dark leading-relaxed mb-4">
+                                            NIP's expertise in the Dubai market is unmatched. Their personalized
+                                            approach and attention to detail made our investment journey smooth and
+                                            highly profitable. Highly recommended.
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author flex items-center space-x-2 sm:space-x-3">
+                                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Ahmed Hassan"
+                                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <p class="text-xs sm:text-sm font-semibold text-dark truncate font-heading">
+                                                Ahmed Hassan</p>
+                                            <p class="text-xs text-secondary truncate font-subheading">Business Owner –
+                                                Egypt</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+
 
     <!-- Contact/Consultation Section -->
     <section class="py-12 sm:py-16 md:py-20 text-white relative overflow-hidden"
@@ -1493,7 +1745,7 @@
                     <p class="text-white mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                         Receive market insights, curated listings, and NIP updates—direct to your inbox.
                     </p>
-                    <div class="flex flex-col sm:flex-row">
+                    <div class="flex">
                         <input type="email" placeholder="Enter Your Email"
                             class="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-lg sm:rounded-r-none border border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm mb-2 sm:mb-0">
                         <button
@@ -1537,98 +1789,7 @@
         }
     </style>
 
-    <!-- JavaScript -->
-    <script>
-        // Advanced Filters Toggle
-        document.getElementById('advanced-toggle').addEventListener('click', function () {
-            const filters = document.getElementById('advanced-filters');
-            filters.classList.toggle('hidden');
-
-            const buttonText = filters.classList.contains('hidden') ? 'Advanced Filters' : 'Hide Filters';
-            this.innerHTML = this.innerHTML.replace(/Advanced Filters|Hide Filters/, buttonText);
-        });
-
-        // Navbar scroll effect - Trigger after 90% of viewport height
-        window.addEventListener("scroll", () => {
-            const navbar = document.getElementById("navbar");
-            const scrollPosition = window.scrollY;
-
-            if (scrollPosition >= window.innerHeight * 0.6) {
-                navbar.classList.remove("bg-transparent");
-                navbar.style.background = "linear-gradient(135deg, rgba(14, 19, 25, 0.8), rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8), rgba(44, 83, 100, 0.9))";
-            } else {
-                navbar.classList.add("bg-transparent");
-                navbar.style.background = "transparent";
-            }
-        });
-
-
-
-        // Counter animation
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll(".counter");
-            const activeAnimations = new Map();
-
-            const startCounting = (counter) => {
-                const target = +counter.getAttribute("data-target");
-                let count = 0;
-                const speed = 30;
-
-                if (activeAnimations.has(counter)) {
-                    clearTimeout(activeAnimations.get(counter));
-                }
-
-                const updateCount = () => {
-                    const increment = Math.ceil(target / speed);
-                    if (count < target) {
-                        count += increment;
-                        counter.innerText = count > target ? target : count;
-                        const timeoutId = setTimeout(updateCount, 30);
-                        activeAnimations.set(counter, timeoutId);
-                    } else {
-                        counter.innerText = target.toLocaleString();
-                        activeAnimations.delete(counter);
-                    }
-                };
-                updateCount();
-            };
-
-            const resetCounter = (counter) => {
-                if (activeAnimations.has(counter)) {
-                    clearTimeout(activeAnimations.get(counter));
-                    activeAnimations.delete(counter);
-                }
-                counter.innerText = "0";
-            };
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    const counter = entry.target;
-                    if (entry.isIntersecting) {
-                        startCounting(counter);
-                    } else {
-                        resetCounter(counter);
-                    }
-                });
-            }, {
-                threshold: 0.5,
-                rootMargin: '0px 0px -10% 0px'
-            });
-
-            counters.forEach(counter => {
-                observer.observe(counter);
-                counter.innerText = "0";
-            });
-        });
-    </script>
-
-    <!-- JS TOGGLE SCRIPT -->
-    <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
+<script src="script.js"></script>
 </body>
 
 </html>

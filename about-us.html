@@ -51,6 +51,7 @@
       background-image: url('./assets/images/buy-sell2.jpg')
     }
   </style>
+
   <script>
     tailwind.config = {
       theme: {
@@ -70,6 +71,7 @@
       }
     }
   </script>
+
 </head>
 
 <body class="font-body min-h-screen flex flex-col overflow-x-hidden">
@@ -112,7 +114,7 @@
 
   <!-- Hero Section -->
   <section class="h-[30vh] md:h-[40vh] lg:h-[60vh] flex items-center relative"
-    style="background:url('assets/images/about-us-img.webp');">
+    style="background:url('assets/images/about-us-hero-bg-img.jpg'); background-repeat: no-repeat;background-size: cover;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white z-10">
       <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 font-heading">About Us</h1>
       <nav class="flex justify-center space-x-2">
@@ -129,7 +131,8 @@
   <!-- Why Choose Section -->
   <section class="w-full py-16 bg-white px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+      <div class="grid grid-cols-1 items-center justify-items-center text-center lg:grid-cols-4 lg:text-left lg:justify-items-start gap-8 items-start">
+
         <div class="lg:col-span-1">
           <span
             class="inline-block bg-primary text-white text-xs font-medium px-4 py-2 rounded-full font-body mb-4">Exclusive
@@ -137,9 +140,9 @@
           <h2 class="text-3xl lg:text-4xl font-bold text-primary font-heading leading-tight mb-2">Why
             Choose<br>NIP?</h2>
         </div>
-        <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+        <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-10 relative justify-items-center text-center lg:text-left lg:justify-items-start">
           <!-- Feature 1 -->
-          <div class="flex flex-col space-y-3">
+          <div class="flex flex-col items-center lg:items-start space-y-3">
             <div class="w-20 h-20 text-secondary">
               <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path
@@ -153,7 +156,7 @@
           </div>
 
           <!-- Feature 2 -->
-          <div class="flex flex-col space-y-3">
+          <div class="flex flex-col items-center lg:items-start space-y-3">
             <div class="w-20 h-20 text-secondary">
               <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M12 3v18m9-9H3" />
@@ -166,13 +169,13 @@
           </div>
 
           <!-- Feature 3 -->
-          <div class="flex flex-col space-y-3">
+          <div class="flex flex-col items-center lg:items-start space-y-3">
             <div class="w-20 h-20 text-secondary">
               <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </div>
-            <h3 class="text-2xl font-bold text-primary font-subheading">Architectural Excellence</h3>
+            <h3 class="text-2xl font-bold text-primary font-subheading whitespace-nowrap">Architectural Excellence</h3>
             <p class="text-secondary text-[17px] font-heading leading-relaxed">From timeless façades to
               efficient layouts, our properties reflect the synergy of form and function—built to
               impress and endure.</p>
@@ -183,88 +186,89 @@
   </section>
 
   <!-- Odyssey Section -->
-  <section class="w-full bg-white py-16"
-    style="background: linear-gradient(135deg, #0E1319, #151A22, #1F2733, #283344);">
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center">
-      <!-- Left Column - Image -->
-      <div class="flex-1 h-[90vh] w-[60%]">
-        <img src="./assets/images/Arabian Ranches.jpg" alt="Modern apartment building"
-          class="w-full h-full object-cover object-center rounded-tr-lg lg:rounded-br-lg">
-      </div>
+ <section class="w-full bg-white py-16" style="background-color: #cecece;">
+  <!-- First Odyssey Section -->
+  <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-y-8 mb-10 lg:mb-0 px-4">
+    <!-- Left Column - Image -->
+    <div class="w-full h-[300px] lg:h-[90vh] lg:w-[60%]">
+      <img src="./assets/images/odsey-img1.jpg" alt="Modern apartment building"
+        class="w-full h-full object-cover object-center rounded-tr-lg lg:rounded-br-lg">
+    </div>
 
-      <!-- Right Column - Content -->
-      <div class="w-full lg:w-[40%] flex items-center px-6 sm:px-10 bg-transparent">
-        <div class="space-y-4">
-          <span class="inline-block bg-secondary text-white text-xs font-medium px-4 py-2 rounded-full font-body">
-            Where Vision Meets Ownership
-          </span>
-          <h2 class="text-3xl xl:text-4xl font-bold text-white font-heading leading-tight">
-            A Legacy Begins With a Door You Open
-          </h2>
-          <p class="text-white text-base leading-relaxed font-subheading">
-            At NIP, property is more than space—it's a strategic asset. We guide discerning investors and visionary
-            homeowners toward acquisitions that echo trust, privacy, and global prestige.
+    <!-- Right Column - Content -->
+    <div class="w-full lg:w-[40%] flex items-center px-4 sm:px-6 lg:px-10 bg-transparent mt-6 lg:mt-0">
+      <div class="space-y-4 text-center lg:text-left">
+        <span class="inline-block bg-[#283344] text-white text-xs font-medium px-4 py-2 rounded-full font-body">
+          Where Vision Meets Ownership
+        </span>
+        <h2 class="text-3xl xl:text-4xl font-bold text-primary font-heading leading-tight">
+          A Legacy Begins With a Door You Open
+        </h2>
+        <p class="text-primary text-base leading-relaxed font-subheading">
+          At NIP, property is more than space—it's a strategic asset. We guide discerning investors and visionary
+          homeowners toward acquisitions that echo trust, privacy, and global prestige.
+        </p>
+        <div class="space-y-2 bg-white text-primary p-5 rounded-lg">
+          <h3 class="text-xl font-bold font-subheading">Your Next Move, Curated</h3>
+          <p class="text-base leading-relaxed font-body">
+            Our team offers seamless, fully-managed transitions—whether listing or living. Enter with clarity. Exit
+            with success.
           </p>
-          <div class="space-y-2 bg-white text-primary p-5 rounded-lg">
-            <h3 class="text-xl font-bold font-subheading">Your Next Move, Curated</h3>
-            <p class="text-base leading-relaxed font-body">
-              Our team offers seamless, fully-managed transitions—whether listing or living. Enter with clarity. Exit
-              with success.
-            </p>
-            <div class="flex items-center mt-3">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
+          <div class="flex items-center justify-center lg:justify-start mt-3">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Odyssey Section (Reversed Layout) -->
+  <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-y-8 px-4">
+    <!-- Left Column - Content -->
+    <div class="w-full lg:w-[40%] flex items-center px-4 sm:px-6 lg:px-10 mb-6 lg:mb-0">
+      <div class="space-y-4 text-center lg:text-left">
+        <span class="inline-block bg-[#283344] text-white text-xs font-medium px-4 py-2 rounded-full font-body">
+          Unlocking Dreams, Opening Doors
+        </span>
+        <h2 class="text-3xl xl:text-4xl font-bold text-primary font-heading leading-tight">
+          Global Property, Personal Touch
+        </h2>
+        <p class="text-primary text-base leading-relaxed font-subheading">
+          With discretion and expertise, NIP curates global real estate opportunities designed for long-term value.
+          Every property reflects a legacy built on trust and thoughtful design.
+        </p>
+        <div class="space-y-2 bg-white text-primary p-5 rounded-lg">
+          <h3 class="text-xl font-bold font-subheading">Sell with Strategy</h3>
+          <p class="text-base leading-relaxed font-body">
+            Your home is a statement. Our approach ensures it reaches the right buyers—with impact, insight, and
+            integrity.
+          </p>
+          <div class="flex items-center justify-center lg:justify-start mt-3">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Second Odyssey Section (Reversed Layout) -->
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center">
-      <!-- Left Column - Content -->
-      <div class="w-full lg:w-[40%] flex items-center px-6 sm:px-10">
-        <div class="space-y-4">
-          <span class="inline-block bg-secondary text-white text-xs font-medium px-4 py-2 rounded-full font-body">
-            Unlocking Dreams, Opening Doors
-          </span>
-          <h2 class="text-3xl xl:text-4xl font-bold text-white font-heading leading-tight">
-            Global Property, Personal Touch
-          </h2>
-          <p class="text-secondary text-base leading-relaxed font-subheading">
-            With discretion and expertise, NIP curates global real estate opportunities designed for long-term value.
-            Every property reflects a legacy built on trust and thoughtful design.
-          </p>
-          <div class="space-y-2 bg-white text-primary p-5 rounded-lg">
-            <h3 class="text-xl font-bold  font-subheading">Sell with Strategy</h3>
-            <p class="text-base leading-relaxed font-body">
-              Your home is a statement. Our approach ensures it reaches the right buyers—with impact, insight, and
-              integrity.
-            </p>
-            <div class="flex items-center mt-3">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column - Image -->
-      <div class="flex-1 h-[90vh] w-[60%]">
-        <img src="./assets/images/Arabian Ranches.jpg" alt="Modern apartment building"
-          class="w-full h-full object-cover object-center rounded-tr-lg lg:rounded-br-lg">
-      </div>
+    <!-- Right Column - Image -->
+    <div class="w-full h-[300px] lg:h-[90vh] lg:w-[60%]">
+      <img src="./assets/images/odsey-img2.jpg" alt="Modern apartment building"
+        class="w-full h-full object-cover object-center rounded-tr-lg lg:rounded-br-lg">
     </div>
-  </section>
+  </div>
+</section>
+
 
 
   <!-- Testimonial Section -->
-  <section class="w-4/5 mx-auto flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-white">
+  <!-- <section class="w-4/5 mx-auto flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-5xl w-full text-center flex flex-col justify-center h-full">
 
-      <!-- Quote Icon -->
+   
       <div class="mb-8">
         <svg class="w-10 h-10 sm:w-12 sm:h-12 text-secondary mx-auto" fill="currentColor" viewBox="0 0 24 24">
           <path
@@ -272,7 +276,6 @@
         </svg>
       </div>
 
-      <!-- Main Quote -->
       <blockquote class="mb-10">
         <p
           class="text-2xl sm:text-3xl xl:text-4xl font-bold text-primary font-heading leading-relaxed max-w-4xl mx-auto">
@@ -280,7 +283,6 @@
         </p>
       </blockquote>
 
-      <!-- Author Info -->
       <div class="flex items-center justify-center mb-12">
         <div class="flex items-center space-x-4">
           <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client"
@@ -290,9 +292,7 @@
             <p class="text-sm text-secondary font-body">Residential Appraiser</p>
           </div>
         </div>
-      </div>
 
-      <!-- Trusted Partners -->
       <div>
         <p class="text-sm text-secondary uppercase tracking-widest font-body mb-6">Trusted By</p>
 
@@ -310,8 +310,6 @@
         </div>
 
 
-
-        <!-- Mobile extra logos -->
         <div class="grid grid-cols-2 gap-4 mt-6 sm:hidden text-dark font-bold text-sm font-body text-center">
           <div>Golben</div>
           <div>Jertix</div>
@@ -323,11 +321,11 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <!--Second Testimonials Section -->
-  <section class="w-screen bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8">
+  <section class="w-screen bg-[#fbfbfb] py-10 lg:py-16 px-4 sm:px-5 lg:px-5">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
       <!-- Left Column - Message -->
@@ -393,9 +391,46 @@
       </div>
     </div>
   </section>
+ 
+   <!-- our mission section -->
+    <section class="relative py-10 md:py-15 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      <!-- Vision Card -->
+      <div class="relative overflow-hidden rounded-xl shadow-2xl h-96 lg:h-[80vh]">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative h-full flex flex-col justify-end p-10 text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Our Vision</h2>
+          <p class="text-lg md:text-xl leading-relaxed font-subheading">
+            To be the first name in precision, discretion and transformative experiences redefining modern living in Dubai's luxury property and lifestyle industry.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Mission Card -->
+      <div class="relative overflow-hidden rounded-xl shadow-2xl h-96 lg:h-[80vh]">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative h-full flex flex-col justify-end p-10 text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Our Mission</h2>
+          <p class="text-lg md:text-xl leading-relaxed font-subheading">
+            To create intelligent, elegant and individualized property and lifestyle solutions, where living is not simply about the space, but the entire experience, in any and every part of the home.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Agents section -->
-  <section class="py-10 bg-[linear-gradient(135deg,#0E1319,#151A22,#1F2733,#283344)]  text-center -z-10 text-white">
+  <!-- <section class="py-10 bg-[linear-gradient(135deg,#0E1319,#151A22,#1F2733,#283344)]  text-center -z-10 text-white">
     <h2 class="text-4xl font-bold mb-4 font-heading">Real Estate Agents</h2>
     <p class="max-w-2xl mx-auto mb-12 font-subheading">
       Meet our top professionals in the real estate market.
@@ -403,7 +438,7 @@
 
     <div
       class="cards  grid mb-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-4 max-w-6xl mx-auto">
-      <!-- Card 1 -->
+
       <div class="card-wrapper agent1">
         <div
           class="bg-gradient-to-b  from-blue-100 to-yellow-50 pt-32 flex flex-col gap-4  rounded-lg shadow-lg pb-6 px-4 w-full max-w-xs text-center">
@@ -418,7 +453,7 @@
         </div>
       </div>
 
-      <!-- Card 2 -->
+    
       <div class="card-wrapper agent2">
         <div
           class="bg-gradient-to-b pt-32 flex flex-col gap-4 from-blue-100 to-yellow-50 rounded-lg shadow-lg pb-6 px-4 w-full max-w-xs text-center">
@@ -432,8 +467,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Card 3 -->
+=
       <div class="card-wrapper agent3">
         <div
           class="bg-gradient-to-b pt-32 flex flex-col gap-4 from-blue-100 to-yellow-50 rounded-lg shadow-lg pb-6 px-4 w-full max-w-xs text-center">
@@ -448,7 +482,7 @@
         </div>
       </div>
 
-      <!-- Card 4 -->
+  
       <div class="card-wrapper agent4">
         <div
           class="bg-gradient-to-b pt-32 flex flex-col gap-4 from-blue-100 to-yellow-50 rounded-lg shadow-lg pb-6 px-4 w-full max-w-xs text-center">
@@ -466,101 +500,46 @@
     </div>
        
       
-  </section>
+  </section> -->
 
 
   <!-- about section -->
   <section class="flex justify-center">
-    <div class="flex flex-col lg:flex-row items-center lg:items-start   min-h-screen mb-20  max-w-6xl  ">
+    <div class="flex flex-col lg:flex-row items-center justify-between lg:items-start  min-h-screen mb-20  max-w-6xl p-5">
       <!-- Left Content -->
-      <div class="max-w-2xl lg:w-[70%] flex flex-col   justify-center  lg:ps-5 lg:pe-12 py-10    bg-white">
-        <span class="inline-block w-72 bg-[#b49a7a] text-white  text-sm rounded-lg px-6 py-2  mb-8">
+      <div class="max-w-2xl lg:w-[65%] flex flex-col justify-center  lg:ps-5 lg:pe-12 py-10 h-full bg-white">
+        <span class="flex justify-center w-[60%] bg-[#283344] text-white text-sm rounded-lg px-2 py-1  mb-5">
           A Journey Through Real Estate
         </span>
-        <h1 class="text-2xl md:text-4xl font-bold mb-6  leading-tight">
-          Exploring Unique Homes in the Real Estate Market
+        <h1 class="text-2xl md:text-4xl font-bold mb-6 text-primary font-heading leading-tight">
+          Exploring Exceptional Homes in a World of Opportunity
         </h1>
-        <p class="text-[#7b8bb0] text-lg mb-6 max-w-xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et mauris eget ornare venenatis, in. Pharetra iaculis
-          consectetur augue venenatis enim adipiscing risus sit scelerisque. Id metus viverra tellus.
-        </p>
-        <div class="flex flex-col gap-6">
-          <div
-            class="flex items-center justify-between bg-[#f7f6f4] rounded-lg px-6 py-5 text-lg font-semibold shadow-sm hover:shadow-md transition">
-            <span class="flex items-center gap-4">
-              <img src="./assets/images/house.png" alt="Buy Property" class="w-10 h-10">
-              Buy A Property
-            </span>
-            <span class="text-2xl text-[#b0b3c6]">&rarr;</span>
-          </div>
-          <div
-            class="flex items-center justify-between bg-[#f7f6f4] rounded-lg px-6 py-5 text-lg font-semibold shadow-sm hover:shadow-md transition">
-            <span class="flex items-center gap-4">
-              <img src="./assets/images/mortgage.png" alt="Sell Property" class="w-10 h-10">
-              Sell Your Property
-            </span>
-            <span class="text-2xl text-[#b0b3c6]">&rarr;</span>
-          </div>
-          <div
-            class="flex items-center justify-between bg-[#f7f6f4] rounded-lg px-6 py-5 text-lg font-semibold shadow-sm hover:shadow-md transition">
-            <span class="flex items-center gap-4">
-              <img src="./assets/images/house-key.png" alt="Rent Home" class="w-10 h-10">
-              Rent A Home
-            </span>
-            <span class="text-2xl text-[#b0b3c6]">&rarr;</span>
-          </div>
+        <p class="text-secondary text-lg mb-6 max-w-xl">
+          At NIP, we go beyond brick and mortar—we curate lifestyles, experiences, and legacies. Each home we represent
+          is handpicked for its design, value, and potential to elevate how you live and invest. Whether you're stepping
+          into your first investment or expanding your global portfolio, our properties speak the language of timeless
+          quality and long-term returns.
 
-        </div>
+          Start your journey with a partner who understands that real estate is not just about space—it’s about vision,
+          purpose, and future value
+        </p>
       </div>
       <!-- Right Image -->
       <div class="  h-full  flex items-center justify-center mx-auto max-w-2xl  min-h-[300px] ">
-        <img src="./assets/images/about.jpg" alt="Modern Building" class=" h-full object-cover">
+        <img src="./assets/images/exploring-img.jpg" alt="Modern Building" class=" h-full object-cover">
       </div>
-    </div> 
-     
-  </section>
-
-  <!-- new later section  -->
-  <section class="bg-cover bg-secondary bg-center text-white text-center mx-auto w-full p-16">
-    <div class="mx-auto max-w-4xl p-10 rounded-full" style="background-image: url('./assets/images/subscribe-bg.jpg')">
-      <h2 class="text-4xl md:text-5xl font-bold mb-10">
-        Subscribe To Our Newsletter
-      </h2>
-
-      <!-- Mobile version -->
-      <div class="block sm:hidden space-y-4 max-w-md mx-auto bg-secondary">
-        <input type="email" placeholder="Enter your email"
-          class="w-full px-6 py-4 rounded-full text-base text-gray-600 outline-none border-none" required />
-        <button type="submit"
-          class="bg-primary hover:bg-[#b49a7a] text-white w-56 py-4 text-base font-semibold rounded-full transition">
-          Subscribe
-        </button>
-      </div>
-
-      <!-- Desktop version -->
-      <form
-        class="hidden sm:flex justify-center items-center gap-0 overflow-hidden rounded-full bg-white max-w-[400px] mx-auto bg-[bg-secondary]">
-        <input type="email" placeholder="Enter your email"
-          class="w-full sm:w-[300px] px-6 py-4 text-base text-gray-600 outline-none border-none" required />
-        <button type="submit"
-          class="bg-primary hover:bg-[#b49a7a] text-white px-10 py-4 text-base font-semibold rounded-none sm:rounded-full transition">
-          Subscribe
-        </button>
-      </form>
     </div>
   </section>
 
-
-
   <!-- Footer -->
   <footer class="bg-[linear-gradient(135deg,#0E1319,#151A22,#1F2733,#283344)] text-white pb-8 sm:pb-10 md:pb-14">
-    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">  
-        <!-- Logo -->
-        <div class="flex items-center justify-center w-full">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-24 md:h-24 rounded-lg flex items-center justify-center">
-            <img src="assets/images/NIP WHITE LOGO PNG.png" alt="NIP Logo" class="w-full h-full object-contain">
-          </div>
+    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <!-- Logo -->
+      <div class="flex items-center justify-center w-full">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-24 md:h-24 rounded-lg flex items-center justify-center">
+          <img src="assets/images/NIP WHITE LOGO PNG.png" alt="NIP Logo" class="w-full h-full object-contain">
         </div>
+      </div>
 
 
       <!-- Main Footer Content -->
@@ -646,48 +625,48 @@
             </button>
           </div>
 
-    <!-- Social Media -->
-        <div class="flex flex-col sm:flex-row items-center w-full mt-5">
-          <span class="text-gray-400 text-sm sm:text-base me-2 whitespace-nowrap">Follow Us: </span>
-          <div class="flex items-center space-x-3">
-            <!-- Twitter -->
-            <a href="#"
-              class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-              </svg>
-            </a>
-            <!-- Facebook -->
-            <a href="#"
-              class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-6.91h-2.4V12h2.4V9.84c0-2.36 1.4-3.66 3.55-3.66 1.03 0 2.1.18 2.1.18v2.3h-1.18c-1.16 0-1.52.72-1.52 1.45V12h2.6l-.42 2.89h-2.18v6.91c4.56-.93 8-4.96 8-9.8z" />
-              </svg>
-            </a>
-            <!-- Reddit -->
-            <a href="#"
-              class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.65 3.937 10.353 9.092 11.646-.126-.954-.24-2.419.05-3.462.262-.935 1.687-5.956 1.687-5.956s-.43-.863-.43-2.14c0-2.003 1.162-3.497 2.607-3.497 1.23 0 1.823.924 1.823 2.031 0 1.238-.79 3.09-1.198 4.805-.341 1.433.723 2.602 2.143 2.602 2.571 0 4.544-2.712 4.544-6.627 0-3.455-2.48-5.879-6.027-5.879-4.104 0-6.506 3.078-6.506 6.259 0 1.238.476 2.569 1.071 3.288.12.144.137.27.1.414-.107.455-.354 1.438-.4 1.637-.06.255-.198.31-.459.187-1.713-.8-2.79-3.308-2.79-5.329 0-4.339 3.153-8.318 9.095-8.318 4.777 0 8.482 3.408 8.482 7.97 0 4.744-2.992 8.56-7.144 8.56-1.395 0-2.705-.724-3.148-1.57l-.858 3.274c-.311 1.19-1.15 2.68-1.712 3.59C8.607 23.8 10.264 24 12 24c6.627 0 12-5.373 12-12z" />
-              </svg>
-            </a>
-            <!-- LinkedIn -->
-            <a href="#"
-              class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM6.782 20.452H3.893V9h2.889v11.452z" />
-              </svg>
-            </a>
+          <!-- Social Media -->
+          <div class="flex flex-col sm:flex-row items-center w-full mt-5">
+            <span class="text-gray-400 text-sm sm:text-base me-2 whitespace-nowrap">Follow Us: </span>
+            <div class="flex items-center space-x-3">
+              <!-- Twitter -->
+              <a href="#"
+                class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a href="#"
+                class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-6.91h-2.4V12h2.4V9.84c0-2.36 1.4-3.66 3.55-3.66 1.03 0 2.1.18 2.1.18v2.3h-1.18c-1.16 0-1.52.72-1.52 1.45V12h2.6l-.42 2.89h-2.18v6.91c4.56-.93 8-4.96 8-9.8z" />
+                </svg>
+              </a>
+              <!-- Reddit -->
+              <a href="#"
+                class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.65 3.937 10.353 9.092 11.646-.126-.954-.24-2.419.05-3.462.262-.935 1.687-5.956 1.687-5.956s-.43-.863-.43-2.14c0-2.003 1.162-3.497 2.607-3.497 1.23 0 1.823.924 1.823 2.031 0 1.238-.79 3.09-1.198 4.805-.341 1.433.723 2.602 2.143 2.602 2.571 0 4.544-2.712 4.544-6.627 0-3.455-2.48-5.879-6.027-5.879-4.104 0-6.506 3.078-6.506 6.259 0 1.238.476 2.569 1.071 3.288.12.144.137.27.1.414-.107.455-.354 1.438-.4 1.637-.06.255-.198.31-.459.187-1.713-.8-2.79-3.308-2.79-5.329 0-4.339 3.153-8.318 9.095-8.318 4.777 0 8.482 3.408 8.482 7.97 0 4.744-2.992 8.56-7.144 8.56-1.395 0-2.705-.724-3.148-1.57l-.858 3.274c-.311 1.19-1.15 2.68-1.712 3.59C8.607 23.8 10.264 24 12 24c6.627 0 12-5.373 12-12z" />
+                </svg>
+              </a>
+              <!-- LinkedIn -->
+              <a href="#"
+                class="w-8 h-8 sm:w-9 sm:h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM6.782 20.452H3.893V9h2.889v11.452z" />
+                </svg>
+              </a>
+            </div>
           </div>
+
+
         </div>
-          
-        
-        </div>
-    
+
       </div>
 
       <!-- Footer Bottom -->

@@ -164,9 +164,9 @@ label[for="next-testimonials"]:active {
     }
 }
 
-.group {
+/* .group {
     animation: fadeInUp 0.6s ease-out;
-}
+} */
 
 .group:nth-child(1) {
     animation-delay: 0.1s;

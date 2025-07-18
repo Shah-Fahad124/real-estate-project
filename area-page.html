@@ -37,11 +37,11 @@
     </script>
 </head>
 
-<body class="bg-white font-body">
+<body class="bg-light font-body">
         <!-- Header -->
         <header class="fixed top-0 z-50 w-full">
             <nav id="navbar"
-                class="container-fluid mx-auto px-4 sm:px-6 pt-3 sm:pt-4 flex items-center transition-all duration-300" style="background: linear-gradient(135deg,rgba(14, 19, 25, 0.8),rgba(15, 32, 39, 0.8),rgba(32, 58, 67, 0.8),rgba(44, 83, 100, 0.9));">
+                class="container-fluid mx-auto px-4 sm:px-6 pt-3 sm:pt-4 flex items-center bg-transparent transition-all duration-300">
                 <div class="hidden lg:flex space-x-6 xl:space-x-8 text-[#fff] mx-auto pt-4">
                     <!-- Desktop Navigation Items -->
                     <a href="index.html"
@@ -257,7 +257,7 @@
 
     <section class="flex flex-col justify-center item-center py-8 font-body">
         <div
-            class="container border border-gray-200 rounded-lg mx-auto shadow-md px-4 py-12 flex flex-col gap-5 max-w-6xl md:mt-[100px]">
+            class="w-[90vw] border border-gray-200 rounded-lg mx-auto shadow-md px-4 py-5 flex flex-col gap-5 max-w-6xl mt-[4rem]">
             <h1 class="font-heading text-xl font-bold px-4">Explore Dubai's Top Areas</h1>
             <div class="font-subheading">
                 <p class="px-4">Discover Dubai’s diverse neighborhoods, from family-friendly communities to trendy
@@ -849,18 +849,18 @@
 
 
       // Navbar scroll effect - Trigger after 90% of viewport height
-        // window.addEventListener("scroll", () => {
-        //     const navbar = document.getElementById("navbar");
-        //     const scrollPosition = window.scrollY;
+        window.addEventListener("scroll", () => {
+            const navbar = document.getElementById("navbar");
+            const scrollPosition = window.scrollY;
 
-        //     if (scrollPosition >= window.innerHeight * 0.6) {
-        //         navbar.classList.remove("bg-transparent");
-        //         navbar.style.background = "linear-gradient(135deg, rgba(14, 19, 25, 0.8), rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8), rgba(44, 83, 100, 0.9))";
-        //     } else {
-        //         navbar.classList.add("bg-transparent");
-        //         navbar.style.background = "transparent";
-        //     }
-        // });
+            if (scrollPosition >= window.innerHeight * 0.6) {
+                navbar.classList.remove("bg-transparent");
+                navbar.style.background = "linear-gradient(135deg, rgba(14, 19, 25, 0.8), rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8), rgba(44, 83, 100, 0.9))";
+            } else {
+                navbar.classList.add("bg-transparent");
+                navbar.style.background = "transparent";
+            }
+        });
 
 </script>
 

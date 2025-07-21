@@ -81,7 +81,7 @@
             class="container-fluid mx-auto px-4 sm:px-6 pt-3 sm:pt-4 flex items-center bg-transparent transition-all duration-300">
             <div class="hidden lg:flex space-x-6 xl:space-x-8 text-[#fff] mx-auto pt-4">
                 <!-- Desktop Navigation Items -->
-                <a href="index.html"
+                <a href="index.php"
                     class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Home</a>
                 <a href="vip-services.html"
                     class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Properties</a>
@@ -194,7 +194,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="lg:hidden hidden bg-black bg-opacity-90 text-white px-4 sm:px-6 py-4 space-y-4 fixed top-16 sm:top-20 left-0 right-0 z-40">
-            <a href="index.html" class="block font-medium hover:text-[#9e9e9e] py-2">Home</a>
+            <a href="index.php" class="block font-medium hover:text-[#9e9e9e] py-2">Home</a>
             <a href="vip-services.html" class="block font-medium hover:text-[#9e9e9e] py-2">Properties</a>
             <a href="#" class="block font-medium hover:text-[#9e9e9e] py-2">Projects</a>
 
@@ -297,40 +297,40 @@
 
 
             <!-- Search Box -->
-            <div
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-6xl bg-white p-6 rounded-xl shadow-xl mt-10">
-
+            <form action="properties.php" method="GET" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-6xl bg-white p-6 rounded-xl shadow-xl mt-10">
                 <!-- Basic Search -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
                     <!-- Keyword -->
                     <div>
                         <label class="font-semibold font-body text-dark">Keyword</label>
-                        <input type="text" placeholder="Search for Keyword"
+                        <input type="text" name="keyword" placeholder="Search for Keyword"
+                            value="<?= htmlspecialchars($_GET['keyword'] ?? '') ?>"
                             class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
                     </div>
 
                     <!-- Location -->
                     <div>
                         <label class="font-semibold font-body text-dark">Location</label>
-                        <input type="text" placeholder="Search for Location"
+                        <input type="text" name="location" placeholder="Search for Location"
+                            value="<?= htmlspecialchars($_GET['location'] ?? '') ?>"
                             class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
                     </div>
 
                     <!-- Type -->
                     <div>
                         <label class="font-semibold font-body text-dark">Type</label>
-                        <select
+                        <select name="type"
                             class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
-                            <option>-- Select --</option>
-                            <option>Villa</option>
-                            <option>Apartment</option>
-                            <option>Penthouse</option>
+                            <option value="">-- Select --</option>
+                            <option value="Villa" <?= (($_GET['type'] ?? '') == 'Villa') ? 'selected' : '' ?>>Villa</option>
+                            <option value="Apartment" <?= (($_GET['type'] ?? '') == 'Apartment') ? 'selected' : '' ?>>Apartment</option>
+                            <option value="Penthouse" <?= (($_GET['type'] ?? '') == 'Penthouse') ? 'selected' : '' ?>>Penthouse</option>
                         </select>
                     </div>
 
                     <!-- Buttons -->
                     <div class="flex gap-2 items-center">
-                        <button id="toggle-advanced"
+                        <button type="button" id="toggle-advanced"
                             class="text-dark font-body flex items-center justify-center gap-2 hover:text-primary px-4 py-1 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -339,7 +339,7 @@
                             </svg>
                             <span>Filters</span>
                         </button>
-                        <button
+                        <button type="submit"
                             class="bg-primary hover:bg-dark text-white px-4 py-2 rounded-lg w-full font-body font-medium">
                             Find Properties
                         </button>
@@ -352,81 +352,85 @@
                         <!-- Price Range -->
                         <div>
                             <label class="font-semibold font-body text-dark mb-2 block">Price Range</label>
-                            <div class="flex gap-4">
-                                <input type="text" placeholder="$0"
-                                    class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
-                                <span class="flex items-center font-body text-secondary">to</span>
-                                <input type="text" placeholder="$986,100"
-                                    class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
-                            </div>
+                            <select name="price_range" class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
+                                <option value="">All Prices</option>
+                                <option value="AED 100k - 500k" <?= (($_GET['price_range'] ?? '') == 'AED 100k - 500k') ? 'selected' : '' ?>>AED 100k - 500k</option>
+                                <option value="AED 500k - 1M" <?= (($_GET['price_range'] ?? '') == 'AED 500k - 1M') ? 'selected' : '' ?>>AED 500k - 1M</option>
+                                <option value="AED 1M+" <?= (($_GET['price_range'] ?? '') == 'AED 1M+') ? 'selected' : '' ?>>AED 1M+</option>
+                            </select>
                         </div>
 
-                        <!-- Square Range -->
+                        <!-- Community -->
                         <div>
-                            <label class="font-semibold font-body text-dark mb-2 block">Square Range</label>
-                            <div class="flex gap-4">
-                                <input type="text" placeholder="10 m²"
-                                    class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
-                                <span class="flex items-center font-body text-secondary">to</span>
-                                <input type="text" placeholder="950 m²"
-                                    class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
-                            </div>
+                            <label class="font-semibold font-body text-dark mb-2 block">Community</label>
+                            <select name="community" class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
+                                <option value="">Communities</option>
+                                <option value="Downtown Dubai" <?= (($_GET['community'] ?? '') == 'Downtown Dubai') ? 'selected' : '' ?>>Downtown Dubai</option>
+                                <option value="Dubai Marina" <?= (($_GET['community'] ?? '') == 'Dubai Marina') ? 'selected' : '' ?>>Dubai Marina</option>
+                                <option value="Jumeirah Beach Residence" <?= (($_GET['community'] ?? '') == 'Jumeirah Beach Residence') ? 'selected' : '' ?>>Jumeirah Beach Residence</option>
+                                <option value="Business Bay" <?= (($_GET['community'] ?? '') == 'Business Bay') ? 'selected' : '' ?>>Business Bay</option>
+                                <option value="Dubai Hills Estate" <?= (($_GET['community'] ?? '') == 'Dubai Hills Estate') ? 'selected' : '' ?>>Dubai Hills Estate</option>
+                                <option value="Arabian Ranches" <?= (($_GET['community'] ?? '') == 'Arabian Ranches') ? 'selected' : '' ?>>Arabian Ranches</option>
+                                <option value="The Springs" <?= (($_GET['community'] ?? '') == 'The Springs') ? 'selected' : '' ?>>The Springs</option>
+                                <option value="Emirates Hills" <?= (($_GET['community'] ?? '') == 'Emirates Hills') ? 'selected' : '' ?>>Emirates Hills</option>
+                            </select>
+                        </div>
+
+                        <!-- Status -->
+                        <div>
+                            <label class="font-semibold font-body text-dark mb-2 block">Status</label>
+                            <select name="status" class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
+                                <option value="">All</option>
+                                <option value="Ready" <?= (($_GET['status'] ?? '') == 'Ready') ? 'selected' : '' ?>>Ready</option>
+                                <option value="Off Plan" <?= (($_GET['status'] ?? '') == 'Off Plan') ? 'selected' : '' ?>>Off Plan</option>
+                            </select>
                         </div>
 
                         <!-- Bedrooms -->
                         <div>
                             <label class="font-semibold font-body text-dark mb-2 block">Bedrooms</label>
-                            <select
-                                class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
-                                <option>All</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3+</option>
+                            <select name="bedrooms" class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
+                                <option value="">Bedroom</option>
+                                <option value="Studio" <?= (($_GET['bedrooms'] ?? '') == 'Studio') ? 'selected' : '' ?>>Studio</option>
+                                <option value="1" <?= (($_GET['bedrooms'] ?? '') == '1') ? 'selected' : '' ?>>1</option>
+                                <option value="2" <?= (($_GET['bedrooms'] ?? '') == '2') ? 'selected' : '' ?>>2</option>
+                                <option value="3" <?= (($_GET['bedrooms'] ?? '') == '3') ? 'selected' : '' ?>>3</option>
+                                <option value="4" <?= (($_GET['bedrooms'] ?? '') == '4') ? 'selected' : '' ?>>4</option>
+                                <option value="5" <?= (($_GET['bedrooms'] ?? '') == '5') ? 'selected' : '' ?>>5</option>
+                                <option value="6+" <?= (($_GET['bedrooms'] ?? '') == '6+') ? 'selected' : '' ?>>6+</option>
                             </select>
                         </div>
 
-                        <!-- Amenities Grid -->
-                        <div class="md:col-span-3">
-                            <label class="font-semibold font-body text-dark mb-3 block">Amenities</label>
-                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                                <!-- Amenity Checkboxes -->
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Wifi</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Air Conditioning</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Parking</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Swimming Pool</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Balcony</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Garden</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Security</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" class="rounded border-light text-primary focus:ring-primary">
-                                    <span class="font-body text-dark">Spa & Massage</span>
-                                </label>
-                            </div>
+                        <!-- Bathrooms -->
+                        <div>
+                            <label class="font-semibold font-body text-dark mb-2 block">Bathrooms</label>
+                            <select name="bathrooms" class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
+                                <option value="">Bathroom</option>
+                                <option value="1" <?= (($_GET['bathrooms'] ?? '') == '1') ? 'selected' : '' ?>>1</option>
+                                <option value="2" <?= (($_GET['bathrooms'] ?? '') == '2') ? 'selected' : '' ?>>2</option>
+                                <option value="3" <?= (($_GET['bathrooms'] ?? '') == '3') ? 'selected' : '' ?>>3</option>
+                                <option value="4" <?= (($_GET['bathrooms'] ?? '') == '4') ? 'selected' : '' ?>>4</option>
+                                <option value="5" <?= (($_GET['bathrooms'] ?? '') == '5') ? 'selected' : '' ?>>5</option>
+                                <option value="6+" <?= (($_GET['bathrooms'] ?? '') == '6+') ? 'selected' : '' ?>>6+</option>
+                            </select>
+                        </div>
+
+                        <!-- Min/Max Price -->
+                        <div>
+                            <label class="font-semibold font-body text-dark mb-2 block">Min. price</label>
+                            <input type="text" name="min_price" placeholder="Min. price"
+                                value="<?= htmlspecialchars($_GET['min_price'] ?? '') ?>"
+                                class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
+                        </div>
+                        <div>
+                            <label class="font-semibold font-body text-dark mb-2 block">Max. price</label>
+                            <input type="text" name="max_price" placeholder="Max. price"
+                                value="<?= htmlspecialchars($_GET['max_price'] ?? '') ?>"
+                                class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
     </section>
 
@@ -445,416 +449,160 @@
             <select
                 class="border border-gray-300 text-sm rounded-lg p-2 w-40 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <option value="">Default</option>
-                   <option value="latest">Latest</option>
-                   <option value="latest">Oldest</option>
-                   <option value="latest">Newest</option>
+                <option value="latest">Latest</option>
+                <option value="latest">Oldest</option>
+                <option value="latest">Newest</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
                 <option value="latest">Latest</option>
             </select>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-            <!-- Property Card 1-->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div class="flex flex-col h-full">
-                    <!-- Image Section -->
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="Amberwood Apartments" class="w-full h-48 sm:h-56 object-cover">
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span
-                                class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Selling</span>
-                        </div>
-                    </div>
+<?php
+// properties.php
 
-                    <!-- Content Section -->
-                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
-                        <!-- Property Type -->
-                        <span class="text-sm font-medium text-gray-500 mb-1">Apartment</span>
+// Load and decode the properties.json file
+$properties = json_decode(file_get_contents('properties.json'), true);
 
-                        <!-- Title and Location -->
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900">Amberwood Apartments</h3>
-                        <p class="text-sm text-gray-600 mb-3">London, England</p>
+// Function to check if a string contains a keyword (case-insensitive)
+function containsKeyword($haystack, $needle) {
+    return stripos($haystack, $needle) !== false;
+}
 
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
-                                <span class="text-sm text-gray-700">1</span>
-                            </div>
+// Get filters from GET request
+$keyword = $_GET['keyword'] ?? '';
+$type = $_GET['type'] ?? '';
+$price_range = $_GET['price_range'] ?? '';
+$location = $_GET['location'] ?? '';
+$community = $_GET['community'] ?? '';
+$status = $_GET['status'] ?? '';
+$bedrooms = $_GET['bedrooms'] ?? '';
+$bathrooms = $_GET['bathrooms'] ?? '';
+$min_price = $_GET['min_price'] ?? '';
+$max_price = $_GET['max_price'] ?? '';
 
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">7</span>
-                            </div>
+// Filter properties
+$filtered = array_filter($properties, function ($property) use ($keyword, $type, $price_range, $location, $community, $status, $bedrooms, $bathrooms, $min_price, $max_price) {
+    // Keyword match
+    if ($keyword && !containsKeyword($property['title'], $keyword) && !containsKeyword($property['location'], $keyword)) {
+        return false;
+    }
 
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">540 m²</span>
-                            </div>
-                        </div>
+    // Type
+    if ($type && $property['type'] !== $type) {
+        return false;
+    }
 
-                        <!-- Footer with Agent and Price -->
-                        <div class="mt-auto flex justify-between items-center border-t pt-3">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
-                                <span class="text-sm text-gray-700">Kaden Ortiz</span>
-                            </div>
-                            <div class="text-lg font-bold text-blue-600">$702,600</div>
-                        </div>
-                    </div>
+    // Location
+    if ($location && !containsKeyword($property['location'], $location)) {
+        return false;
+    }
+
+    // Community
+    if ($community && $property['community'] !== $community) {
+        return false;
+    }
+
+    // Status
+    if ($status && $property['status'] !== $status) {
+        return false;
+    }
+
+    // Bedrooms
+    if ($bedrooms && $property['bedrooms'] != $bedrooms) {
+        return false;
+    }
+
+    // Bathrooms
+    if ($bathrooms && $property['bathrooms'] != $bathrooms) {
+        return false;
+    }
+
+    // Price Range (dropdown)
+    if ($price_range) {
+        if ($price_range === 'AED 100k - 500k' && ($property['price'] < 100000 || $property['price'] > 500000)) return false;
+        if ($price_range === 'AED 500k - 1M' && ($property['price'] < 500000 || $property['price'] > 1000000)) return false;
+        if ($price_range === 'AED 1M+' && $property['price'] <= 1000000) return false;
+    }
+
+    // Min Price
+    if ($min_price && $property['price'] < (int)$min_price) {
+        return false;
+    }
+
+    // Max Price
+    if ($max_price && $property['price'] > (int)$max_price) {
+        return false;
+    }
+
+    return true;
+});
+
+// If no filter applied, show all
+if (empty($_GET)) {
+    $filtered = $properties;
+}
+
+?>
+
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+<?php if (empty($filtered)): ?>
+    <div class="col-span-full text-center py-16">
+        <h2 class="text-3xl font-bold text-gray-800">No Properties Found</h2>
+        <p class="mt-2 text-lg text-gray-600">Sorry, we couldn't find any properties matching your search criteria.</p>
+    </div>
+<?php else: ?>
+    <?php foreach ($filtered as $property):
+        $image = $property['image'];
+        $title = $property['title'];
+        $type = $property['type'];
+        $location = $property['location'];
+        $price = $property['price'];
+        $bedrooms = $property['bedrooms'];
+        $bathrooms = $property['bathrooms'];
+        $sqft = $property['sqft'];
+        $tags = $property['tags'];
+?>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="flex flex-col h-full">
+            <div class="relative">
+                <img src="<?= htmlspecialchars($image) ?>" alt="<?= htmlspecialchars($title) ?>" class="w-full h-48 sm:h-56 object-cover">
+                <div class="absolute top-3 left-3 flex gap-2">
+                    <?php foreach ($tags as $tag): ?>
+                        <?php $tagColor = $tag === 'Featured' ? 'bg-blue-600' : 'bg-green-600'; ?>
+                        <span class="<?= $tagColor ?> text-white px-3 py-1 rounded-full text-xs font-medium"><?= htmlspecialchars($tag) ?></span>
+                    <?php endforeach; ?>
                 </div>
             </div>
-
-            <!-- Property Card 2-->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div class="flex flex-col h-full">
-                    <!-- Image Section -->
-                    <div class="relative">
-                        <img src="assets/images/third-sec-card2-img.jpg" alt="Amberwood Apartments"
-                            class="w-full h-48 sm:h-56 object-cover">
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span
-                                class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Selling</span>
-                        </div>
+            <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                <span class="text-sm font-medium text-gray-500 mb-1"><?= htmlspecialchars($type) ?></span>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-900"><?= htmlspecialchars($title) ?></h3>
+                <p class="text-sm text-gray-600 mb-3"><?= htmlspecialchars($location) ?></p>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex items-center gap-1">
+                        🛏 <span class="text-sm text-gray-700"><?= $bedrooms ?></span>
                     </div>
-
-                    <!-- Content Section -->
-                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
-                        <!-- Property Type -->
-                        <span class="text-sm font-medium text-gray-500 mb-1">Land</span>
-
-                        <!-- Title and Location -->
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900">Amberwood Apartments</h3>
-                        <p class="text-sm text-gray-600 mb-3">London, England</p>
-
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
-                                <span class="text-sm text-gray-700">1</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">7</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">540 m²</span>
-                            </div>
-                        </div>
-
-                        <!-- Footer with Agent and Price -->
-                        <div class="mt-auto flex justify-between items-center border-t pt-3">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
-                                <span class="text-sm text-gray-700">Kaden Ortiz</span>
-                            </div>
-                            <div class="text-lg font-bold text-blue-600">$702,600</div>
-                        </div>
+                    <div class="flex items-center gap-1">
+                        🛁 <span class="text-sm text-gray-700"><?= $bathrooms ?></span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        📏 <span class="text-sm text-gray-700"><?= $sqft ?> sqft</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- Property Card 3-->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div class="flex flex-col h-full">
-                    <!-- Image Section -->
-                    <div class="relative">
-                        <img src="assets/images/third-sec-card3-img.jpg" alt="Amberwood Apartments"
-                            class="w-full h-48 sm:h-56 object-cover">
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span
-                                class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Selling</span>
-                        </div>
+                <div class="mt-auto flex justify-between items-center border-t pt-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                        <span class="text-sm text-gray-700">Agent Name</span>
                     </div>
-
-                    <!-- Content Section -->
-                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
-                        <!-- Property Type -->
-                        <span class="text-sm font-medium text-gray-500 mb-1">Commercial Property</span>
-
-                        <!-- Title and Location -->
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900">Amberwood Apartments</h3>
-                        <p class="text-sm text-gray-600 mb-3">London, England</p>
-
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
-                                <span class="text-sm text-gray-700">1</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">7</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">540 m²</span>
-                            </div>
-                        </div>
-
-                        <!-- Footer with Agent and Price -->
-                        <div class="mt-auto flex justify-between items-center border-t pt-3">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
-                                <span class="text-sm text-gray-700">Kaden Ortiz</span>
-                            </div>
-                            <div class="text-lg font-bold text-blue-600">$702,600</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Property Card 4-->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div class="flex flex-col h-full">
-                    <!-- Image Section -->
-                    <div class="relative">
-                        <img src="assets/images/third-sec-card3-img.jpg" alt="Amberwood Apartments"
-                            class="w-full h-48 sm:h-56 object-cover">
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span
-                                class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Selling</span>
-                        </div>
-                    </div>
-
-                    <!-- Content Section -->
-                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
-                        <!-- Property Type -->
-                        <span class="text-sm font-medium text-gray-500 mb-1">Land</span>
-
-                        <!-- Title and Location -->
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900">Amberwood Apartments</h3>
-                        <p class="text-sm text-gray-600 mb-3">London, England</p>
-
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
-                                <span class="text-sm text-gray-700">1</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">7</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">540 m²</span>
-                            </div>
-                        </div>
-
-                        <!-- Footer with Agent and Price -->
-                        <div class="mt-auto flex justify-between items-center border-t pt-3">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
-                                <span class="text-sm text-gray-700">Kaden Ortiz</span>
-                            </div>
-                            <div class="text-lg font-bold text-blue-600">$702,600</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Property Card 4-->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div class="flex flex-col h-full">
-                    <!-- Image Section -->
-                    <div class="relative">
-                        <img src="assets/images/third-sec-card2-img.jpg" alt="Amberwood Apartments"
-                            class="w-full h-48 sm:h-56 object-cover">
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span
-                                class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Selling</span>
-                        </div>
-                    </div>
-
-                    <!-- Content Section -->
-                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
-                        <!-- Property Type -->
-                        <span class="text-sm font-medium text-gray-500 mb-1">Land</span>
-
-                        <!-- Title and Location -->
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900">Amberwood Apartments</h3>
-                        <p class="text-sm text-gray-600 mb-3">London, England</p>
-
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
-                                <span class="text-sm text-gray-700">1</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">7</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">540 m²</span>
-                            </div>
-                        </div>
-
-                        <!-- Footer with Agent and Price -->
-                        <div class="mt-auto flex justify-between items-center border-t pt-3">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
-                                <span class="text-sm text-gray-700">Kaden Ortiz</span>
-                            </div>
-                            <div class="text-lg font-bold text-blue-600">$702,600</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Property Card 4-->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div class="flex flex-col h-full">
-                    <!-- Image Section -->
-                    <div class="relative">
-                        <img src="assets/images/third-sec-card3-img.jpg" alt="Amberwood Apartments"
-                            class="w-full h-48 sm:h-56 object-cover">
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span
-                                class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">Featured</span>
-                            <span
-                                class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">Selling</span>
-                        </div>
-                    </div>
-
-                    <!-- Content Section -->
-                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
-                        <!-- Property Type -->
-                        <span class="text-sm font-medium text-gray-500 mb-1">Land</span>
-
-                        <!-- Title and Location -->
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900">Amberwood Apartments</h3>
-                        <p class="text-sm text-gray-600 mb-3">London, England</p>
-
-                        <!-- Property Details -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
-                                <span class="text-sm text-gray-700">1</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">7</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                </svg>
-                                <span class="text-sm text-gray-700">540 m²</span>
-                            </div>
-                        </div>
-
-                        <!-- Footer with Agent and Price -->
-                        <div class="mt-auto flex justify-between items-center border-t pt-3">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
-                                <span class="text-sm text-gray-700">Kaden Ortiz</span>
-                            </div>
-                            <div class="text-lg font-bold text-blue-600">$702,600</div>
-                        </div>
-                    </div>
+                    <div class="text-lg font-bold text-blue-600">$<?= number_format($price) ?></div>
                 </div>
             </div>
         </div>
+    </div>
+<?php endforeach; ?>
+<?php endif; ?>
+</div>
+
     </section>
 
     <!-- Footer -->

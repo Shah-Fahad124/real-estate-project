@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "title": "Heritage Building",
+        "location": "Dubai, UAE",
+        "type": "Apartment",
+        "price": 950000,
+        "bedrooms": 5,
+        "bathrooms": 3,
+        "sqft": 3750,
+        "image": "assets/images/third-sec-card1-img.jpg",
+        "tags": ["Featured", "For Sale"],
+        "community": "Downtown Dubai",
+        "status": "Ready"
+    },
+    {
+        "id": 2,
+        "title": "Modern Villa",
+        "location": "Abu Dhabi, UAE",
+        "type": "Villa",
+        "price": 1250000,
+        "bedrooms": 4,
+        "bathrooms": 4,
+        "sqft": 4500,
+        "image": "assets/images/third-sec-card2-img.jpg",
+        "tags": ["Featured", "For Sale"],
+        "community": "Arabian Ranches",
+        "status": "Ready"
+    },
+    {
+        "id": 3,
+        "title": "Luxury Penthouse",
+        "location": "Downtown Dubai, UAE",
+        "type": "Penthouse",
+        "price": 2100000,
+        "bedrooms": 3,
+        "bathrooms": 4,
+        "sqft": 2800,
+        "image": "assets/images/third-sec-card3-img.jpg",
+        "tags": ["Featured", "For Sale"],
+        "community": "Business Bay",
+        "status": "Off Plan"
+    },
+    {
+        "id": 4,
+        "title": "Waterfront Apartment",
+        "location": "Business Bay, UAE",
+        "type": "Apartment",
+        "price": 850000,
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "sqft": 1850,
+        "image": "assets/images/third-sec-card4-img.jpg",
+        "tags": ["Featured", "For Sale"],
+        "community": "Dubai Marina",
+        "status": "Ready"
+    }
+]

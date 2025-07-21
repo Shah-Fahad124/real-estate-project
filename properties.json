@@ -54,7 +54,6 @@
         "tags": ["Featured", "For Sale"],
         "community": "Dubai Marina",
         "status": "Ready"
-<<<<<<< HEAD
     },
     {
         "id": 5,
@@ -141,7 +140,4 @@
         "status": "Off Plan"
     }
 ]
-=======
-    }
-]
->>>>>>> 91430396eb0ecf23f84041bc70f08d8811f985af
+

@@ -246,22 +246,22 @@
         </div>
     </header>
     <!-- Hero Section -->
-    <section class="h-[85vh]">
+    <section class="border">
         <!-- Image Grid -->
-        <div class="grid grid-cols-4 h-[70vh] gap-3">
+        <div class="md:container mx-auto">
             <!-- Left Image -->
-            <div class="col-span-2 relative overflow-hidden">
+            <div class="relative h-[70vh] overflow-hidden">
                 <img src="assets/images/single-page1.jpg" alt="Property View 1" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
 
             </div>
 
             <!-- right image -->
-            <div class="col-span-2 relative overflow-hidden relative">
+            <!-- <div class="col-span-2 relative overflow-hidden relative">
                 <img src="assets/images/single-page2.jpg" alt="Property Main View" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
 
-            </div>
+            </div> -->
             <!-- Overlay Content -->
         </div>
 
@@ -270,8 +270,8 @@
     </section>
 
     <!-- Property Information Card -->
-    <div class="absolute bottom-8 left-8 right-8 bg-white rounded-2xl p-8 z-30">
-        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+    <div class="lg:absolute md:bottom-[13rem] left-[10%] right-[10%] bg-light md:rounded-2xl p-8 z-30">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
             <!-- Left Content -->
             <div class="flex-1">
                 <!-- Selling Badge -->
@@ -331,22 +331,21 @@
 
                 <!-- Heart Icon -->
                 <button
-                    class="w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-300">
+                    class="w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-300 hidden md:block">
                     <i class="far fa-heart text-gray-600 hover:text-secondary"></i>
                 </button>
             </div>
         </div>
     </div>
-    </section>
 
     <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-8 py-16">
+    <div class="max-w-7xl mx-auto px-8 py-10">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <!-- Left Column - Main Content -->
-            <div class="lg:col-span-2 space-y-12">
+            <div class="lg:col-span-2 space-y-8">
                 <!-- Description -->
                 <section>
-                    <h2 class="text-3xl font-bold text-primary font-heading mb-4">Description</h2>
+                    <h2 class="text-3xl font-bold text-primary font-heading mb-2">Description</h2>
                     <p class="text-gray-600 font-subheading leading-relaxed mb-4">
                         Quam et qui corrupti sunt amet iusto sunt. Et quod dolore laudantium voluptatem sit possimus
                         aperiam. Autem consequatur dolore ipsam optio vel dolorem inventore hic nihil accusantium
@@ -362,10 +361,10 @@
                 </section>
 
                 <!-- Overview Section -->
-                <section class="mb-12">
+                <section class="mb-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Overview</h2>
 
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <!-- Property ID -->
                         <div class="bg-gray-50 p-4 rounded-lg hover:bg-light">
                             <div class="flex items-center gap-3">
@@ -766,50 +765,51 @@
             </div>
 
             <!-- Right Column - Sidebar -->
-            <div class="lg:col-span-1">
-                <div class="space-y-8">
-                    <!-- Contact Agent -->
-                    <div class="bg-white rounded-lg border border-gray-200 p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-6">Contact Agency</h3>
-                        <div class="flex items-center gap-4 mb-6">
-                            <img src="assets/images/user-logo.png" alt="Agent" class="rounded-full" style="width: 100px !important;height: 100px !important;">
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Sarah Wilson</h4>
-                                <p class="text-gray-600 text-sm">+330 9520278</p>
-                                <p class="text-gray-600 text-sm">abc@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <form class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                                <input type="text"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                <input type="email"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                                <input type="tel"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                                <textarea rows="4"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                                    placeholder="I'm interested in this property..."></textarea>
-                            </div>
-                            <button type="submit"
-                                class="w-full bg-secondary text-white py-3 rounded-md hover:bg-primary transition-colors duration-300 font-semibold">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
+<div class="lg:col-span-1 relative scroll-auto">
+    <div class="space-y-8 sticky top-[8rem] max-h-[80vh] overflow-y-auto pr-2" style="scrollbar-width: none;">
+        <!-- Contact Agent -->
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Contact Agency</h3>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/images/user-logo.png" alt="Agent" class="rounded-full" style="width: 100px !important;height: 100px !important;">
+                <div>
+                    <h4 class="font-semibold text-gray-900">Sarah Wilson</h4>
+                    <p class="text-gray-600 text-sm">+330 9520278</p>
+                    <p class="text-gray-600 text-sm">abc@gmail.com</p>
                 </div>
             </div>
+
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <input type="text"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <input type="tel"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <textarea rows="4"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                        placeholder="I'm interested in this property..."></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-secondary text-white py-3 rounded-md hover:bg-primary transition-colors duration-300 font-semibold">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
 

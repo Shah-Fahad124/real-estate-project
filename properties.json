@@ -124,20 +124,6 @@
         "tags": ["Golf View", "For Sale"],
         "community": "Dubai Sports City",
         "status": "Ready"
-    },
-    {
-        "id": 10,
-        "title": "Off-Plan Lagoon Villa",
-        "location": "Tilal Al Ghaf, Dubai",
-        "type": "Villa",
-        "price": 1850000,
-        "bedrooms": 4,
-        "bathrooms": 4,
-        "sqft": 3500,
-        "image": "assets/images/third-sec-card3-img.jpg",
-        "tags": ["Off Plan", "For Sale"],
-        "community": "Tilal Al Ghaf",
-        "status": "Off Plan"
     }
 ]
 

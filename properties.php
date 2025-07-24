@@ -569,7 +569,7 @@ if (empty($_GET)) {
                 <img src="<?= htmlspecialchars($image) ?>" alt="<?= htmlspecialchars($title) ?>" class="w-full h-48 sm:h-56 object-cover">
                 <div class="absolute top-3 left-3 flex gap-2">
                     <?php foreach ($tags as $tag): ?>
-                        <?php $tagColor = $tag === 'Featured' ? 'bg-blue-600' : 'bg-green-600'; ?>
+                        <?php $tagColor = $tag === 'Featured' ? 'bg-primary' : 'bg-secondary'; ?>
                         <span class="<?= $tagColor ?> text-white px-3 py-1 rounded-full text-xs font-medium"><?= htmlspecialchars($tag) ?></span>
                     <?php endforeach; ?>
                 </div>
@@ -591,16 +591,22 @@ if (empty($_GET)) {
                 </div>
                 <div class="mt-auto flex justify-between items-center border-t pt-3">
                     <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                        <div class="w-8 h-8 bg-gray-200 rounded-full">
+                        </div>
                         <span class="text-sm text-gray-700">Agent Name</span>
                     </div>
-                    <div class="text-lg font-bold text-blue-600">$<?= number_format($price) ?></div>
+                    <div class="text-lg font-bold text-primary">$<?= number_format($price) ?></div>
                 </div>
             </div>
         </div>
     </div>
 <?php endforeach; ?>
 <?php endif; ?>
+</div>
+<div class="w-full text-center mt-8">
+  <button class="bg-secondary hover:bg-primary text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300">
+    Load More
+  </button>
 </div>
 
     </section>

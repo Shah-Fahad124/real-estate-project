@@ -38,372 +38,361 @@
 </head>
 
 <body class="bg-white font-body">
-    <!-- Hero Wrapper with Background Image -->
-    <div class="bg-cover bg-center min-h-screen relative"
-        style="background-image: url('assets/images/hero-slider-img.jpg');">
+   <!-- Hero Wrapper with Background Image -->
+<div class="bg-cover bg-center min-h-screen relative"
+    style="background-image: url('assets/images/hero-slider-img.jpg');">
 
-        <!-- Black Overlay -->
-        <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
+    <!-- Black Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
 
-        <!-- Header -->
-        <header class="fixed top-0 z-50 w-full">
-            <nav id="navbar"
-                class="container-fluid mx-auto px-4 sm:px-6 pt-3 sm:pt-4 flex items-center bg-transparent transition-all duration-300">
-                <div class="hidden lg:flex space-x-6 xl:space-x-8 text-[#fff] mx-auto pt-4">
-                    <!-- Desktop Navigation Items -->
-                    <a href="index.php"
-                        class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Home</a>
-                    <a href="vip-services.html"
-                        class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Properties</a>
-                    <a href="#" class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Projects</a>
-                    <a href="#" class="sm:w-14 sm:h-14 md:w-[7rem] md:h-[7rem] flex items-center justify-center mt-[-30px]">
-                        <img src="./assets/images/NIP WHITE LOGO PNG.png" alt="logo" class="w-full h-full">
-                    </a>
+    <!-- Header -->
+    <header class="fixed top-0 z-50 w-full">
+        <nav id="navbar"
+            class="container-fluid mx-auto px-4 sm:px-6 pt-3 sm:pt-4 flex items-center bg-transparent transition-all duration-300">
+            <!-- Mobile Logo (left side) -->
+            <div class="lg:hidden flex items-center mr-auto">
+                <a href="#" class="w-16 h-16 flex items-center justify-center">
+                    <img src="./assets/images/NIP WHITE LOGO PNG.png" alt="logo" class="w-full h-full object-contain">
+                </a>
+            </div>
 
-                    <!-- Desktop Dropdown -->
-                    <div class="relative group">
-                        <button
-                            class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base flex items-center">
-                            NIP Approach
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 text-[#fff] mx-auto pt-4">
+                <!-- Desktop Navigation Items -->
+                <a href="index.php"
+                    class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Home</a>
+                <a href="vip-services.html"
+                    class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Properties</a>
+                <a href="#" class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Projects</a>
+                <a href="#" class="sm:w-14 sm:h-14 md:w-[7rem] md:h-[7rem] flex items-center justify-center mt-[-30px]">
+                    <img src="./assets/images/NIP WHITE LOGO PNG.png" alt="logo" class="w-full h-full">
+                </a>
 
-                        <!-- Desktop Dropdown Content -->
-                        <div
-                            class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-[40rem] bg-white rounded-xl shadow-2xl py-6 px-8 z-50 hidden group-hover:grid grid-cols-2 gap-8">
-                            <!-- Premium Services Column -->
-                            <div>
-                                <h3 class="text-base font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">Premium
-                                    Services</h3>
-                                <ul class="space-y-2 text-primary">
-                                    <!-- Smart Home Personalization -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        <a href="">smart home Personalization</a>
-                                    </li>
-
-                                    <!-- Concierge Relocation Service -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        Concierge Relocation Service
-                                    </li>
-
-                                    <!-- Property Valuation -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        Property Valuation
-                                    </li>
-
-                                    <!-- Luxury Interior Design -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        Luxury Interior Design Consultant
-                                    </li>
-
-                                    <!-- Developer Pre-Releases -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        Exclusive Access to Developer Pre-Releases
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- VIP Services Column -->
-                            <div>
-                                <h3 class="text-base font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">VIP
-                                    Services</h3>
-                                <ul class="space-y-2 text-primary">
-                                    <!-- Lifestyle Management -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        <a href="vip-services.html#lifestyle">Lifestyle Management Concierge</a>
-                                    </li>
-
-                                    <!-- Private Investment Advisory -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        <a href="vip-services.html#privateinvestment">Private Investment Advisory</a>
-                                    </li>
-
-                                    <!-- Jet & Yacht Club -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        <a href="vip-services.html#jet&clubmembership">Jet & Yacht Club Membership Access</a>
-                                    </li>
-
-                                    <!-- Legacy Circle Retreat -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        <a href="vip-services.html#legacycircle">Annual Invitation to "Legacy Circle" Retreat</a>
-                                    </li>
-
-                                    <!-- Golden Visa -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        <a href="vip-services.html#goldenvisa">Golden Visa</a>
-                                    </li>
-
-                                    <!-- Mortgage Guidance -->
-                                    <li class="hover:text-secondary cursor-pointer">
-                                        <a href="vip-services.html#guidance"> Mortgage Guidance</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <a href="premium-services.html"
-                        class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">About Us</a>
-                    <a href="contact-us.html"
-                        class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Contact Us</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </nav>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu"
-                class="lg:hidden hidden bg-black bg-opacity-90 text-white px-4 sm:px-6 py-4 space-y-4 fixed top-16 sm:top-20 left-0 right-0 z-40">
-                <a href="index.php" class="block font-medium hover:text-[#9e9e9e] py-2">Home</a>
-                <a href="vip-services.html" class="block font-medium hover:text-[#9e9e9e] py-2">Properties</a>
-                <a href="#" class="block font-medium hover:text-[#9e9e9e] py-2">Projects</a>
-
-                <!-- Mobile Dropdown Trigger -->
-                <div>
-                    <button id="mobile-nip-approach"
-                        class="w-full flex justify-between items-center font-medium hover:text-[#9e9e9e] py-2">
+                <!-- Desktop Dropdown -->
+                <div class="relative group">
+                    <button
+                        class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base flex items-center">
                         NIP Approach
-                        <svg id="mobile-nip-arrow" class="w-4 h-4 transform transition-transform duration-200" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
 
-                    <!-- Mobile Dropdown Content -->
-                    <div id="mobile-nip-dropdown" class="hidden pl-4 space-y-2 mt-2">
-                        <!-- Premium Baricons Section -->
-                        <div class="space-y-2 border-l border-gray-600 pl-3 py-1">
-                            <h3 class="text-sm font-semibold text-gray-300">Premium Baricons</h3>
-                            <ul class="space-y-1">
-                                <li>
-                                    <button class="flex justify-between items-center w-full text-left">
-                                        <span>Smart Home Personalization</span>
-                                        <svg class="w-3 h-3 transform transition-transform duration-200" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
-                                    <ul class="hidden pl-3 mt-1 space-y-1 border-l border-gray-600">
-                                        <li>
-                                            <button class="flex justify-between items-center w-full text-left">
-                                                <span>Corelange Relevation Service</span>
-                                                <svg class="w-3 h-3 transform transition-transform duration-200" fill="none"
-                                                    stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M19 9l-7 7-7-7" />
-                                                </svg>
-                                            </button>
-                                            <ul class="hidden pl-3 mt-1 space-y-1 border-l border-gray-600">
-                                                <li><a href="#"
-                                                        class="block py-1 text-xs text-gray-400 hover:text-white">Property
-                                                        valuation</a></li>
-                                                <li><a href="#"
-                                                        class="block py-1 text-xs text-gray-400 hover:text-white">Leisure
-                                                        Access to Developer</a></li>
-                                                <li><a href="#"
-                                                        class="block py-1 text-xs text-gray-400 hover:text-white">Pre-Broecom</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                    <!-- Desktop Dropdown Content -->
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-[40rem] bg-white rounded-xl shadow-2xl py-6 px-8 z-50 hidden group-hover:grid grid-cols-2 gap-8">
+                        <!-- Premium Services Column -->
+                        <div>
+                            <h3 class="text-base font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">Premium
+                                Services</h3>
+                            <ul class="space-y-2 text-primary">
+                                <!-- Smart Home Personalization -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="premium-services.html">smart home Personalization</a>
+                                </li>
+
+                                <!-- Concierge Relocation Service -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="">Concierge Relocation Service</a>
+                                </li>
+
+                                <!-- Property Valuation -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    Property Valuation
+                                </li>
+
+                                <!-- Luxury Interior Design -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    Luxury Interior Design Consultant
+                                </li>
+
+                                <!-- Developer Pre-Releases -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    Exclusive Access to Developer Pre-Releases
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- VIP Baricons Section -->
-                        <div class="space-y-2 border-l border-gray-600 pl-3 py-1">
-                            <h3 class="text-sm font-semibold text-gray-300">VIP Baricons</h3>
-                            <ul class="space-y-1">
-                                <li>
-                                    <button class="flex justify-between items-center w-full text-left">
-                                        <span>Ubuntu Management Catalogue</span>
-                                        <svg class="w-3 h-3 transform transition-transform duration-200" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
-                                    <ul class="hidden pl-3 mt-1 space-y-1 border-l border-gray-600">
-                                        <li><a href="#" class="block py-1 text-xs text-gray-400 hover:text-white">Private
-                                                Investment Advisory at A. Scott C.A & Membership Access</a></li>
-                                        <li><a href="#" class="block py-1 text-xs text-gray-400 hover:text-white">Annual
-                                                Indicator for Trophy/Order Retired</a></li>
-                                        <li><a href="#" class="block py-1 text-xs text-gray-400 hover:text-white">Golden
-                                                War</a></li>
-                                        <li><a href="#" class="block py-1 text-xs text-gray-400 hover:text-white">Aerospace
-                                                Guidance</a></li>
-                                    </ul>
+                        <!-- VIP Services Column -->
+                        <div>
+                            <h3 class="text-base font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">VIP
+                                Services</h3>
+                            <ul class="space-y-2 text-primary">
+                                <!-- Lifestyle Management -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="vip-services.html#lifestyle">Lifestyle Management Concierge</a>
+                                </li>
+
+                                <!-- Private Investment Advisory -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="vip-services.html#privateinvestment">Private Investment Advisory</a>
+                                </li>
+
+                                <!-- Jet & Yacht Club -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="vip-services.html#jet&clubmembership">Jet & Yacht Club Membership Access</a>
+                                </li>
+
+                                <!-- Legacy Circle Retreat -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="vip-services.html#legacycircle">Annual Invitation to "Legacy Circle" Retreat</a>
+                                </li>
+
+                                <!-- Golden Visa -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="vip-services.html#goldenvisa">Golden Visa</a>
+                                </li>
+
+                                <!-- Mortgage Guidance -->
+                                <li class="hover:text-secondary cursor-pointer">
+                                    <a href="vip-services.html#guidance"> Mortgage Guidance</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <a href="premium-services.html" class="block font-medium hover:text-[#9e9e9e] py-2">About us</a>
-                <a href="contact-us.html" class="block font-medium hover:text-[#9e9e9e] py-2">Contact us</a>
+                <a href="premium-services.html"
+                    class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">About Us</a>
+                <a href="contact-us.html"
+                    class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Contact Us</a>
             </div>
-        </header>
 
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none p-2 ml-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
 
-        <!-- Hero Section Content -->
-        <section class="relative min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-32 lg:pt-40 px-4 sm:px-6 lg:px-8 z-10">
-            <div class="text-center text-white max-w-7xl mx-auto w-full relative z-10">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight font-heading">
-                    Where Vision Meets Ownership
-                </h1>
-                <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-200 max-w-4xl mx-auto px-2 font-subheading">
-                    NIP transforms aspirations into legacy. We don't just help you find property — we help you secure
-                    your place in the world's finest investments.
-                </p>
-                <!-- search form  -->
-                <form action="properties.php" method="GET" class="bg-white p-4 sm:p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-                    <!-- Mobile -->
-                    <div class="block lg:hidden space-y-4">
-                        <input type="text" name="keyword" placeholder="Search by keyword or location"
-                            class="w-full h-12 px-4 border border-secondary rounded-lg focus:outline-none focus:ring-1 focus:ring-secondary text-gray-700" />
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <select name="type" class="w-full h-12 border border-secondary rounded-lg text-secondary bg-white">
-                                <option value="">Property Type</option>
-                                <option>Apartment</option>
-                                <option>Villa</option>
-                                <option>Townhouse</option>
-                            </select>
-                            <select name="price_range" class="w-full h-12 px-4 border border-secondary text-secondary rounded-lg bg-white">
-                                <option value="">All Prices</option>
-                                <option>AED 100k - 500k</option>
-                                <option>AED 500k - 1M</option>
-                                <option>AED 1M+</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="h-12 w-full bg-secondary text-white font-medium px-6 rounded-lg hover:bg-dark transition-colors">
-                            Search
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="lg:hidden hidden bg-black bg-opacity-95 text-white px-4 sm:px-6 py-4 space-y-4 fixed inset-0 z-40 mt-16 sm:mt-20 overflow-y-auto">
+            <div class="container mx-auto">
+                <div class="flex flex-col space-y-6 py-4">
+                    <a href="index.php" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Home</a>
+                    <a href="vip-services.html" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Properties</a>
+                    <a href="#" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Projects</a>
+
+                    <!-- Mobile Dropdown Trigger -->
+                    <div class="border-b border-gray-700 pb-4">
+                        <button id="mobile-nip-approach"
+                            class="w-full flex justify-between items-center font-medium hover:text-[#9e9e9e] py-2">
+                            NIP Approach
+                            <svg id="mobile-nip-arrow" class="w-4 h-4 transform transition-transform duration-200" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
                         </button>
+
+                        <!-- Mobile Dropdown Content -->
+                        <div id="mobile-nip-dropdown" class="hidden pl-4 space-y-4 mt-3">
+                            <!-- Premium Services Section -->
+                            <div class="space-y-3">
+                                <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">Premium Services</h3>
+                                <ul class="space-y-3 pl-2">
+                                    <li>
+                                        <a href="premium-services.html" class="block py-1 text-gray-300 hover:text-white">Smart Home Personalization</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block py-1 text-gray-300 hover:text-white">Concierge Relocation Service</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block py-1 text-gray-300 hover:text-white">Property Valuation</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block py-1 text-gray-300 hover:text-white">Luxury Interior Design Consultant</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block py-1 text-gray-300 hover:text-white">Exclusive Access to Developer Pre-Releases</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- VIP Services Section -->
+                            <div class="space-y-3 pt-2">
+                                <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">VIP Services</h3>
+                                <ul class="space-y-3 pl-2">
+                                    <li>
+                                        <a href="vip-services.html#lifestyle" class="block py-1 text-gray-300 hover:text-white">Lifestyle Management Concierge</a>
+                                    </li>
+                                    <li>
+                                        <a href="vip-services.html#privateinvestment" class="block py-1 text-gray-300 hover:text-white">Private Investment Advisory</a>
+                                    </li>
+                                    <li>
+                                        <a href="vip-services.html#jet&clubmembership" class="block py-1 text-gray-300 hover:text-white">Jet & Yacht Club Membership Access</a>
+                                    </li>
+                                    <li>
+                                        <a href="vip-services.html#legacycircle" class="block py-1 text-gray-300 hover:text-white">Annual Invitation to "Legacy Circle" Retreat</a>
+                                    </li>
+                                    <li>
+                                        <a href="vip-services.html#goldenvisa" class="block py-1 text-gray-300 hover:text-white">Golden Visa</a>
+                                    </li>
+                                    <li>
+                                        <a href="vip-services.html#guidance" class="block py-1 text-gray-300 hover:text-white">Mortgage Guidance</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Desktop -->
-                    <div class="hidden lg:grid lg:grid-cols-5 gap-4 items-center">
-                        <input type="text" name="keyword" placeholder="Search by keyword or location"
-                            class="col-span-2 h-12 px-4 border border-gray-200 rounded-lg focus:ring-primary text-gray-700" />
-                        <select name="type" class="h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                    <a href="premium-services.html" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">About us</a>
+                    <a href="contact-us.html" class="block font-medium hover:text-[#9e9e9e] py-2">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section Content -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-32 lg:pt-40 px-4 sm:px-6 lg:px-8 z-10">
+        <div class="text-center text-white max-w-7xl mx-auto w-full relative z-10">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight font-heading">
+                Where Vision Meets Ownership
+            </h1>
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-200 max-w-4xl mx-auto px-2 font-subheading">
+                NIP transforms aspirations into legacy. We don't just help you find property — we help you secure
+                your place in the world's finest investments.
+            </p>
+            <!-- search form  -->
+            <form action="properties.php" method="GET" class="bg-white p-4 sm:p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+                <!-- Mobile -->
+                <div class="block lg:hidden space-y-4">
+                    <input type="text" name="keyword" placeholder="Search by keyword or location"
+                        class="w-full h-12 px-4 border border-secondary rounded-lg focus:outline-none focus:ring-1 focus:ring-secondary text-gray-700" />
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <select name="type" class="w-full h-12 border border-secondary rounded-lg text-secondary bg-white overflow-hidden">
                             <option value="">Property Type</option>
                             <option>Apartment</option>
                             <option>Villa</option>
                             <option>Townhouse</option>
                         </select>
-                        <select name="price_range" class="h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                        <select name="price_range" class="w-full h-12 px-4 border border-secondary text-secondary rounded-lg bg-white">
                             <option value="">All Prices</option>
                             <option>AED 100k - 500k</option>
                             <option>AED 500k - 1M</option>
                             <option>AED 1M+</option>
                         </select>
-                        <button type="submit" class="h-12 bg-secondary text-white font-medium px-6 rounded-lg hover:bg-dark transition-colors">
-                            Search
+                    </div>
+                    <button type="submit" class="h-12 w-full bg-secondary text-white font-medium px-6 rounded-lg hover:bg-dark transition-colors">
+                        Search
+                    </button>
+                </div>
+
+                <!-- Desktop -->
+                <div class="hidden lg:grid lg:grid-cols-5 gap-4 items-center">
+                    <input type="text" name="keyword" placeholder="Search by keyword or location"
+                        class="col-span-2 h-12 px-4 border border-gray-200 rounded-lg focus:ring-primary text-gray-700" />
+                    <select name="type" class="h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                        <option value="">Property Type</option>
+                        <option>Apartment</option>
+                        <option>Villa</option>
+                        <option>Townhouse</option>
+                    </select>
+                    <select name="price_range" class="h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                        <option value="">All Prices</option>
+                        <option>AED 100k - 500k</option>
+                        <option>AED 500k - 1M</option>
+                        <option>AED 1M+</option>
+                    </select>
+                    <button type="submit" class="h-12 bg-secondary text-white font-medium px-6 rounded-lg hover:bg-dark transition-colors">
+                        Search
+                    </button>
+                </div>
+
+                <!-- Advanced Filters Section (initially hidden) -->
+                <div id="advanced-filters" class="hidden mt-6 pt-6 border-t border-gray-200">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                        <input type="text" name="keyword" placeholder="Keywords"
+                            class="w-full h-12 px-4 pl-10 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
+                        <input type="text" name="location" placeholder="Location"
+                            class="w-full h-12 px-4 pl-10 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
+                        <select name="type" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                            <option value="">Select property type</option>
+                            <option>Apartment</option>
+                            <option>Villa</option>
+                            <option>Townhouse</option>
+                            <option>Penthouse</option>
+                            <option>Studio</option>
+                            <option>Office</option>
+                            <option>Retail</option>
+                            <option>Warehouse</option>
+                        </select>
+                        <select name="community" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                            <option value="">Communities</option>
+                            <option>Downtown Dubai</option>
+                            <option>Dubai Marina</option>
+                            <option>Jumeirah Beach Residence</option>
+                            <option>Business Bay</option>
+                            <option>Dubai Hills Estate</option>
+                            <option>Arabian Ranches</option>
+                            <option>The Springs</option>
+                            <option>Emirates Hills</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button type="submit" name="status" value="" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-secondary transition-colors">
+                            All
+                        </button>
+                        <button type="submit" name="status" value="Ready" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                            Ready
+                        </button>
+                        <button type="submit" name="status" value="Off Plan" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                            Off Plan
                         </button>
                     </div>
 
-                    <!-- Advanced Filters Section (initially hidden) -->
-                    <div id="advanced-filters" class="hidden mt-6 pt-6 border-t border-gray-200">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                            <input type="text" name="keyword" placeholder="Keywords"
-                                class="w-full h-12 px-4 pl-10 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
-                            <input type="text" name="location" placeholder="Location"
-                                class="w-full h-12 px-4 pl-10 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
-                            <select name="type" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                                <option value="">Select property type</option>
-                                <option>Apartment</option>
-                                <option>Villa</option>
-                                <option>Townhouse</option>
-                                <option>Penthouse</option>
-                                <option>Studio</option>
-                                <option>Office</option>
-                                <option>Retail</option>
-                                <option>Warehouse</option>
-                            </select>
-                            <select name="community" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                                <option value="">Communities</option>
-                                <option>Downtown Dubai</option>
-                                <option>Dubai Marina</option>
-                                <option>Jumeirah Beach Residence</option>
-                                <option>Business Bay</option>
-                                <option>Dubai Hills Estate</option>
-                                <option>Arabian Ranches</option>
-                                <option>The Springs</option>
-                                <option>Emirates Hills</option>
-                            </select>
-                        </div>
-
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <button type="submit" name="status" value="" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-secondary transition-colors">
-                                All
-                            </button>
-                            <button type="submit" name="status" value="Ready" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                                Ready
-                            </button>
-                            <button type="submit" name="status" value="Off Plan" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                                Off Plan
-                            </button>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                            <select name="bedrooms" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                                <option value="">Bedroom</option>
-                                <option>Studio</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6+</option>
-                            </select>
-                            <select name="bathrooms" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                                <option value="">Bathroom</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6+</option>
-                            </select>
-                            <input type="text" name="min_price" placeholder="Min. price"
-                                class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                            <input type="text" name="max_price" placeholder="Max. price"
-                                class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                        </div>
-
-                        <div class="flex justify-center">
-                            <button type="submit" class="h-12 bg-secondary text-white font-medium px-8 rounded-lg hover:bg-primary transition-colors">
-                                Find My Home
-                            </button>
-                        </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                        <select name="bedrooms" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                            <option value="">Bedroom</option>
+                            <option>Studio</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6+</option>
+                        </select>
+                        <select name="bathrooms" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                            <option value="">Bathroom</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6+</option>
+                        </select>
+                        <input type="text" name="min_price" placeholder="Min. price"
+                            class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                        <input type="text" name="max_price" placeholder="Max. price"
+                            class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
                     </div>
 
-                    <!-- Toggle Advanced Filters -->
-                    <div class="mt-4 text-center">
-                        <button type="button" id="advanced-toggle"
-                            class="text-primary hover:bg-secondary font-medium text-sm flex items-center justify-center mx-auto p-1">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
-                            </svg>
-                            Advanced Filters
+                    <div class="flex justify-center">
+                        <button type="submit" class="h-12 bg-secondary text-white font-medium px-8 rounded-lg hover:bg-primary transition-colors">
+                            Find My Home
                         </button>
                     </div>
-                </form>
+                </div>
 
-            </div>
-        </section>
-    </div>
+                <!-- Toggle Advanced Filters -->
+                <div class="mt-4 text-center">
+                    <button type="button" id="advanced-toggle"
+                        class="text-primary hover:bg-secondary font-medium text-sm flex items-center justify-center mx-auto p-1">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                        </svg>
+                        Advanced Filters
+                    </button>
+                </div>
+            </form>
 
-    <!-- Features Section -->
+        </div>
+    </section>
+</div>
+
+  <!-- Features Section -->
     <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -2016,47 +2005,154 @@
         }
     </style>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+<script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+    mobileMenuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // NIP Approach dropdown toggle for mobile
+    const mobileNipButton = document.getElementById('mobile-nip-approach');
+    const mobileNipDropdown = document.getElementById('mobile-nip-dropdown');
+    const mobileNipArrow = document.getElementById('mobile-nip-arrow');
+
+    mobileNipButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileNipDropdown.classList.toggle('hidden');
+        mobileNipArrow.classList.toggle('rotate-180');
+    });
+
+    // Close dropdown when clicking empty space inside mobile menu
+    mobileMenu.addEventListener('click', (e) => {
+        // Check if click is on empty space (directly on the menu container)
+        if (e.target === mobileMenu) {
+            mobileMenu.classList.add('hidden');
+            if (mobileNipDropdown) {
+                mobileNipDropdown.classList.add('hidden');
+                mobileNipArrow.classList.remove('rotate-180');
+            }
+        }
+    });
+
+    // Close menus when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+            mobileMenu.classList.add('hidden');
+        }
+        
+        if (mobileNipDropdown && !mobileNipDropdown.contains(e.target) && e.target !== mobileNipButton) {
+            mobileNipDropdown.classList.add('hidden');
+            mobileNipArrow.classList.remove('rotate-180');
+        }
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            if (mobileNipDropdown) {
+                mobileNipDropdown.classList.add('hidden');
+                mobileNipArrow.classList.remove('rotate-180');
+            }
+        });
+    });
+
+    // Stop propagation for clicks inside dropdowns
+    if (mobileNipDropdown) {
+        mobileNipDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+
+      // Advanced Filters Toggle
+        document.getElementById('advanced-toggle').addEventListener('click', function () {
+            const filters = document.getElementById('advanced-filters');
+            filters.classList.toggle('hidden');
+
+            const buttonText = filters.classList.contains('hidden') ? 'Advanced Filters' : 'Hide Filters';
+            this.innerHTML = this.innerHTML.replace(/Advanced Filters|Hide Filters/, buttonText);
         });
 
-        // NIP Approach dropdown toggle for mobile
-        const mobileNipButton = document.getElementById('mobile-nip-approach');
-        const mobileNipDropdown = document.getElementById('mobile-nip-dropdown');
-        const mobileNipArrow = document.getElementById('mobile-nip-arrow');
+        // Navbar scroll effect - Trigger after 90% of viewport height
+        window.addEventListener("scroll", () => {
+            const navbar = document.getElementById("navbar");
+            const scrollPosition = window.scrollY;
 
-        mobileNipButton.addEventListener('click', () => {
-            mobileNipDropdown.classList.toggle('hidden');
-            mobileNipArrow.classList.toggle('rotate-180');
+            if (scrollPosition >= window.innerHeight * 0.6) {
+                navbar.classList.remove("bg-transparent");
+                navbar.style.background = "linear-gradient(135deg, rgba(14, 19, 25, 0.8), rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8), rgba(44, 83, 100, 0.9))";
+            } else {
+                navbar.classList.add("bg-transparent");
+                navbar.style.background = "transparent";
+            }
         });
 
-        // Nested dropdown toggles for mobile
-        document.querySelectorAll('#mobile-nip-dropdown button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const ul = button.parentElement.querySelector('ul');
-                const svg = button.querySelector('svg');
 
-                if (ul && svg) {
-                    ul.classList.toggle('hidden');
-                    svg.classList.toggle('rotate-180');
+
+        // Counter animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".counter");
+            const activeAnimations = new Map();
+
+            const startCounting = (counter) => {
+                const target = +counter.getAttribute("data-target");
+                let count = 0;
+                const speed = 30;
+
+                if (activeAnimations.has(counter)) {
+                    clearTimeout(activeAnimations.get(counter));
                 }
-            });
-        });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                const updateCount = () => {
+                    const increment = Math.ceil(target / speed);
+                    if (count < target) {
+                        count += increment;
+                        counter.innerText = count > target ? target : count;
+                        const timeoutId = setTimeout(updateCount, 30);
+                        activeAnimations.set(counter, timeoutId);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                        activeAnimations.delete(counter);
+                    }
+                };
+                updateCount();
+            };
+
+            const resetCounter = (counter) => {
+                if (activeAnimations.has(counter)) {
+                    clearTimeout(activeAnimations.get(counter));
+                    activeAnimations.delete(counter);
+                }
+                counter.innerText = "0";
+            };
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const counter = entry.target;
+                    if (entry.isIntersecting) {
+                        startCounting(counter);
+                    } else {
+                        resetCounter(counter);
+                    }
+                });
+            }, {
+                threshold: 0.5,
+                rootMargin: '0px 0px -10% 0px'
+            });
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+                counter.innerText = "0";
             });
         });
-    </script>
-    <script src="script.js"></script>
+  
+</script>
+
 </body>
 
 </html>

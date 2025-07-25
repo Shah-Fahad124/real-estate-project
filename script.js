@@ -84,10 +84,7 @@
 
     // <!-- JS TOGGLE SCRIPT -->
 
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+        // Removed duplicate mobile menu toggle code. Handled in index.php inline script.
   
     // <!-- testimonial-content -->
    

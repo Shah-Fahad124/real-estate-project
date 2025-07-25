@@ -80,12 +80,12 @@
                                 <ul class="space-y-2 text-primary">
                                     <!-- Smart Home Personalization -->
                                     <li class="hover:text-secondary cursor-pointer">
-                                        <a href="premium-services.html">smart home Personalization</a>
+                                        <a href="">smart home Personalization</a>
                                     </li>
 
                                     <!-- Concierge Relocation Service -->
                                     <li class="hover:text-secondary cursor-pointer">
-                                        <a href="">Concierge Relocation Service</a>
+                                        Concierge Relocation Service
                                     </li>
 
                                     <!-- Property Valuation -->

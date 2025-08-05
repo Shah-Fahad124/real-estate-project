@@ -2,6 +2,8 @@
 <?php include './components/head.php' ?>
 <?php include './components/header.php' ?>
 <?php include './components/sidebar.php' ?>
+<?php include './components/sweet-alert.php' ?>
+
 
 
 
@@ -43,12 +45,14 @@
                             <div class="form-group col-lg-6">
                                 <label class="form-label font-weight-bold">Property Type</label>
                                 <select class="form-control form-control-lg" name="type" required>
-                                    <option value="" disabled selected>Select Type</option>
                                     <option value="Apartment">Apartment</option>
-                                    <option value="Apartment">Vila</option>
-                                    <option value="House">House</option>
-                                    <option value="Commercial">Commercial</option>
-                                    <option value="Plot">Plot</option>
+                                    <option value="Villa">Villa</option>
+                                    <option value="Townhouse">Townhouse</option>
+                                    <option value="Penthouse">Penthouse</option>
+                                    <option value="Studio">Studio</option>
+                                    <option value="Office">Office</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Warehouse">Warehouse</option>
                                 </select>
                             </div>
 
@@ -58,7 +62,7 @@
                                 <input class="form-control form-control-lg" type="text" name="location" required>
                             </div>
                         </div>
-                           <div class="row">
+                        <div class="row">
                             <!-- Price -->
                             <div class="form-group col-lg-6">
                                 <label class="form-label font-weight-bold">Price</label>
@@ -93,7 +97,7 @@
                             </div>
                         </div>
 
-                     
+
                         <div class="row">
                             <!-- Area Select -->
                             <div class="form-group col-lg-6">
@@ -113,8 +117,8 @@
                                 <label class="form-label font-weight-bold">Featured</label>
                                 <select class="form-control form-control-lg" name="featured" required>
                                     <option value="" disabled selected>Select</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
                                 </select>
                             </div>
 

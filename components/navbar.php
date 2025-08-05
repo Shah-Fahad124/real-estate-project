@@ -124,8 +124,10 @@
           <div class="container mx-auto">
               <div class="flex flex-col space-y-6 py-4">
                   <a href="index.php" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Home</a>
-                  <a href="vip-services.html" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Properties</a>
+                  <a href="properties.php" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Sale</a>
                   <a href="#" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Projects</a>
+                  <a href="developers.php" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Developers</a>
+                  <a href="area-page.php" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">Areas</a>
 
                   <!-- Mobile Dropdown Trigger -->
                   <div class="border-b border-gray-700 pb-4">
@@ -189,8 +191,8 @@
                       </div>
                   </div>
 
-                  <a href="premium-services.html" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">About us</a>
-                  <a href="contact-us.html" class="block font-medium hover:text-[#9e9e9e] py-2">Contact us</a>
+                  <a href="about-us.php" class="block font-medium hover:text-[#9e9e9e] py-2 border-b border-gray-700 pb-4">About us</a>
+                  <a href="contact-us.php" class="block font-medium hover:text-[#9e9e9e] py-2">Contact us</a>
               </div>
           </div>
       </div>

@@ -49,17 +49,17 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <body class="bg-white font-body">
     <!-- Hero Wrapper with Background Image -->
-    <div class="bg-cover bg-center min-h-screen relative"
+    <div class="bg-cover bg-center min-h-[80%] md:min-h-screen relative"
         style="background-image: url('assets/images/hero-slider-img.jpg');">
 
         <!-- Black Overlay -->
         <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
 
         <!-- Navbar -->
-      <?php include "./components/navbar.php"; ?>
+        <?php include "./components/navbar.php"; ?>
 
         <!-- Hero Section Content -->
-        <section class="relative min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-32 lg:pt-40 px-4 sm:px-6 lg:px-8 z-10">
+        <section class="relative min-h-[80vh] md:min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-32 lg:pt-40 px-4 sm:px-6 lg:px-8 z-10">
             <div class="text-center text-white max-w-7xl mx-auto w-full relative z-10">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight font-heading">
                     Where Vision Meets Ownership
@@ -68,8 +68,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     NIP transforms aspirations into legacy. We don't just help you find property — we help you secure
                     your place in the world's finest investments.
                 </p>
-                <form action="properties.php" method="GET" class="bg-white p-4 sm:p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-
+                <form action="properties.php" method="GET" class="bg-white p-4 sm:p-6 rounded-lg shadow-lg max-w-4xl mx-auto" style="margin-bottom: 30px !important;">
                     <!-- Mobile -->
                     <div class="block lg:hidden space-y-4">
                         <input type="text" name="keyword" placeholder="Search by keyword or location"
@@ -80,6 +79,11 @@ while ($row = mysqli_fetch_assoc($result)) {
                                 <option value="Apartment">Apartment</option>
                                 <option value="Villa">Villa</option>
                                 <option value="Townhouse">Townhouse</option>
+                                <option value="Penthouse">Penthouse</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Office">Office</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Warehouse">Warehouse</option>
                             </select>
                             <select name="price_range" class="w-full h-12 px-4 border border-secondary text-secondary rounded-lg bg-white">
                                 <option value="">All Prices</option>
@@ -95,14 +99,19 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                     <!-- Desktop -->
                     <div class="hidden lg:grid lg:grid-cols-5 gap-4 items-center">
-                        <input type="text" name="keyword" placeholder="Search by keyword or location"
+                        <input type="text" name="keyword" placeholder="Search by keyword"
                             class="col-span-2 h-12 px-4 border border-gray-200 rounded-lg focus:ring-primary text-gray-700" />
-                        <select name="type" class="h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                            <option value="">Property Type</option>
-                            <option value="Apartment">Apartment</option>
-                            <option value="Villa">Villa</option>
-                            <option value="Townhouse">Townhouse</option>
-                        </select>
+                       <select name="type" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                                <option value="">Property type</option>
+                                <option value="Apartment">Apartment</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Townhouse">Townhouse</option>
+                                <option value="Penthouse">Penthouse</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Office">Office</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Warehouse">Warehouse</option>
+                            </select>
                         <select name="price_range" class="h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
                             <option value="">All Prices</option>
                             <option value="AED 100k - 500k">AED 100k - 500k</option>
@@ -115,13 +124,11 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </div>
 
                     <!-- Advanced Filters Section -->
-                    <div id="advanced-filters" class="hidden mt-6 pt-6 border-t border-gray-200">
+                    <div id="advanced-filters" class="hidden pt-6 border-gray-200">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                            <!-- <input type="text" name="keyword" placeholder="Keywords"
-                                class="w-full h-12 px-4 pl-10 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white"> -->
                             <input type="text" name="location" placeholder="Location"
                                 class="w-full h-12 px-4 pl-10 border border-gray-200 rounded-lg focus:ring-1 focus:ring-primary text-gray-700 bg-white">
-                            <select name="type" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                            <!-- <select name="type" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
                                 <option value="">Select property type</option>
                                 <option value="Apartment">Apartment</option>
                                 <option value="Villa">Villa</option>
@@ -131,7 +138,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                 <option value="Office">Office</option>
                                 <option value="Retail">Retail</option>
                                 <option value="Warehouse">Warehouse</option>
-                            </select>
+                            </select> -->
                             <select name="community" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
                                 <option value="">Communities</option>
                                 <option value="Downtown Dubai">Downtown Dubai</option>
@@ -570,24 +577,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <img src="./admin/assets/images/<?php echo $developer['logo'] ?>" alt="developer logo" class="h-20 object-contain">
                     </a>
                 <?php } ?>
-                <!-- <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo2.jpg" alt="Brand 2" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo3.jpg" alt="Brand 3" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo4.jpg" alt="Brand 4" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo5.jpg" alt="Brand 5" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo6.jpg" alt="Brand 6" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo7.jpg" alt="Brand 7" class="h-20 object-contain">
-                </div> -->
+
             </div>
             <!-- Duplicate for seamless loop -->
             <div class="flex gap-6">
@@ -596,27 +586,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <img src="./admin/assets/images/<?php echo $developer['logo'] ?>" alt="developer logo" class="h-20 object-contain">
                     </a>
                 <?php } ?>
-                <!-- <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo1.jpg" alt="Brand 1" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo2.jpg" alt="Brand 2" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo3.jpg" alt="Brand 3" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo4.jpg" alt="Brand 4" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo5.jpg" alt="Brand 5" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo6.jpg" alt="Brand 6" class="h-20 object-contain">
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-4 w-40 h-32 flex items-center justify-center">
-                    <img src="assets/images/slider-logo7.jpg" alt="Brand 7" class="h-20 object-contain">
-                </div> -->
             </div>
         </div>
     </section>
@@ -1202,7 +1171,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
     </section>
 
-   <?php include './components/footer.php'  ?>
+    <?php include './components/footer.php'  ?>
 
 
     <style>
@@ -1217,16 +1186,15 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     </style>
 
-    <script>    
-    
-      // Advanced Filters Toggle
-      document.getElementById('advanced-toggle').addEventListener('click', function() {
-          const filters = document.getElementById('advanced-filters');
-          filters.classList.toggle('hidden');
+    <script>
+        // Advanced Filters Toggle
+        document.getElementById('advanced-toggle').addEventListener('click', function() {
+            const filters = document.getElementById('advanced-filters');
+            filters.classList.toggle('hidden');
 
-          const buttonText = filters.classList.contains('hidden') ? 'Advanced Filters' : 'Hide Filters';
-          this.innerHTML = this.innerHTML.replace(/Advanced Filters|Hide Filters/, buttonText);
-      });
+            const buttonText = filters.classList.contains('hidden') ? 'Advanced Filters' : 'Hide Filters';
+            this.innerHTML = this.innerHTML.replace(/Advanced Filters|Hide Filters/, buttonText);
+        });
 
         // Counter animation
         document.addEventListener("DOMContentLoaded", () => {

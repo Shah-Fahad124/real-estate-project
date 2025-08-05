@@ -1,4 +1,4 @@
-
+<?php include './auth/security.php'; ?>
 	<body class="app ">
 	
 		<!--app open-->

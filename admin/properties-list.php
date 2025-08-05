@@ -3,6 +3,7 @@ include './auth/connection.php';
 include './components/head.php';
 include './components/header.php';
 include './components/sidebar.php';
+include './components/sweet-alert.php';
 ?>
 
 <div class="app-content">

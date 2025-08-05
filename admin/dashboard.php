@@ -2,6 +2,8 @@
 <?php include './components/head.php' ?>
 <?php include './components/header.php' ?>
 <?php include './components/sidebar.php' ?>
+<?php include './components/sweet-alert.php' ?>
+
 
 <?php
 // SweetAlert for messages

@@ -60,7 +60,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <div class="bg-black bg-opacity-70 absolute inset-0 w-full h-full z-2"></div>
     </section>
 
-    <section class="flex flex-col justify-center item-center py-8 font-body">
+    <section class="flex flex-col justify-center item-center pt-8 font-body">
         <div
             class="w-[80vw] border border-gray-200 rounded-lg mx-auto shadow-md px-4 py-5 flex flex-col gap-5 max-w-6xl mt-5">
             <h1 class="font-heading text-xl font-bold px-4">Explore Dubai's Top Areas</h1>
@@ -76,12 +76,12 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
 
   <!-- Cards Grid Section -->
-<div id="area-cards" class="cards-container container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 py-12 mx-auto max-w-6xl">
+<div id="area-cards" class="cards-container container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 pt-12 mx-auto max-w-6xl">
     <!-- Cards will load here -->
 </div>
 
 <!-- Load More Button -->
-<div class="w-full flex justify-center mb-10">
+<div class="w-full flex justify-center py-5">
     <button id="loadMoreBtn" class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">
         Load More
     </button>

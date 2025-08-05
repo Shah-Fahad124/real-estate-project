@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $purpose     = mysqli_real_escape_string($conn, $_POST['purpose']);
     $type        = mysqli_real_escape_string($conn, $_POST['type']);
     $location    = mysqli_real_escape_string($conn, $_POST['location']);
-    $featured    = mysqli_real_escape_string($conn, $_POST['featured']);
+    $featured    = (int)$_POST['featured'];
     $bedrooms    = (int)$_POST['bedrooms'];
     $bathrooms   = (int)$_POST['bathrooms'];
     $area_sqft   = (int)$_POST['area_sqft'];
@@ -58,6 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 } else {
-    echo "Invalid request method.";
+      header("Location: " . $_SERVER['HTTP_REFERER']);
 }
 ?>

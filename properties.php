@@ -82,11 +82,8 @@
     <!-- hero section with Search Filters -->
     <section class="relative w-full">
         <!-- Hero Section -->
-        <section class="h-[50vh] md:h-[60vh] lg:h-[90vh] flex items-center relative"
+        <section class="h-[90vh] md:h-[100vh] lg:h-[90vh] flex items-center relative"
             style="background:url('assets/images/Jumeirah\ Golf\ Estates.jpg'); background-repeat: no-repeat;background-size: cover;background-position: bottom;">
-            <!-- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white z-10 mb-10">
-                <h1 class="text-[2rem] md:text-[3rem] lg:text-[4rem] font-medium  font-heading">Properties</h1>
-            </div> -->
             <div class="bg-black bg-opacity-70 absolute inset-0 w-full h-full z-2"></div>
 
 
@@ -112,9 +109,14 @@
                         <label class="font-semibold font-body text-dark">Type</label>
                         <select name="type" class="w-full px-4 py-3 border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-body">
                             <option value="">-- Select --</option>
-                            <option value="Villa" <?= (($_GET['type'] ?? '') == 'Villa') ? 'selected' : '' ?>>Villa</option>
                             <option value="Apartment" <?= (($_GET['type'] ?? '') == 'Apartment') ? 'selected' : '' ?>>Apartment</option>
+                            <option value="Villa" <?= (($_GET['type'] ?? '') == 'Villa') ? 'selected' : '' ?>>Villa</option>
+                            <option value="Townhouse" <?= (($_GET['type'] ?? '') == 'Townhouse') ? 'selected' : '' ?>>Townhouse</option>
                             <option value="Penthouse" <?= (($_GET['type'] ?? '') == 'Penthouse') ? 'selected' : '' ?>>Penthouse</option>
+                            <option value="Studio" <?= (($_GET['type'] ?? '') == 'Studio') ? 'selected' : '' ?>>Studio</option>
+                            <option value="Office" <?= (($_GET['type'] ?? '') == 'Office') ? 'selected' : '' ?>>Office</option>
+                            <option value="Retail" <?= (($_GET['type'] ?? '') == 'Retail') ? 'selected' : '' ?>>Retail</option>
+                            <option value="Warehouse" <?= (($_GET['type'] ?? '') == 'Warehouse') ? 'selected' : '' ?>>Warehouse</option>
                         </select>
                     </div>
 
@@ -137,7 +139,7 @@
 
                 <!-- Advanced Filters -->
                 <div id="advanced-options" class="mt-6 hidden transition-all">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-3 gap-6">
                         <!-- Price Range -->
                         <div>
                             <label class="font-semibold font-body text-dark mb-2 block">Price Range</label>
@@ -311,7 +313,7 @@
 
 
     <section class="cards py-10">
-        <div class="w-[80%] mx-auto grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div class="w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
             <?php if (mysqli_num_rows($result) === 0): ?>
                 <div class="col-span-full text-center">
                     <h2 class="text-3xl font-bold text-gray-800">No Properties Found</h2>

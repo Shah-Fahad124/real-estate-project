@@ -3,6 +3,8 @@ include './auth/connection.php';
 include './components/head.php';
 include './components/header.php';
 include './components/sidebar.php';
+<?php include './components/sweet-alert.php' ?>
+
 
 if (!isset($_GET['id'])) {
     die("No property selected for update.");

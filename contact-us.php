@@ -11,15 +11,19 @@
         rel="stylesheet">
     <!-- CSS for country dropdown -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/css/intlTelInput.css" />
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- recaptcha  -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0E1319',     // Dark blue
-                        secondary: '#9E9E9E',   // Silver/gray
-                        dark: '#505050',        // Very dark blue
-                        light: '#D3D3D3'        // Light gray/white
+                        primary: '#0E1319', // Dark blue
+                        secondary: '#9E9E9E', // Silver/gray
+                        dark: '#505050', // Very dark blue
+                        light: '#D3D3D3' // Light gray/white
                     },
                     fontFamily: {
                         heading: ['Agatho', 'Cormorant Garamond', 'serif'],
@@ -32,10 +36,10 @@
     </script>
 
 </head>
-
 <body class="font-body">
     <!-- navbar -->
-   <?php include 'components/navbar.php'; ?>
+    <?php include 'components/navbar.php'; ?>
+    <?php include './admin/components/sweet-alert.php'; ?>
 
 
 
@@ -141,24 +145,16 @@
                     </h2>
 
                     <!-- Contact Form -->
-                    <form class="space-y-6">
+                    <form action="contact-process.php" method="POST" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="col-span-2">
                                 <label for="firstName" class="block text-sm font-medium text-dark mb-2 font-body">
                                     Full Name *
                                 </label>
-                                <input type="text" id="firstName" name="firstName" required
+                                <input type="text" id="firstName" name="name" required
                                     class="w-full px-4 py-3 border border-light rounded-lg focus:border-light font-body"
-                                    placeholder="Enter your first name">
+                                    placeholder="Enter your full name">
                             </div>
-                            <!-- <div>
-                                <label for="lastName" class="block text-sm font-medium text-dark mb-2 font-body">
-                                    Last Name *
-                                </label>
-                                <input type="text" id="lastName" name="lastName" required
-                                    class="w-full px-4 py-3 border border-light rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 font-body"
-                                    placeholder="Enter your last name">
-                            </div> -->
                         </div>
                         <div class="flex gap-3">
                             <div class="flex-1">
@@ -170,32 +166,16 @@
                                     placeholder="Enter your email address">
                             </div>
 
-                            <!-- <div class="flex-1">
-                                <label for="phone" class="block text-sm font-medium text-dark mb-2 font-body">
-                                    Phone Number *
-                                </label>
-                                <input type="tel" id="phone" name="phone"
-                                    class="w-full px-4 py-3 border border-light rounded-lg  transition-all duration-300 font-body"
-                                    placeholder="Enter your phone number">
-                            </div> -->
                             <div class="flex-1">
                                 <label for="phone" class="block text-sm font-medium text-dark mb-2 font-body">
                                     Phone Number *
                                 </label>
-                                <input id="phone" type="tel"
+                                <input id="phone" name="phone_no" type="tel" required
                                     class="w-full px-4 py-3 border border-light rounded-lg  transition-all duration-300 font-body">
+                                    <input type="hidden" name="full_phone" id="full_phone">
+
                             </div>
-
                         </div>
-
-                        <!-- <div>
-                            <label for="subject" class="block text-sm font-medium text-dark mb-2 font-body">
-                                Subject *
-                            </label>
-                            <input type="text" id="subject" name="subject" required
-                                class="w-full px-4 py-3 border border-light rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 font-body"
-                                placeholder="Enter the subject">
-                        </div> -->
 
                         <div>
                             <label for="message" class="block text-sm font-medium text-dark mb-2 font-body">
@@ -205,7 +185,8 @@
                                 class="w-full px-4 py-3 border border-light rounded-lg transition-all duration-300 resize-none font-body"
                                 placeholder="Enter your message here..."></textarea>
                         </div>
-                        <div class="g-recaptcha mb-4" data-sitekey="YOUR_SITE_KEY"></div>
+
+                        <div class="g-recaptcha mb-4" data-sitekey="6LcORpsrAAAAACoibpl9reRCkhoYkzLY1iTd5krt"></div>
 
                         <button type="submit"
                             class="w-full bg-primary text-white py-4 px-6 rounded-lg font-semibold hover:bg-secondary font-body">
@@ -218,7 +199,7 @@
     </main>
 
     <!-- Map Section -->
-    <section class="py-12 ">
+    <section class="pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
                 <div class="h-96 md:h-[500px] lg:h-[600px] relative">
@@ -250,63 +231,42 @@
         </div>
     </section>
 
+    <style>
+.iti__country-list {
+    width: 300px !important;
+    left: 0 !important;     
+    transform: translateX(0%) !important;
+    scrollbar-width: none;
+
+}
+</style>
     <!-- Footer -->
     <?php include 'components/footer.php'; ?>
 
-    <script>
-        // Form submission handling
-        document.querySelector('form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            // Simple validation
-            if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-
-            // Simulate form submission
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Add smooth scrolling for any anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
-    <!-- recaptcha  -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
     <!-- JS for countories dropdown -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/intlTelInput.min.js"></script>
-    <script>
-        const phoneInput = document.querySelector("#phone");
-        window.intlTelInput(phoneInput, {
-            initialCountry: "auto",
-            geoIpLookup: function (callback) {
-                fetch('https://ipapi.co/json')
-                    .then(res => res.json())
-                    .then(data => callback(data.country_code))
-                    .catch(() => callback('us'));
-            },
-            separateDialCode: true,
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/utils.js",
-        });
-    </script>
+<script>
+    const phoneInput = document.querySelector("#phone");
+    const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "ae", // United Arab Emirates
+        geoIpLookup: function(callback) {
+            fetch('https://ipapi.co/json')
+                .then(res => res.json())
+                .then(data => callback(data.country_code))
+                .catch(() => callback('ae'));
+        },
+        separateDialCode: true,
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/utils.js",
+    });
+
+    // Before form submit, set the full international number in hidden input
+    const form = document.querySelector("form"); // or your form ID
+    form.addEventListener("submit", function () {
+        document.querySelector("#full_phone").value = iti.getNumber();
+    });
+</script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

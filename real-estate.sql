@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2025 at 12:13 PM
+-- Generation Time: Aug 06, 2025 at 09:24 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,8 +63,41 @@ INSERT INTO `areas` (`id`, `image`, `name`, `description`) VALUES
 (3, 'Business Bay.jpg', 'Business Bay', 'Business Bay Business Bay Business Bay'),
 (4, 'dubaimarina.jfif', 'Dubai Marina', 'Dubai Marina Dubai Marina Dubai Marina'),
 (5, 'dubaicreekharbouremaardubai.jpeg', 'Dubai Creek Harbour', 'Dubai Creek Harbour Dubai Creek Harbour Dubai Creek Harbour'),
-(6, 'bluewatersislanddubai.jpg', 'Bluewaters Island', 'Bluewaters Island Bluewaters Island Bluewaters Island'),
-(7, 'blog-image2.webp', 'dubai', 'skdf sdkalf salksdajflsadf');
+(6, 'bluewatersislanddubai.jpg', 'Bluewaters Island', 'Bluewaters Island Bluewaters Island Bluewaters Island');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `id` int(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone_no` varchar(100) NOT NULL,
+  `message` varchar(100) DEFAULT 'nill',
+  `lang` varchar(100) DEFAULT 'nill'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `name`, `email`, `phone_no`, `message`, `lang`) VALUES
+(1, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '03309520278', 'testing', NULL),
+(2, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '03309520278', 'fsadf', NULL),
+(3, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '3309520278', 'sdafsa', NULL),
+(4, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '+9713309520278', 'sdfasfasf', NULL),
+(5, 'aaa', 'www.fahadkhan00087@gmail.com', '03309520278', '', ''),
+(6, 'sdfsa', 'www.fahadkhan00087@gmail.com', '3309520278', '', 'arabic'),
+(7, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '03309520278', '', ''),
+(8, 'fffff', 'fffffffffffffff@gmail.com', '', '', 'urdu'),
+(10, 'bbb', 'www.fahadkhan00087@gmail.com', '+9713309520278', '', 'urdu'),
+(11, 'abab', 'www.fahadkhan00087@gmail.com', '+9713309520278', '', 'hindi'),
+(12, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '+9713309520278', '', 'arabic'),
+(13, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '+9713309520278', '', 'arabic'),
+(14, 'Shah Fahad', 'www.fahadkhan00087@gmail.com', '+9713309520278', 'nill', 'hindi');
 
 -- --------------------------------------------------------
 
@@ -122,7 +155,8 @@ INSERT INTO `properties` (`id`, `title`, `desc`, `type`, `purpose`, `location`, 
 (1, 'Heritage Building', 'Quam et qui corrupti sunt amet iusto sunt. Et quod dolore laudantium voluptatem sit possimus aperiam. Autem consequatur dolore ipsam optio vel dolorem inventore hic nihil accusantium facilis ipsam. Aut et aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'Apartment', 'For Sale', 'Dubai, UAE', 2, 2, 1212, 950000.00, '1753954551_third-sec-card1-img.jpg', 0, 1, '2025-07-31 09:35:51'),
 (2, 'Modern Villa', 'Quam et qui corrupti sunt amet iusto sunt. Et quod dolore laudantium voluptatem sit possimus aperiam. Autem consequatur dolore ipsam optio vel dolorem inventore hic nihil accusantium facilis ipsam. Aut et aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'Apartment', 'For Rent', 'Abu Dhabi, UAE', 4, 3, 2323, 1250000.00, '1753954767_third-sec-card2-img.jpg', 0, 2, '2025-07-31 09:39:27'),
 (3, 'Luxury Penthouse', 'Quam et qui corrupti sunt amet iusto sunt. Et quod dolore laudantium voluptatem sit possimus aperiam. Autem consequatur dolore ipsam optio vel dolorem inventore hic nihil accusantium facilis ipsam. Aut et aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'House', 'For Sale', 'Downtown Dubai, UAE', 4, 2, 34324, 468000.00, '1753954844_third-sec-card3-img.jpg', 0, 3, '2025-07-31 09:40:44'),
-(5, 'Luxury Penthouse', 'Quam et qui corrupti sunt amet iusto sunt. Et quod dolore laudantium voluptatem sit possimus aperiam. Autem consequatur dolore ipsam optio vel dolorem inventore hic nihil accusantium facilis ipsam. Aut et aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'Commercial', 'For Sale', 'Downtown Dubai, UAE', 5, 5, 555555, 555555555.00, '1753977420_blog-image3.webp', 0, 2, '2025-07-31 15:57:00');
+(5, 'Luxury Penthouse', 'Quam et qui corrupti sunt amet iusto sunt. Et quod dolore laudantium voluptatem sit possimus aperiam. Autem consequatur dolore ipsam optio vel dolorem inventore hic nihil accusantium facilis ipsam. Aut et aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut aut.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'Commercial', 'For Sale', 'Downtown Dubai, UAE', 5, 5, 555555, 555555555.00, '1753977420_blog-image3.webp', 0, 2, '2025-07-31 15:57:00'),
+(9, 'Luxury house', 'vxfxvd dfsgfdg dfgdsfg df', 'Office', 'For Rent', 'Downtown Dubai, UAE', 2, 2, 2423, 10000.00, '1754379655_download.jpeg', 1, 2, '2025-08-05 07:40:55');
 
 -- --------------------------------------------------------
 
@@ -148,7 +182,9 @@ INSERT INTO `property_developers` (`id`, `property_id`, `developer_id`) VALUES
 (8, 5, 1),
 (9, 5, 2),
 (10, 5, 3),
-(11, 5, 4);
+(11, 5, 4),
+(20, 9, 2),
+(21, 9, 4);
 
 --
 -- Indexes for dumped tables
@@ -164,6 +200,12 @@ ALTER TABLE `admin`
 -- Indexes for table `areas`
 --
 ALTER TABLE `areas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -200,7 +242,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `areas`
 --
 ALTER TABLE `areas`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `developers`
@@ -212,13 +260,13 @@ ALTER TABLE `developers`
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `property_developers`
 --
 ALTER TABLE `property_developers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables

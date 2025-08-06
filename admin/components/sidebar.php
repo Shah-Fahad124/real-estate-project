@@ -40,6 +40,9 @@
   			<li>
   				<a class="side-menu__item" href="properties-list.php"><span class="side-menu__label">Properties List</span></a>
   			</li>
+  			<li>
+  				<a class="side-menu__item" href="contact-list.php"><span class="side-menu__label">Contact List</span></a>
+  			</li>
 			<li>
   				<a class="side-menu__item" href="./auth/logout.php">
   					<span class="side-menu__label">Logout</span>

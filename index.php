@@ -35,6 +35,9 @@
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/css/intlTelInput.css">
+       <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <?php
 include "./admin/auth/connection.php";
@@ -46,7 +49,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 ?>
-
+<?php include './admin/components/sweet-alert.php'; ?>
 <body class="bg-white font-body">
     <!-- Hero Wrapper with Background Image -->
     <div class="bg-cover bg-center min-h-[80%] md:min-h-screen relative"
@@ -101,17 +104,17 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <div class="hidden lg:grid lg:grid-cols-5 gap-4 items-center">
                         <input type="text" name="keyword" placeholder="Search by keyword"
                             class="col-span-2 h-12 px-4 border border-gray-200 rounded-lg focus:ring-primary text-gray-700" />
-                       <select name="type" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
-                                <option value="">Property type</option>
-                                <option value="Apartment">Apartment</option>
-                                <option value="Villa">Villa</option>
-                                <option value="Townhouse">Townhouse</option>
-                                <option value="Penthouse">Penthouse</option>
-                                <option value="Studio">Studio</option>
-                                <option value="Office">Office</option>
-                                <option value="Retail">Retail</option>
-                                <option value="Warehouse">Warehouse</option>
-                            </select>
+                        <select name="type" class="w-full h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
+                            <option value="">Property type</option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="Villa">Villa</option>
+                            <option value="Townhouse">Townhouse</option>
+                            <option value="Penthouse">Penthouse</option>
+                            <option value="Studio">Studio</option>
+                            <option value="Office">Office</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Warehouse">Warehouse</option>
+                        </select>
                         <select name="price_range" class="h-12 px-4 border border-gray-200 rounded-lg text-gray-700 bg-white">
                             <option value="">All Prices</option>
                             <option value="AED 100k - 500k">AED 100k - 500k</option>
@@ -1096,23 +1099,23 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                 <!-- Right Contact Form -->
                 <div class="bg-[#f5f5f5] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
-                    <form class="space-y-3 sm:space-y-4">
+                    <form action="contact-process.php" method="POST" class="space-y-3 sm:space-y-4">
                         <!-- Name Field -->
                         <div>
                             <input type="text" placeholder="Full Name"
-                                class="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500 text-sm sm:text-base">
+                                class="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500 text-sm sm:text-base" name="name" required>
                         </div>
 
                         <!-- Email Field -->
                         <div>
                             <input type="email" placeholder="Email Address"
-                                class="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500 text-sm sm:text-base">
+                                class="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500 text-sm sm:text-base" name="email" required>
                         </div>
 
                         <!-- Language Dropdown -->
                         <div class="relative">
                             <select
-                                class="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 appearance-none bg-white text-sm sm:text-base">
+                                class="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 appearance-none bg-white text-sm sm:text-base" name="lang" required>
                                 <option value="">Preferred Language</option>
                                 <option value="english">English</option>
                                 <option value="arabic">Arabic</option>
@@ -1129,25 +1132,12 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </div>
 
                         <!-- Phone Field -->
-                        <div class="flex flex-wrap gap-2 sm:gap-3">
-                            <div class="relative w-24 flex-shrink-0">
-                                <select
-                                    class="w-full px-3 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 appearance-none bg-white text-sm">
-                                    <option value="+971">+971</option>
-                                    <option value="+1">+1</option>
-                                    <option value="+44">+44</option>
-                                    <option value="+91">+91</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-2 flex items-center pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <input type="tel" placeholder="Phone Number"
-                                class="flex-1 min-w-0 w-full px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500 text-sm sm:text-base">
+                        <div class="w-full text-primary">
+                            <input id="phone" type="tel"
+                                class="block w-full px-4 py-3 sm:py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                                placeholder="Phone Number" required>
+                            <!-- Hidden input to store full phone number -->
+                            <input type="hidden" name="full_phone" id="full_phone" required>
                         </div>
 
                         <!-- Privacy Checkbox -->
@@ -1160,7 +1150,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit"
+                        <button id="submitbtn" type="submit"
                             class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-colors duration-200 text-sm sm:text-lg">
                             Submit Inquiry
                         </button>
@@ -1172,7 +1162,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     </section>
 
     <?php include './components/footer.php'  ?>
-
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/intlTelInput.min.js"></script>
 
     <style>
         @keyframes scroll-x {
@@ -1183,6 +1173,19 @@ while ($row = mysqli_fetch_assoc($result)) {
             100% {
                 transform: translateX(-50%);
             }
+        }
+
+        /* Custom styles for the country list */
+        .iti__country-list {
+            width: 300px !important;
+            left: 0 !important;
+            transform: translateX(0%) !important;
+            scrollbar-width: none;
+        }
+
+        /* Make the container full width */
+        .iti {
+            width: 100% !important;
         }
     </style>
 
@@ -1261,7 +1264,6 @@ while ($row = mysqli_fetch_assoc($result)) {
             const slides = document.querySelectorAll('input[name="testimonial-slide"]');
             const nextBtn = document.querySelector('label[for="next-testimonials"]');
             const prevBtn = document.querySelector('label[for="prev-testimonials"]');
-
             let currentSlide = 0;
             const totalSlides = slides.length;
 
@@ -1276,7 +1278,53 @@ while ($row = mysqli_fetch_assoc($result)) {
             });
         });
     </script>
+    <!-- checkbox in contact form  -->
+    <script>
+        const privacyCheckbox = document.getElementById('privacy');
+        const submitBtn = document.getElementById('submitbtn');
+        if (privacyCheckbox) {
+            privacyCheckbox.addEventListener('change', function() {
+                submitBtn.disabled = !this.checked;
+                submitBtn.classList.toggle('opacity-50', !this.checked);
+            });
+            // Initialize the button state
+            submitBtn.disabled = !privacyCheckbox.checked;
+            submitBtn.classList.toggle('opacity-50', !privacyCheckbox.checked);
+        }
 
+        const input = document.querySelector("#phone");
+        const fullPhoneInput = document.querySelector("#full_phone");
+
+        const iti = window.intlTelInput(input, {
+            initialCountry: "ae", // UAE default
+            nationalMode: false, // Show full international number
+            separateDialCode: true, // Show code and flag
+            preferredCountries: ["ae", "us", "gb", "in"],
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/utils.js"
+        });
+
+        //  Set hidden field value
+        input.addEventListener("input", function() {
+            document.getElementById("full_phone").value = iti.getNumber();
+        });
+
+        // Force wrapper (iti) to be full width
+        input.parentNode.querySelector(".iti").style.width = "100%";
+
+        // On form submit, set the full number
+        // const form = document.querySelector("form");
+        // form.addEventListener("submit", function() {
+        //     if (iti.isValidNumber()) {
+        //         fullPhoneInput.value = iti.getNumber(); // E.g. +971501234567
+        //     } else {
+        //         alert("Please enter a valid phone number.");
+        //         event.preventDefault();
+        //     }
+        // });
+    </script>
+
+  <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

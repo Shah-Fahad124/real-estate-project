@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/css/intlTelInput.css" />
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
     <!-- recaptcha  -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
@@ -36,12 +42,11 @@
     </script>
 
 </head>
+
 <body class="font-body">
     <!-- navbar -->
     <?php include 'components/navbar.php'; ?>
     <?php include './admin/components/sweet-alert.php'; ?>
-
-
 
     <!-- Hero Section -->
     <section class="h-[30vh] md:h-[40vh] lg:h-[60vh] flex items-center relative"
@@ -172,7 +177,7 @@
                                 </label>
                                 <input id="phone" name="phone_no" type="tel" required
                                     class="w-full px-4 py-3 border border-light rounded-lg  transition-all duration-300 font-body">
-                                    <input type="hidden" name="full_phone" id="full_phone">
+                                <input type="hidden" name="full_phone" id="full_phone">
 
                             </div>
                         </div>
@@ -198,75 +203,84 @@
         </div>
     </main>
 
-    <!-- Map Section -->
-    <section class="pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                <div class="h-96 md:h-[500px] lg:h-[600px] relative">
-                    <!-- Map Placeholder -->
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                        <div class="text-center">
-                            <div
-                                class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 font-subheading">Find Us Here</h3>
-                            <p class="text-secondary font-body">45/15 New alsala Avenew, Boostan town, Austria</p>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Map Integration (Google Maps/OpenStreetMap can be added here) -->
-                    <iframe
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=9.5%2C46.5%2C17.5%2C49.5&layer=mapnik&marker=47.5%2C13.5"
-                        class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        title="Location Map"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+   <!-- Map Section -->
+<section class="pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+      <div class="h-96 md:h-[500px] lg:h-[600px] relative">
+        <div id="uaeMap" class="w-full h-full"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <style>
-.iti__country-list {
-    width: 300px !important;
-    left: 0 !important;     
-    transform: translateX(0%) !important;
-    scrollbar-width: none;
+        .iti__country-list {
+            width: 300px !important;
+            left: 0 !important;
+            transform: translateX(0%) !important;
+            scrollbar-width: none;
 
-}
-</style>
+        }
+    </style>
     <!-- Footer -->
     <?php include 'components/footer.php'; ?>
 
     <!-- JS for countories dropdown -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/intlTelInput.min.js"></script>
-<script>
-    const phoneInput = document.querySelector("#phone");
-    const iti = window.intlTelInput(phoneInput, {
-        initialCountry: "ae", // United Arab Emirates
-        geoIpLookup: function(callback) {
-            fetch('https://ipapi.co/json')
-                .then(res => res.json())
-                .then(data => callback(data.country_code))
-                .catch(() => callback('ae'));
-        },
-        separateDialCode: true,
-        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/utils.js",
-    });
+    <script>
+        const phoneInput = document.querySelector("#phone");
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "ae", // United Arab Emirates
+            geoIpLookup: function(callback) {
+                fetch('https://ipapi.co/json')
+                    .then(res => res.json())
+                    .then(data => callback(data.country_code))
+                    .catch(() => callback('ae'));
+            },
+            separateDialCode: true,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/utils.js",
+        });
 
-    // Before form submit, set the full international number in hidden input
-    const form = document.querySelector("form"); // or your form ID
-    form.addEventListener("submit", function () {
-        document.querySelector("#full_phone").value = iti.getNumber();
-    });
-</script>
+        // Before form submit, set the full international number in hidden input
+        const form = document.querySelector("form"); // or your form ID
+        form.addEventListener("submit", function() {
+            document.querySelector("#full_phone").value = iti.getNumber();
+        });
+    </script>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+
+<!-- Your Map Initialization Script -->
+<script>
+  // Wait for both DOM and Leaflet to be fully loaded
+  window.onload = function() {
+    // Dubai World Trade Centre coordinates
+    const dubaiCoordinates = [25.2285, 55.2867];
+    
+    // Initialize map centered on Dubai
+    const map = L.map("uaeMap").setView(dubaiCoordinates, 15); // Dubai, UAE with closer zoom
+
+    // Add the tile layer (map background)
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Add marker for office location
+    L.marker(dubaiCoordinates)
+      .addTo(map)
+      .bindPopup("<b>NIP Real Estate</b><br>Office No: 113, Office 3, One Central<br>Sheikh Zayed Rd - Next to Dubai World Trade Centre<br>Dubai, UAE")
+      .openPopup();
+  };
+</script>
 </body>
 
 </html>

@@ -21,6 +21,7 @@
                                 <th>Email</th>
                                 <th>Phone No</th>
                                 <th>Message</th>
+                                <th>Interested Property</th>
                                 <th>Language</th>
                                 <th>Actions</th>
                             </tr>
@@ -36,6 +37,7 @@
                                     <td>{$row['email']}</td>
                                     <td>{$row['phone_no']}</td>
                                     <td>{$row['message']}</td>
+                                    <td>{$row['interested_property']}</td>
                                     <td>{$row['lang']}</td>
                                     <td class='d-flex'>
                                         <a href='contact/delete-contact.php?id={$row['id']}' class='btn btn-danger btn-sm' onclick=\"return confirm('Are you sure you want to delete this message?');\">Delete</a>

@@ -12,12 +12,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone    = cleanInput($conn, $_POST['full_phone']);
     $message = !empty($_POST['message']) ? cleanInput($conn, $_POST['message']) : "nill";
     $lang    = !empty($_POST['lang']) ? cleanInput($conn, $_POST['lang']) : "nill";
+    $interestedProperty = !empty($_POST['interestedProperty']) ? cleanInput($conn, $_POST['interestedProperty']) : '';
+
     $captcha  = $_POST['g-recaptcha-response'];
 
     $secretKey = "6LcORpsrAAAAANo9UQ9JQ5f8u4215n1kQybXOzdq";
     $referer = $_SERVER['HTTP_REFERER'];
-    $clean_url = parse_url($referer, PHP_URL_SCHEME) . '://' . parse_url($referer, PHP_URL_HOST) . parse_url($referer, PHP_URL_PATH);
-    $referer = $clean_url;
+    if (basename(parse_url($referer, PHP_URL_PATH)) == 'single-page.php') {
+        $referer = $referer;
+    } else {
+        $clean_url = parse_url($referer, PHP_URL_SCHEME) . '://' . parse_url($referer, PHP_URL_HOST) . parse_url($referer, PHP_URL_PATH);
+        $referer = $clean_url;
+    }
+
 
     if ($referer == "contact-us.php") {
         // Verify captcha
@@ -33,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($responseData->success) {
-        $query = "INSERT INTO contact_us (name, email, phone_no, message, lang) VALUES ('$name', '$email', '$phone', '$message', '$lang')";
+        $query = "INSERT INTO contact_us (name, email, phone_no, message,interested_property, lang) VALUES ('$name', '$email', '$phone', '$message','$interestedProperty', '$lang')";
         if (mysqli_query($conn, $query)) {
             header("Location: {$referer}?success=✅ Message sent successfully!");
         } else {

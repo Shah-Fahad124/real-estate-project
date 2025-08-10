@@ -3,7 +3,7 @@ include '../auth/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize and collect inputs
-    $title= mysqli_real_escape_string($conn, $_POST['title']);
+    $title       = mysqli_real_escape_string($conn, $_POST['title']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $purpose     = mysqli_real_escape_string($conn, $_POST['purpose']);
     $type        = mysqli_real_escape_string($conn, $_POST['type']);
@@ -22,24 +22,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Handle image upload
+    // Handle main image upload
     $imageName = $_FILES['image']['name'];
     $imageTmp  = $_FILES['image']['tmp_name'];
     $imageNewName = time() . '_' . basename($imageName);
     $uploadPath = '../assets/images/' . $imageNewName;
 
     if (!move_uploaded_file($imageTmp, $uploadPath)) {
-        header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=Image upload failed");
+        header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=Main image upload failed");
         exit;
     }
 
     // Insert into properties table
-  $insertProperty = "INSERT INTO properties 
-    (title, `desc`, location, image, featured, purpose, type, bedrooms, bathrooms, area_sqft, price, area_id, created_at) 
-    VALUES (
-        '$title', '$description', '$location', '$imageNewName', '$featured', '$purpose', '$type', 
-        $bedrooms, $bathrooms, $area_sqft, $price, $area_id, NOW()
-    )";
+    $insertProperty = "INSERT INTO properties 
+        (title, `desc`, location, image, featured, purpose, type, bedrooms, bathrooms, area_sqft, price, area_id, created_at) 
+        VALUES (
+            '$title', '$description', '$location', '$imageNewName', '$featured', '$purpose', '$type', 
+            $bedrooms, $bathrooms, $area_sqft, $price, $area_id, NOW()
+        )";
 
     if (mysqli_query($conn, $insertProperty)) {
         $property_id = mysqli_insert_id($conn);
@@ -50,6 +50,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_query($conn, "INSERT INTO property_developers (property_id, developer_id) VALUES ($property_id, $dev_id)");
         }
 
+        // Function to handle multiple image uploads
+        function uploadMultipleImages($files, $type, $property_id, $conn) {
+            $uploadDir = '../assets/images/';
+            foreach ($files['name'] as $key => $name) {
+                if ($files['error'][$key] === 0) {
+                    $tmpName = $files['tmp_name'][$key];
+                    $newName = time() . '_' . uniqid() . '_' . basename($name);
+                    if (move_uploaded_file($tmpName, $uploadDir . $newName)) {
+                        mysqli_query($conn, "INSERT INTO property_images (property_id, type, image) VALUES ($property_id, '$type', '$newName')");
+                    }
+                }
+            }
+        }
+
+        // Upload Interior Images
+        if (!empty($_FILES['interior_images']['name'][0])) {
+            uploadMultipleImages($_FILES['interior_images'], 'interior', $property_id, $conn);
+        }
+
+        // Upload Exterior Images
+        if (!empty($_FILES['exterior_images']['name'][0])) {
+            uploadMultipleImages($_FILES['exterior_images'], 'exterior', $property_id, $conn);
+        }
+
         // Redirect with success
         header("Location: " . $_SERVER['HTTP_REFERER'] . "?success=Property added successfully");
         exit;
@@ -58,6 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 } else {
-      header("Location: " . $_SERVER['HTTP_REFERER']);
+    header("Location: " . $_SERVER['HTTP_REFERER']);
 }
 ?>

@@ -137,13 +137,27 @@
                                 ?>
                             </select>
                         </div>
+                           <div class="row">
+                            <!-- Interior Images -->
+                            <div class="form-group col-lg-6">
+                                <label class="form-label font-weight-bold">Upload Interior Images</label>
+                                <input class="form-control form-control-lg" type="file" name="interior_images[]" accept="image/*" multiple required>
+                                <small class="text-muted">You can select multiple interior images</small>
+                            </div>
+
+                            <!-- Exterior Images -->
+                            <div class="form-group col-lg-6">
+                                <label class="form-label font-weight-bold">Upload Exterior Images</label>
+                                <input class="form-control form-control-lg" type="file" name="exterior_images[]" accept="image/*" multiple required>
+                                <small class="text-muted">You can select multiple exterior images</small>
+                            </div>
+                        </div>
                         <!-- description -->
                         <div class="form-group">
                             <label class="form-label font-weight-bold">Description</label>
-                            <textarea name="description" id="" class="form-control form-control-lg"></textarea>
+                            <textarea name="description" id="" class="form-control form-control-lg" rows="4" required></textarea>
                         </div>
-
-
+                     
                         <!-- Submit Button -->
                         <div class="row">
                             <div class="col-lg-2 text-center">

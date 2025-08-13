@@ -1,11 +1,64 @@
 <?php include './admin/auth/connection.php' ?>
+<?php
+$property = null;
+$developers = [];
+
+if (isset($_GET['id'])) {
+  $id = intval($_GET['id']);
+
+  // Fetch property data
+  $query = "SELECT * FROM properties WHERE id = $id";
+  $result = mysqli_query($conn, $query);
+  if ($result && mysqli_num_rows($result) > 0) {
+    $property = mysqli_fetch_assoc($result);
+
+    // Fetch developer name
+    $devQuery = "SELECT d.name 
+                     FROM developers d
+                     INNER JOIN property_developers pd ON d.id = pd.developer_id
+                     WHERE pd.property_id = $id";
+    $devResult = mysqli_query($conn, $devQuery);
+    if ($devResult && mysqli_num_rows($devResult) > 0) {
+      while ($devRow = mysqli_fetch_assoc($devResult)) {
+        $developers[] = $devRow['name'];
+      }
+    }
+  }
+}
+$imagePath = './admin/assets/images/' . $property['image'];
+
+// Fetch first 3 similar properties
+$semilarProperties = [];
+$semilarPropertiesQuery = "SELECT * FROM properties 
+                           WHERE id != '$id' 
+                           AND type='" . $property['type'] . "' 
+                           LIMIT 3";
+$semilarPropertiesResult = mysqli_query($conn, $semilarPropertiesQuery);
+if ($semilarPropertiesResult) {
+  while ($row = mysqli_fetch_assoc($semilarPropertiesResult)) {
+    $semilarProperties[] = $row;
+  }
+}
+
+// url for intersted property 
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+  || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+$host = $_SERVER['HTTP_HOST'];
+
+$uri = $_SERVER['REQUEST_URI'];
+$currentURL = $protocol . $host . $uri;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties - NIP Real Estate | Buy, Sell, and Rent Properties</title>
 
+  <!-- Meta Description -->
+  <meta name="<?php $property['meta_title'] ?>" content="<?php echo $property['meta_desc'] ?>">
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -49,56 +102,6 @@
     <div class="bg-black bg-opacity-70 absolute inset-0 w-full h-full z-2"></div>
   </section>
 
-  <?php
-  $property = null;
-  $developers = [];
-
-  if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
-
-    // Fetch property data
-    $query = "SELECT * FROM properties WHERE id = $id";
-    $result = mysqli_query($conn, $query);
-    if ($result && mysqli_num_rows($result) > 0) {
-      $property = mysqli_fetch_assoc($result);
-
-      // Fetch developer name
-      $devQuery = "SELECT d.name 
-                     FROM developers d
-                     INNER JOIN property_developers pd ON d.id = pd.developer_id
-                     WHERE pd.property_id = $id";
-      $devResult = mysqli_query($conn, $devQuery);
-      if ($devResult && mysqli_num_rows($devResult) > 0) {
-        while ($devRow = mysqli_fetch_assoc($devResult)) {
-          $developers[] = $devRow['name'];
-        }
-      }
-    }
-  }
-  $imagePath = './admin/assets/images/' . $property['image'];
-
-  // Fetch first 3 similar properties
-  $semilarProperties = [];
-  $semilarPropertiesQuery = "SELECT * FROM properties 
-                           WHERE id != '$id' 
-                           AND type='" . $property['type'] . "' 
-                           LIMIT 3";
-  $semilarPropertiesResult = mysqli_query($conn, $semilarPropertiesQuery);
-  if ($semilarPropertiesResult) {
-    while ($row = mysqli_fetch_assoc($semilarPropertiesResult)) {
-      $semilarProperties[] = $row;
-    }
-  }
-
-  // url for intersted property 
-  $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
-    || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-
-  $host = $_SERVER['HTTP_HOST'];
-
-  $uri = $_SERVER['REQUEST_URI'];
-  $currentURL = $protocol . $host . $uri;
-  ?>
 
   <!--  First main section -->
   <div class="max-w-6xl mx-auto p-6 bg-white rounded-lg mt-3">
@@ -131,43 +134,55 @@
 
       <!-- right Column - Title and Location -->
       <div class="md:w-2/3">
-        <img src="<?= htmlspecialchars($imagePath) ?>" alt="property image" class="rounded-lg w-full h-[400px] object-cover mb-4">
+        <img src="<?= htmlspecialchars($imagePath) ?>" alt="property image" class="rounded-lg w-full h-[400px]  object-cover mb-4">
       </div>
     </div>
   </div>
 
   <!-- Amenities Section -->
-  <section class="w-[80%] mx-auto flex py-10 gap-10">
+  <section class="w-[80%] mx-auto md:flex py-10 gap-10">
     <!-- left side  -->
     <div class="w-[70%] flex flex-col">
       <hr class="w-full mb-5">
       <h2 class="text-2xl font-semibold text-primary font-heading mb-6">Amenities and features</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-gray-700">
-        <div class="flex items-center space-x-2">
-          <i class="fas fa-car text-secondary text-xl"></i>
-          <span><?= htmlspecialchars($property['bedrooms'] ?? 'N/A') ?> Bedrooms</span>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-gray-700">
+        <div class="flex flex-col items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <i class="fas fa-car text-secondary text-xl mb-2"></i>
+          <span class="text-sm font-semibold">Bedrooms</span>
+          <span class="text-sm"><?= htmlspecialchars($property['bedrooms'] ?? 'N/A') ?></span>
         </div>
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-bath text-secondary text-xl"></i>
-          <span><?= htmlspecialchars($property['bathrooms'] ?? 'N/A') ?> Bathrooms</span>
+        <div class="flex flex-col items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <i class="fas fa-bath text-secondary text-xl mb-2"></i>
+          <span class="text-sm font-semibold">Bathrooms</span>
+          <span class="text-sm"><?= htmlspecialchars($property['bathrooms'] ?? 'N/A') ?></span>
         </div>
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-ruler-combined text-secondary text-xl"></i>
-          <span><?= htmlspecialchars($property['area_sqft'] ?? 'N/A') ?> sqft</span>
+        <div class="flex flex-col items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <i class="fas fa-bath text-secondary text-xl mb-2"></i>
+          <span class="text-sm font-semibold">Floors</span>
+          <span class="text-sm"><?= htmlspecialchars($property['floors'] ?? 'N/A') ?></span>
         </div>
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-tag text-secondary text-xl"></i>
-          <span><?= htmlspecialchars($property['type'] ?? 'N/A') ?></span>
+        <div class="flex flex-col items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <i class="fas fa-ruler-combined text-secondary text-xl mb-2"></i>
+          <span class="text-sm font-semibold">Area</span>
+          <span class="text-sm"><?= htmlspecialchars($property['area_sqft'] ?? 'N/A') ?> sqft</span>
         </div>
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-flag text-secondary text-xl"></i>
-          <span><?= htmlspecialchars($property['purpose'] ?? 'N/A') ?></span>
+        <div class="flex flex-col items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <i class="fas fa-tag text-secondary text-xl mb-2"></i>
+          <span class="text-sm font-semibold">Type</span>
+          <span class="text-sm"><?= htmlspecialchars($property['type'] ?? 'N/A') ?></span>
         </div>
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-calendar-alt text-secondary text-xl"></i>
-          <span><?= isset($property['created_at']) ? date('F Y', strtotime($property['created_at'])) : 'N/A' ?></span>
+        <div class="flex flex-col items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <i class="fas fa-flag text-secondary text-xl mb-2"></i>
+          <span class="text-sm font-semibold">Purpose</span>
+          <span class="text-sm"><?= htmlspecialchars($property['purpose'] ?? 'N/A') ?></span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <i class="fas fa-calendar-alt text-secondary text-xl mb-2"></i>
+          <span class="text-sm font-semibold">Listed On</span>
+          <span class="text-sm"><?= isset($property['created_at']) ? date('F Y', strtotime($property['created_at'])) : 'N/A' ?></span>
         </div>
       </div>
+
       <hr class="w-full mt-5">
 
       <!-- In Details section -->
@@ -181,7 +196,7 @@
     </div>
 
     <!-- right section -->
-    <div class="w-[30%]">
+    <div class="w-full md:w-[30%]">
       <div class="space-y-4 w-full">
         <!-- Contact Agent -->
         <div class="bg-white rounded-lg border border-gray-200 p-4">
@@ -237,24 +252,16 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
       <!-- Left: Map / Image -->
-      <div>
-        <img src="./assets/images/blog-image3.webp" alt="Map Location" class="rounded-lg shadow-lg w-full h-auto">
+      <div class="relative w-full h-[400px] rounded-lg overflow-hidden">
+        <img src="./admin/assets/images/<?php echo $property['location_image'] ?>" alt="Map Location" class="rounded-lg shadow-lg w-full h-full object-fill">
       </div>
 
       <!-- Right: Location Text -->
       <div>
         <h2 class="text-2xl font-heading text-primary mb-4">Location</h2>
         <p class="text-gray-800 font-body leading-relaxed">
-          <strong class="text-primary font-semibold">Aurelia Residence</strong>, a cutting-edge and modern housing
-          marvel is all set to redefine the bustling and continuously growing skyline of
-          <strong class="text-primary">Dubai Sports City</strong>. In the heart of a carefully designed natural setting,
-          this property is surrounded with modern housing complexes and many famous attractions, including major sports
-          courts of Els Golf Club, Sports Park, International Stadium for events. It offers the lively allure that
-          attracts the attention of the modern life.
-          <br><br>
-          With many schools, mosques, supermarkets, premium dining and cafe options, parks, and many entertainment
-          options, it is a prime and suitable hub for families and professionals to thrive, live, and explore the
-          abundance of life.
+          <strong class="text-primary font-semibold"><span class="capitalize"><?php echo  $property['title'] ?></span></strong>,
+          <?php echo $property['about_location']  ?>
         </p>
       </div>
 
@@ -266,241 +273,144 @@
   <div class="max-w-6xl mx-auto text-center mb-8 pt-12 pb-5">
     <h2 class="text-3xl font-semibold mb-2 font-heading">Master Plan</h2>
     <p class=" mx-auto text-secondary mb-6 leadig-8 font-subheading">
-      Object 1 Aurelia Residence is a graciously rising and latest living milestone with a master-planned creative
-      approach in the heart of Dubai Sports City. Delve into the realm of comfort and convenience, where splendid detail
-      aspects of lavishness and quality finishes reflect the captivating looks. Every home unit composes with ample
-      storage, large balconies, wide windows, smart environment that creates the sense of peaceful and upscale living.
+      <?php echo $property['masterPlan_desc'] ?>
     </p>
 
 
     <!-- Main Layout -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto items-center">
-      <!-- Left Section -->
-      <!-- <div class="grid grid-cols-2 h-96 overflow-y-auto border gap-4 rounded-lg p-4  bg-gray-100"> -->
-      <!--  Items  -->
+      <!--  facilities  -->
       <div class="grid grid-cols-2 gap-y-5 gap-x-3 p-4 py-6 bg-gray-100 rounded-lg">
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M3 16.5V15a4.5 4.5 0 0 1 4.5-4.5h9A4.5 4.5 0 0 1 21 15v1.5M4.5 19.5h15M9 19.5v-1.5m6 1.5v-1.5" />
-          </svg>
-          <span>Ample Parking Space</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 3v2m6.364 1.636l-1.414 1.414M21 12h-2m-1.222 6.364l-1.414-1.414M12 21v-2M5.636 18.364l1.414-1.414M3 12h2M5.636 5.636l1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" />
-          </svg>
-          <span>BBQ Areas</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>Championship Golf Course</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M10 14h10M10 18h10" />
-          </svg>
-          <span>Cricket Field</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          <span>Cycling Trails</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6z" />
-          </svg>
-          <span>Flowers Garden</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-          </svg>
-          <span>Hospital</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="3" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3m9-9h-3M6 12H3" />
-          </svg>
-          <span>Basketball Court</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12s4-8 9-8 9 8 9 8-4 8-9 8-9-8-9-8z" />
-          </svg>
-          <span>Beach Access</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M3 16.5V15a4.5 4.5 0 0 1 4.5-4.5h9A4.5 4.5 0 0 1 21 15v1.5M4.5 19.5h15M9 19.5v-1.5m6 1.5v-1.5" />
-          </svg>
-          <span>Ample Parking Space</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 3v2m6.364 1.636l-1.414 1.414M21 12h-2m-1.222 6.364l-1.414-1.414M12 21v-2M5.636 18.364l1.414-1.414M3 12h2M5.636 5.636l1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" />
-          </svg>
-          <span>BBQ Areas</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>Championship Golf Course</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M10 14h10M10 18h10" />
-          </svg>
-          <span>Cricket Field</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          <span>Cycling Trails</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6z" />
-          </svg>
-          <span>Flowers Garden</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-          </svg>
-          <span>Hospital</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="3" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3m9-9h-3M6 12H3" />
-          </svg>
-          <span>Basketball Court</span>
-        </div>
-        <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
-          <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12s4-8 9-8 9 8 9 8-4 8-9 8-9-8-9-8z" />
-          </svg>
-          <span>Beach Access</span>
-        </div>
-        <!-- </div> -->
+        <?php
+        // Fetch facilities for this property
+        $sql = "
+    SELECT f.facility_icon, f.facility 
+    FROM property_facilities pf
+    INNER JOIN facilities f ON pf.facility_id = f.id
+    WHERE pf.property_id = ?
+           ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
+        while ($row = $result->fetch_assoc()) {
+          echo '
+    <div class="flex items-center gap-3 py-3 px-2 rounded-lg shadow-sm bg-white">
+        ' . $row['facility_icon'] . '
+        <span>' . htmlspecialchars($row['facility']) . '</span>
+    </div>';
+        }
+
+        $stmt->close();
+        ?>
       </div>
 
-      <!-- Right Section: Map -->
-      <div class="border h-[80%] rounded-lg p-4">
-        <img src="./assets/images/blog-image6.webp" alt="Map showing city connectivity"
+
+      <!-- Right Section: image -->
+      <div class="border h-[400px] rounded-lg p-4">
+        <img src="./admin/assets/images/<?php echo $property['masterPlan_image'] ?>" alt="Master Plan Image"
           class="w-full h-full object-cover rounded" />
       </div>
     </div>
   </div>
 
-<!-- GALLERY -->
-<section class="bg-white px-4 py-10">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-2xl font-heading text-primary mb-6">Gallery</h2>
+  <!-- GALLERY -->
+  <section class="bg-white px-4 py-10">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading text-primary mb-6">Gallery</h2>
 
-    <?php
-    // Check counts first
-    $interiorImages = mysqli_query($conn, "SELECT image FROM property_images WHERE property_id = {$property['id']} AND type = 'interior'");
-    $exteriorImages = mysqli_query($conn, "SELECT image FROM property_images WHERE property_id = {$property['id']} AND type = 'exterior'");
+      <?php
+      // Check counts first
+      $interiorImages = mysqli_query($conn, "SELECT image FROM property_images WHERE property_id = {$property['id']} AND type = 'interior'");
+      $exteriorImages = mysqli_query($conn, "SELECT image FROM property_images WHERE property_id = {$property['id']} AND type = 'exterior'");
 
-    if (mysqli_num_rows($interiorImages) === 0 && mysqli_num_rows($exteriorImages) === 0) {
-      echo '<p class="text-gray-500">No gallery images available</p>';
-    } else {
-    ?>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      if (mysqli_num_rows($interiorImages) === 0 && mysqli_num_rows($exteriorImages) === 0) {
+        echo '<p class="text-gray-500">No gallery images available</p>';
+      } else {
+      ?>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        <?php
-        // INTERIOR SLIDER
-        if (mysqli_num_rows($interiorImages) > 0) {
-        ?>
-          <div class="relative group">
-            <span class="absolute top-3 left-3 bg-white text-xs text-primary px-2 py-1 rounded shadow-sm z-20">Interior</span>
-            <div id="splide-interior" class="splide h-96 sm:h-[340px] rounded-md overflow-hidden">
-              <div class="splide__track">
-                <ul class="splide__list">
-                  <?php
-                  mysqli_data_seek($interiorImages, 0); // reset pointer
-                  while ($img = mysqli_fetch_assoc($interiorImages)) {
-                    echo '<li class="splide__slide">
-                      <img src="./admin/assets/images/' . htmlspecialchars($img['image']) . '" class="w-full h-full object-cover" alt="Interior">
+          <?php
+          // INTERIOR SLIDER
+          if (mysqli_num_rows($interiorImages) > 0) {
+          ?>
+            <div class="relative group">
+              <span class="absolute top-3 left-3 bg-white text-xs text-primary px-2 py-1 rounded shadow-sm z-20">Interior</span>
+              <div id="splide-interior" class="splide h-96 sm:h-[340px] rounded-md overflow-hidden">
+                <div class="splide__track h-96 sm:h-[340px]">
+                  <ul class="splide__list">
+                    <?php
+                    mysqli_data_seek($interiorImages, 0); // reset pointer
+                    while ($img = mysqli_fetch_assoc($interiorImages)) {
+                      echo '<li class="splide__slide">
+                      <img src="./admin/assets/images/' . htmlspecialchars($img['image']) . '" class="w-full h-full object-fill" alt="Interior">
                     </li>';
-                  }
-                  ?>
-                </ul>
-              </div>
-              <div class="splide__arrows">
-                <button class="splide__arrow splide__arrow--prev !bg-white/80 hover:!bg-white rounded-full shadow p-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                  </svg>
-                </button>
-                <button class="splide__arrow splide__arrow--next !bg-white/80 hover:!bg-white rounded-full shadow p-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
+                    }
+                    ?>
+                  </ul>
+                </div>
+                <div class="splide__arrows">
+                  <button class="splide__arrow splide__arrow--prev !bg-white/80 hover:!bg-white rounded-full shadow p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+                  <button class="splide__arrow splide__arrow--next !bg-white/80 hover:!bg-white rounded-full shadow p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        <?php
-        }
-        ?>
+          <?php
+          }
+          ?>
 
-        <?php
-        // EXTERIOR SLIDER
-        if (mysqli_num_rows($exteriorImages) > 0) {
-        ?>
-          <div class="relative group">
-            <span class="absolute top-3 left-3 bg-white text-xs text-primary px-2 py-1 rounded shadow-sm z-20">Exterior</span>
-            <div id="splide-exterior" class="splide h-96 sm:h-[340px] rounded-md overflow-hidden">
-              <div class="splide__track">
-                <ul class="splide__list">
-                  <?php
-                  mysqli_data_seek($exteriorImages, 0); // reset pointer
-                  while ($img = mysqli_fetch_assoc($exteriorImages)) {
-                    echo '<li class="splide__slide">
-                      <img src="./admin/assets/images/' . htmlspecialchars($img['image']) . '" class="w-full h-full object-cover" alt="Exterior">
+          <?php
+          // EXTERIOR SLIDER
+          if (mysqli_num_rows($exteriorImages) > 0) {
+          ?>
+            <div class="relative group">
+              <span class="absolute top-3 left-3 bg-white text-xs text-primary px-2 py-1 rounded shadow-sm z-20">Exterior</span>
+              <div id="splide-exterior" class="splide h-96 sm:h-[340px] rounded-md">
+                <div class="splide__track h-96 sm:h-[340px]">
+                  <ul class="splide__list">
+                    <?php
+                    mysqli_data_seek($exteriorImages, 0); // reset pointer
+                    while ($img = mysqli_fetch_assoc($exteriorImages)) {
+                      echo '<li class="splide__slide">
+                      <img src="./admin/assets/images/' . htmlspecialchars($img['image']) . '" class="w-full h-full object-fill" alt="Exterior">
                     </li>';
-                  }
-                  ?>
-                </ul>
-              </div>
-              <div class="splide__arrows">
-                <button class="splide__arrow splide__arrow--prev !bg-white/80 hover:!bg-white rounded-full shadow p-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button class="splide__arrow splide__arrow--next !bg-white/80 hover:!bg-white rounded-full shadow p-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                    }
+                    ?>
+                  </ul>
+                </div>
+                <div class="splide__arrows">
+                  <button class="splide__arrow splide__arrow--prev !bg-white/80 hover:!bg-white rounded-full shadow p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button class="splide__arrow splide__arrow--next !bg-white/80 hover:!bg-white rounded-full shadow p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        <?php
-        }
-        ?>
+          <?php
+          }
+          ?>
 
-      </div>
-    <?php
-    }
-    ?>
-  </div>
-</section>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
+  </section>
 
 
 
@@ -531,7 +441,7 @@
           </a>
         <?php endforeach;
         if (empty($semilarProperties)) {
-          echo '<h1 class="text-center text-secondary">NO Similar Properties Avaiable.</h1>';
+          echo '<h1 class="text-secondary">NO Similar Properties Avaiable.</h1>';
         }
         ?>
       </div>

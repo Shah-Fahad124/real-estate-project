@@ -1,57 +1,134 @@
 <?php include './admin/auth/connection.php'; ?>
+
+<?php
+$keyword       = $_GET['keyword'] ?? '';
+$type          = $_GET['type'] ?? '';
+$price_range   = $_GET['price_range'] ?? '';
+$location      = $_GET['location'] ?? '';
+$community     = $_GET['community'] ?? '';
+$status        = $_GET['status'] ?? '';
+$bedrooms      = $_GET['bedrooms'] ?? '';
+$bathrooms     = $_GET['bathrooms'] ?? '';
+$min_price     = $_GET['min_price'] ?? '';
+$max_price     = $_GET['max_price'] ?? '';
+$area_id       = $_GET['area'] ?? '';
+$developer_id  = $_GET['developer'] ?? '';
+$listing_type  = $_GET['listing_type'] ?? '';
+$category      = $_GET['category'] ?? '';
+
+// Start query and condition array
+$sql        = "SELECT DISTINCT p.* FROM properties p";
+$conditions = [];
+$joins      = [];
+
+// Always fetch only published properties
+$conditions[] = "p.status = 1";
+
+// Join with property_developers if developer_id filter is applied
+if (!empty($developer_id)) {
+    $joins[]      = "INNER JOIN property_developers pd ON p.id = pd.property_id";
+    $conditions[] = "pd.developer_id = " . (int)$developer_id;
+}
+
+// Keyword search
+if (!empty($keyword)) {
+    $keywordEscaped = mysqli_real_escape_string($conn, $keyword);
+    $conditions[]   = "(p.title LIKE '%$keywordEscaped%' OR p.location LIKE '%$keywordEscaped%')";
+}
+
+// Only use $type if category is not provided (avoid double filtering)
+if (empty($category) && !empty($type)) {
+    $conditions[] = "p.type = '" . mysqli_real_escape_string($conn, $type) . "'";
+}
+
+// Location filter
+if (!empty($location)) {
+    $conditions[] = "p.location LIKE '%" . mysqli_real_escape_string($conn, $location) . "%'";
+}
+
+// Community filter
+if (!empty($community)) {
+    $conditions[] = "p.location LIKE '%" . mysqli_real_escape_string($conn, $community) . "%'";
+}
+
+// Area filter
+if (!empty($area_id)) {
+    $conditions[] = "p.area_id = " . (int)$area_id;
+}
+
+// Bedrooms filter
+if (!empty($bedrooms)) {
+    $conditions[] = "p.bedrooms = " . (int)$bedrooms;
+}
+
+// Bathrooms filter
+if (!empty($bathrooms)) {
+    $conditions[] = "p.bathrooms = " . (int)$bathrooms;
+}
+
+// Price range filter
+if (!empty($price_range)) {
+    if ($price_range === 'AED 100k - 500k') {
+        $conditions[] = "p.price BETWEEN 100000 AND 500000";
+    } elseif ($price_range === 'AED 500k - 1M') {
+        $conditions[] = "p.price BETWEEN 500000 AND 1000000";
+    } elseif ($price_range === 'AED 1M+') {
+        $conditions[] = "p.price > 1000000";
+    }
+}
+
+// Min price filter
+if (!empty($min_price)) {
+    $conditions[] = "p.price >= " . (int)$min_price;
+}
+
+// Max price filter
+if (!empty($max_price)) {
+    $conditions[] = "p.price <= " . (int)$max_price;
+}
+
+// Match BOTH listing_type and category in the same record
+if (!empty($listing_type) && !empty($category)) {
+    $conditions[] = "(p.listing_type = '" . mysqli_real_escape_string($conn, $listing_type) . "' 
+                      AND p.type = '" . mysqli_real_escape_string($conn, $category) . "')";
+}
+
+// Combine joins and conditions
+if (!empty($joins)) {
+    $sql .= ' ' . implode(' ', $joins);
+}
+if (!empty($conditions)) {
+    $sql .= " WHERE " . implode(" AND ", $conditions);
+}
+
+$sql .= " ORDER BY p.created_at DESC LIMIT 12";
+
+// For debugging — remove in production
+// echo "<pre>$sql</pre>";
+
+$result = mysqli_query($conn, $sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" class="overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Properties - NIP Real Estate</title>
+
+    <!-- Meta Title -->
+    <title>Properties - NIP Real Estate | Buy, Sell, and Rent Properties</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Explore properties for sale and rent with NIP Real Estate. Find apartments, villas, and commercial spaces at the best locations with premium facilities.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <style>
-        .card-wrapper {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 100;
-        }
 
-        .card-wrapper::before {
-            content: '';
-            width: 90%;
-            min-width: 220px;
-            max-width: 300px;
-            min-height: 200px;
-            max-height: 300px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: -110px;
-            z-index: 200;
-            display: block;
-        }
 
-        /* shange background images for each agent */
-        .agent1::before {
-            background-image: url('./assets/images/buy-sell2.jpg')
-        }
-
-        .agent2::before {
-            background-image: url('./assets/images/buy-sell2.jpg')
-        }
-
-        .agent3::before {
-            background-image: url('./assets/images/buy-sell2.jpg')
-        }
-
-        .agent4::before {
-            background-image: url('./assets/images/buy-sell2.jpg')
-        }
-    </style>
 
     <script>
         tailwind.config = {
@@ -72,8 +149,8 @@
             }
         }
     </script>
-
 </head>
+
 
 <body class="font-body min-h-screen flex flex-col overflow-x-hidden">
     <!-- Header -->
@@ -226,90 +303,6 @@
         </section>
     </section>
 
-    <?php
-    $keyword = $_GET['keyword'] ?? '';
-    $type = $_GET['type'] ?? '';
-    $price_range = $_GET['price_range'] ?? '';
-    $location = $_GET['location'] ?? '';
-    $community = $_GET['community'] ?? '';
-    $status = $_GET['status'] ?? '';
-    $bedrooms = $_GET['bedrooms'] ?? '';
-    $bathrooms = $_GET['bathrooms'] ?? '';
-    $min_price = $_GET['min_price'] ?? '';
-    $max_price = $_GET['max_price'] ?? '';
-    $area_id = $_GET['area'] ?? '';
-    $developer_id = $_GET['developer'] ?? '';
-
-    // Start query and condition array
-    $sql = "SELECT DISTINCT p.* FROM properties p";
-    $conditions = [];
-    $joins = [];
-
-    // Join with property_developers if developer_id filter is applied
-    if (!empty($developer_id)) {
-        $joins[] = "INNER JOIN property_developers pd ON p.id = pd.property_id";
-        $conditions[] = "pd.developer_id = " . (int)$developer_id;
-    }
-
-    if (!empty($keyword)) {
-        $keywordEscaped = mysqli_real_escape_string($conn, $keyword);
-        $conditions[] = "(p.title LIKE '%$keywordEscaped%' OR p.location LIKE '%$keywordEscaped%')";
-    }
-
-    if (!empty($type)) {
-        $conditions[] = "p.type = '" . mysqli_real_escape_string($conn, $type) . "'";
-    }
-
-    if (!empty($location)) {
-        $conditions[] = "p.location LIKE '%" . mysqli_real_escape_string($conn, $location) . "%'";
-    }
-
-    if (!empty($community)) {
-        $conditions[] = "p.location LIKE '%" . mysqli_real_escape_string($conn, $community) . "%'";
-    }
-
-    if (!empty($area_id)) {
-        $conditions[] = "p.area_id = " . (int)$area_id;
-    }
-
-    if (!empty($bedrooms)) {
-        $conditions[] = "p.bedrooms = " . (int)$bedrooms;
-    }
-
-    if (!empty($bathrooms)) {
-        $conditions[] = "p.bathrooms = " . (int)$bathrooms;
-    }
-
-    if (!empty($price_range)) {
-        if ($price_range === 'AED 100k - 500k') {
-            $conditions[] = "p.price BETWEEN 100000 AND 500000";
-        } elseif ($price_range === 'AED 500k - 1M') {
-            $conditions[] = "p.price BETWEEN 500000 AND 1000000";
-        } elseif ($price_range === 'AED 1M+') {
-            $conditions[] = "p.price > 1000000";
-        }
-    }
-
-    if (!empty($min_price)) {
-        $conditions[] = "p.price >= " . (int)$min_price;
-    }
-
-    if (!empty($max_price)) {
-        $conditions[] = "p.price <= " . (int)$max_price;
-    }
-
-    // Combine joins and conditions
-    if (!empty($joins)) {
-        $sql .= ' ' . implode(' ', $joins);
-    }
-    if (!empty($conditions)) {
-        $sql .= " WHERE " . implode(" AND ", $conditions);
-    }
-
-    $sql .= " ORDER BY p.created_at DESC LIMIT 12";
-
-    $result = mysqli_query($conn, $sql);
-    ?>
 
 
     <section class="cards py-10">

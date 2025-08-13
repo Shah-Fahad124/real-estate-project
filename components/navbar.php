@@ -12,9 +12,77 @@
               <!-- Desktop Navigation Items -->
               <a href="index.php"
                   class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base" style="margin-left: 100px !important;">Home</a>
-              <a href="properties.php"
-                  class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Sale</a>
-              <a href="#" class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Projects</a>
+              <!-- sale Dropdown -->
+              <div class="relative group">
+                  <button
+                      class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base flex items-center">
+                      Sale
+                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                  </button>
+
+                  <!-- Desktop Dropdown Content -->
+                  <div
+                      class="absolute left-1/2 transform -translate-x-1/2 mt-4 w-[15rem] bg-white rounded-xl shadow-2xl py-6 px-8 z-50 hidden group-hover:grid grid-cols-2 gap-8">
+                      <div>
+                          <ul class="space-y-2 text-primary">
+                              <li class="hover:text-secondary cursor-pointer">
+                                  <a href="properties.php?listing_type=sale&category=Apartment">
+                                      Appartments
+                                  </a>
+                              </li>
+                              <li class="hover:text-secondary cursor-pointer">
+                                  <a href="properties.php?listing_type=sale&category=Townhouse">
+                                      Townhouses
+                                  </a>
+                              </li>
+                              <li class="hover:text-secondary cursor-pointer">
+                                  <a href="properties.php?listing_type=sale&category=Villa">
+                                      Villas
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- off-plan Dropdown -->
+              <div class="relative group">
+                  <button
+                      class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base flex items-center">
+                      Off-Plan
+                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                  </button>
+
+                  <!-- Desktop Dropdown Content -->
+                  <div
+                      class="absolute left-1/2 transform -translate-x-1/2 mt-4 w-[15rem] bg-white rounded-xl shadow-2xl py-6 px-8 z-50 hidden group-hover:grid grid-cols-2 gap-8">
+                      <div>
+                          <ul class="space-y-2 text-primary">
+                              <li class="hover:text-secondary cursor-pointer">
+                                  <a href="properties.php?listing_type=offplan&category=Apartment">
+                                      Appartments
+                                  </a>
+                              </li>
+                              <li class="hover:text-secondary cursor-pointer">
+                                  <a href="properties.php?listing_type=offplan&category=Townhouse">
+                                      Townhouses
+                                  </a>
+                              </li>
+                              <li class="hover:text-secondary cursor-pointer">
+                                  <a href="properties.php?listing_type=offplan&category=Villa">
+                                      Villas
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+
+
+                  </div>
+              </div>
               <a href="developers.php" class="hover:text-[#9e9e9e] transition-colors font-medium text-sm xl:text-base">Developers</a>
               <a href="#" class="sm:w-14 sm:h-14 md:w-[7rem] md:h-[6rem] flex items-center justify-center mt-[-30px]">
                   <img src="./assets/images/NIP WHITE LOGO PNG.png" alt="logo" class="w-full h-full">
@@ -275,6 +343,4 @@
               e.stopPropagation();
           });
       }
-
-
   </script>

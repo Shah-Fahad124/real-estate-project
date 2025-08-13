@@ -28,7 +28,9 @@ $query = mysqli_query($conn, "
   SELECT 
     (SELECT COUNT(*) FROM developers) AS total_developers,
     (SELECT COUNT(*) FROM areas) AS total_areas,
-    (SELECT COUNT(*) FROM properties) AS total_properties
+    (SELECT COUNT(*) FROM properties where status=1) AS total_publishedproperties,
+    (SELECT COUNT(*) FROM properties where status=0) AS total_draftedproperties,
+    (SELECT COUNT(*) FROM contact_us) AS total_messages
 ");
 
 $data = mysqli_fetch_assoc($query);
@@ -49,31 +51,45 @@ $data = mysqli_fetch_assoc($query);
 		<!--row open-->
 		<div class="row row-deck">
 			<div class="col-sm-12 col-lg-6 col-xl-3 col-md-6">
-				<div class="card text-center">
+				<a href="developers-list.php" class="card text-center text-decoration-none">
 					<div class="card-body  mb-0">
 						<h5 class="mb-3">Total Developers</h5>
 						 <h3><?php echo $data['total_developers'] ?></h3>
 
 					</div>
-				</div>
+				</a>
 			</div>
 			<div class="col-sm-12 col-lg-6 col-xl-3 col-md-6">
-				<div class="card text-center">
+				<a href="area-list.php" class="card text-center text-decoration-none">
 					<div class="card-body  mb-0">
 						<h5 class="mb-3">Total Areas</h5>
 						 <h3><?php echo $data['total_areas'] ?></h3>
-
 					</div>
-				</div>
+				</a>
 			</div>
 			<div class="col-sm-12 col-lg-6 col-xl-3 col-md-6">
-				<div class="card text-center">
+				<a href="publish-properties.php" class="card text-center text-decoration-none">
 					<div class="card-body  mb-0">
-						<h5 class="mb-3">Total Properties</h5>
-						 <h3><?php echo $data['total_properties'] ?></h3>
-
+						<h5 class="mb-3">Publish Properties</h5>
+						 <h3><?php echo $data['total_publishedproperties'] ?></h3>
 					</div>
-				</div>
+				</a>
+			</div>
+			<div class="col-sm-12 col-lg-6 col-xl-3 col-md-6">
+				<a href="drafted-properties.php" class="card text-center text-decoration-none">
+					<div class="card-body  mb-0">
+						<h5 class="mb-3">Drafted Properties</h5>
+						 <h3><?php echo $data['total_draftedproperties'] ?></h3>
+					</div>
+				</a>
+			</div>
+			<div class="col-sm-12 col-lg-6 col-xl-3 col-md-6">
+				<a href="contact-list.php" class="card text-center text-decoration-none">
+					<div class="card-body  mb-0">
+						<h5 class="mb-3">Total Messages</h5>
+						 <h3><?php echo $data['total_messages'] ?></h3>
+					</div>
+				</a>
 			</div>
 		
 		</div>

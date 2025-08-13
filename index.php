@@ -477,15 +477,15 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             </div>
             <?php
-            $sql = "SELECT * FROM properties 
+            $sql = "SELECT * FROM properties where status = '1' 
         ORDER BY created_at DESC 
         LIMIT 4";
 
             $result = mysqli_query($conn, $sql);
             ?>
-            <div class="w-[85%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            <div class="w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <a href="single-page.php?id=<?php echo $row['id'] ?>" class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <a href="single-page.php?id=<?php echo $row['id'] ?>" class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[35vh] sm:h-[45vh] flex flex-col sm:flex-row">
                         <div class="flex flex-col sm:flex-row min-h-full">
                             <!-- Image Section -->
                             <div class="relative w-full sm:w-2/5 min-h-full">
@@ -499,7 +499,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             </div>
 
                             <!-- Content Section -->
-                            <div class="flex-1 p-4 sm:p-6 flex flex-col justify-between">
+                            <div class="flex-1 sm:p-6 flex flex-col justify-between">
                                 <div>
                                     <!-- Tags -->
                                     <div class="flex flex-wrap gap-2 mb-3">
@@ -523,7 +523,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                     </p>
 
                                     <!-- Property Details -->
-                                    <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 flex-wrap">
+                                    <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                                         <div class="flex items-center gap-1 sm:gap-2">
                                             <div class="bg-secondary p-1.5 sm:p-2 rounded-full">
                                                 <!-- Bedroom Icon -->

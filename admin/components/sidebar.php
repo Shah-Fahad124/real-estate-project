@@ -38,7 +38,10 @@
   				<a class="side-menu__item" href="add-property.php"><span class="side-menu__label">Add Property</span></a>
   			</li>
   			<li>
-  				<a class="side-menu__item" href="properties-list.php"><span class="side-menu__label">Properties List</span></a>
+  				<a class="side-menu__item" href="publish-properties.php"><span class="side-menu__label">Publish Properties</span></a>
+  			</li>
+  			<li>
+  				<a class="side-menu__item" href="drafted-properties.php"><span class="side-menu__label">Drafted Properties</span></a>
   			</li>
   			<li>
   				<a class="side-menu__item" href="contact-list.php"><span class="side-menu__label">Contact List</span></a>

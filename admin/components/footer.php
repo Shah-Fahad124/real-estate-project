@@ -56,10 +56,12 @@
     <!-- Initialize Select2 -->
     <script>
         $(document).ready(function() {
-            $('.select2').select2({
-                width: '100%',
-                dropdownAutoWidth: true,
-                dropdownParent: $('.select2').parent()
+            $('.select2').each(function() {
+                $(this).select2({
+                    width: '100%',
+                    dropdownAutoWidth: true,
+                    dropdownParent: $(this).parent()
+                });
             });
             
             // Initialize developer table with DataTable but preserve our styling

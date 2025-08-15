@@ -3,7 +3,29 @@
 <?php include './components/header.php' ?>
 <?php include './components/sidebar.php' ?>
 <?php include './components/sweet-alert.php' ?>
-
+<style>
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+    .delete-image-btn {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        cursor: pointer;
+        background: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+    .delete-image-btn:hover {
+        transform: scale(1.1);
+    }
+</style>
 <?php
 // Initialize property data
 $property = [];
@@ -279,9 +301,12 @@ if (isset($_GET['id'])) {
                                         <p class="mb-1">Existing Interior Images:</p>
                                         <div class="d-flex flex-wrap">
                                             <?php foreach ($interior_images as $img): ?>
-                                                <div class="position-relative m-1">
+                                                <div class="position-relative m-1 image-container">
                                                     <img src="./assets/images/<?php echo $img['image']; ?>" style="width: 80px; height: 60px; object-fit: cover;">
                                                     <input type="hidden" name="existing_interior_images[]" value="<?php echo $img['image']; ?>">
+                                                    <span class="delete-image-btn" data-image-id="<?php echo $img['id']; ?>" data-image-type="interior">
+                                                        <i class="fas fa-times-circle text-danger"></i>
+                                                    </span>
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>
@@ -299,9 +324,12 @@ if (isset($_GET['id'])) {
                                         <p class="mb-1">Existing Exterior Images:</p>
                                         <div class="d-flex flex-wrap">
                                             <?php foreach ($exterior_images as $img): ?>
-                                                <div class="position-relative m-1">
+                                                <div class="position-relative m-1 image-container">
                                                     <img src="./assets/images/<?php echo $img['image']; ?>" style="width: 80px; height: 60px; object-fit: cover;">
                                                     <input type="hidden" name="existing_exterior_images[]" value="<?php echo $img['image']; ?>">
+                                                    <span class="delete-image-btn" data-image-id="<?php echo $img['id']; ?>" data-image-type="exterior">
+                                                        <i class="fas fa-times-circle text-danger"></i>
+                                                    </span>
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>
@@ -368,6 +396,45 @@ if (isset($_GET['id'])) {
             width: '100%'
         });
     });
+</script>
+<!-- detele code  -->
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle image deletion
+    document.querySelectorAll('.delete-image-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const imageId = this.getAttribute('data-image-id');
+            const imageType = this.getAttribute('data-image-type');
+            
+            if (confirm('Are you sure you want to delete this image?')) {
+                // Send AJAX request to delete the image
+                fetch('./property/delete-image.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `image_id=${imageId}&image_type=${imageType}&property_id=<?php echo $property_id; ?>`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Remove the image container from the DOM
+                        this.closest('.image-container').remove();
+                        // Show success message
+                        alert('Image deleted successfully');
+                    } else {
+                        alert('Error deleting image: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while deleting the image');
+                });
+            }
+        });
+    });
+});
 </script>
 
 <?php include './components/footer.php' ?>

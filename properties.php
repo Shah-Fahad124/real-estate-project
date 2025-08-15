@@ -103,8 +103,6 @@ if (!empty($conditions)) {
 
 $sql .= " ORDER BY p.created_at DESC LIMIT 12";
 
-// For debugging — remove in production
-// echo "<pre>$sql</pre>";
 
 $result = mysqli_query($conn, $sql);
 ?>

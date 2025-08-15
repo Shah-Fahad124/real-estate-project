@@ -3,19 +3,20 @@ include '../auth/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $property_id = (int)$_POST['id'];
-    
+
     // Determine if we're saving as draft or publishing/updating
     $isDraft = ($_POST['action'] === 'draft');
     $isPublish = ($_POST['action'] === 'update');
-    
+
     // For draft, status remains 0. For publish/update, check if we're changing status
     $current_status_result = mysqli_query($conn, "SELECT status FROM properties WHERE id = $property_id");
     $current_status = mysqli_fetch_assoc($current_status_result)['status'];
-    
+
     $status = $isDraft ? 0 : ($isPublish ? 1 : $current_status);
 
     // Helper: Safe fetch with fallback
-    function safePost($key, $default = null) {
+    function safePost($key, $default = null)
+    {
         return isset($_POST[$key]) ? trim($_POST[$key]) : $default;
     }
 
@@ -58,7 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     }
 
     // File upload helper
-    function uploadFile($file, $folder = '../assets/images/') {
+    function uploadFile($file, $folder = '../assets/images/')
+    {
         if (!empty($file['name']) && $file['error'] === 0) {
             $newName = time() . '_' . basename($file['name']);
             if (move_uploaded_file($file['tmp_name'], $folder . $newName)) {
@@ -120,27 +122,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         }
 
         // Handle multiple image uploads
-        function handleImageUpdates($conn, $property_id, $newImages, $existingImages, $type) {
+        function handleImageUpdates($conn, $property_id, $newImages, $existingImages, $type)
+        {
             // Delete images that were removed (not in existing_images array)
             $currentImages = [];
-            if (!empty($existingImages)) {
-                $currentImages = is_array($existingImages) ? $existingImages : [$existingImages];
+            if (!empty($_POST["existing_{$type}_images"])) {
+                $currentImages = is_array($_POST["existing_{$type}_images"]) ? $_POST["existing_{$type}_images"] : [$_POST["existing_{$type}_images"]];
             }
-            
+
             // Get all current images of this type from DB
             $dbImages = [];
             $result = mysqli_query($conn, "SELECT image FROM property_images WHERE property_id = $property_id AND type = '$type'");
             while ($row = mysqli_fetch_assoc($result)) {
                 $dbImages[] = $row['image'];
             }
-            
+
             // Find images to delete (in DB but not in current images)
             $toDelete = array_diff($dbImages, $currentImages);
             foreach ($toDelete as $image) {
                 mysqli_query($conn, "DELETE FROM property_images WHERE property_id = $property_id AND type = '$type' AND image = '$image'");
                 @unlink("../assets/images/$image"); // Delete the file
             }
-            
+
             // Add new images
             if (!empty($newImages['name'][0])) {
                 foreach ($newImages['name'] as $key => $name) {
@@ -158,18 +161,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         // Process interior and exterior images
         $existingInterior = $_POST['existing_interior_images'] ?? [];
         $existingExterior = $_POST['existing_exterior_images'] ?? [];
-        
+
         handleImageUpdates($conn, $property_id, $_FILES['interior_images'], $existingInterior, 'interior');
         handleImageUpdates($conn, $property_id, $_FILES['exterior_images'], $existingExterior, 'exterior');
 
-       if ($isDraft) {
-        header("Location: ../drafted-properties.php?success=Draft updated successfully");
-    } elseif ($isPublish) {
-        header("Location: ../publish-properties.php?success=Property published successfully");
-    } else {
-        header("Location: ../publish-properties.php?success=Property updated successfully");
-    }
-    exit;
+        if ($isDraft) {
+            header("Location: ../drafted-properties.php?success=Draft updated successfully");
+        } elseif ($isPublish) {
+            header("Location: ../publish-properties.php?success=Property published successfully");
+        } else {
+            header("Location: ../publish-properties.php?success=Property updated successfully");
+        }
+        exit;
     }
 }
-?>

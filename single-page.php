@@ -118,7 +118,7 @@ $currentURL = $protocol . $host . $uri;
           <?= htmlspecialchars($property['desc']) ?>
         </p>
         <p class="text-gray-700 mb-4">
-          Price: <strong>$<?= number_format($property['price']) ?></strong>
+          Price: <strong>AED<?= number_format($property['price']) ?></strong>
         </p>
         <p class="text-gray-700 mb-4">
           Posted on: <?= isset($property['created_at']) ? date('F d, Y', strtotime($property['created_at'])) : '-' ?>
